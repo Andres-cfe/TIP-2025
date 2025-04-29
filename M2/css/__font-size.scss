@@ -1,0 +1,980 @@
+$min_width: 480px;
+$max_width: 1000px;
+$min_font: 16px;
+$max_font: 20px;
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 ==$u2 and $u1 ==$u3 and $u1 ==$u4 {
+    & {
+      font-size: $min-font-size;
+
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+.f14 {
+  @include fluid-type($min_width, $max_width, 12px, 14px);
+}
+
+.f15 {
+  @include fluid-type($min_width, $max_width, 13px, 15px);
+}
+
+.f16 {
+  @include fluid-type($min_width, $max_width, 14px, 16px);
+}
+
+.f17 {
+  @include fluid-type($min_width, $max_width, 15px, 17px);
+}
+
+.f18 {
+  @include fluid-type($min_width, $max_width, 16px, 18px);
+}
+
+.f19 {
+  @include fluid-type($min_width, $max_width, 17px, 19px);
+}
+
+.f20 {
+  @include fluid-type($min_width, $max_width, 18px, 20px);
+}
+
+.f21 {
+  @include fluid-type($min_width, $max_width, 19px, 21px);
+}
+
+.f22 {
+  @include fluid-type($min_width, $max_width, 20px, 22px);
+}
+
+.f23 {
+  @include fluid-type($min_width, $max_width, 21px, 23px);
+}
+
+.f24 {
+  @include fluid-type($min_width, $max_width, 22px, 24px);
+}
+
+.f25 {
+  @include fluid-type($min_width, $max_width, 23px, 25px);
+}
+
+.f26 {
+  @include fluid-type($min_width, $max_width, 24px, 26px);
+}
+
+.f27 {
+  @include fluid-type($min_width, $max_width, 25px, 27px);
+}
+
+.f28 {
+  @include fluid-type($min_width, $max_width, 26px, 28px);
+}
+
+.f29 {
+  @include fluid-type($min_width, $max_width, 27px, 29px);
+}
+
+.f30 {
+  @include fluid-type($min_width, $max_width, 28px, 30px);
+}
+
+.f31 {
+  @include fluid-type($min_width, $max_width, 29px, 31px);
+}
+
+.f32 {
+  @include fluid-type($min_width, $max_width, 30px, 32px);
+}
+
+.f33 {
+  @include fluid-type($min_width, $max_width, 31px, 33px);
+}
+
+.f34 {
+  @include fluid-type($min_width, $max_width, 32px, 34px);
+}
+
+.f35 {
+  @include fluid-type($min_width, $max_width, 33px, 35px);
+}
+
+.f36 {
+  @include fluid-type($min_width, $max_width, 34px, 36px);
+}
+
+.f37 {
+  @include fluid-type($min_width, $max_width, 35px, 37px);
+}
+
+.f38 {
+  @include fluid-type($min_width, $max_width, 36px, 38px);
+}
+
+.f39 {
+  @include fluid-type($min_width, $max_width, 37px, 39px);
+}
+
+.f40 {
+  @include fluid-type($min_width, $max_width, 38px, 40px);
+}
+
+.f41 {
+  @include fluid-type($min_width, $max_width, 39px, 41px);
+}
+
+.f42 {
+  @include fluid-type($min_width, $max_width, 40px, 42px);
+}
+
+.f43 {
+  @include fluid-type($min_width, $max_width, 41px, 43px);
+}
+
+.f44 {
+  @include fluid-type($min_width, $max_width, 42px, 44px);
+}
+
+.f45 {
+  @include fluid-type($min_width, $max_width, 43px, 45px);
+}
+
+.f46 {
+  @include fluid-type($min_width, $max_width, 44px, 46px);
+}
+
+.f47 {
+  @include fluid-type($min_width, $max_width, 45px, 47px);
+}
+
+.f48 {
+  @include fluid-type($min_width, $max_width, 46px, 48px);
+}
+
+.f49 {
+  @include fluid-type($min_width, $max_width, 47px, 49px);
+}
+
+.f50 {
+  @include fluid-type($min_width, $max_width, 48px, 50px);
+}
+
+.f51 {
+  @include fluid-type($min_width, $max_width, 49px, 51px);
+}
+
+.f52 {
+  @include fluid-type($min_width, $max_width, 50px, 52px);
+}
+
+.f53 {
+  @include fluid-type($min_width, $max_width, 51px, 53px);
+}
+
+.f54 {
+  @include fluid-type($min_width, $max_width, 52px, 54px);
+}
+
+.f55 {
+  @include fluid-type($min_width, $max_width, 53px, 55px);
+}
+
+.f56 {
+  @include fluid-type($min_width, $max_width, 54px, 56px);
+}
+
+.f57 {
+  @include fluid-type($min_width, $max_width, 55px, 57px);
+}
+
+.f58 {
+  @include fluid-type($min_width, $max_width, 56px, 58px);
+}
+
+.f59 {
+  @include fluid-type($min_width, $max_width, 57px, 59px);
+}
+
+.f60 {
+  @include fluid-type($min_width, $max_width, 58px, 60px);
+}
+
+.f61 {
+  @include fluid-type($min_width, $max_width, 59px, 61px);
+}
+
+.f62 {
+  @include fluid-type($min_width, $max_width, 60px, 62px);
+}
+
+.f63 {
+  @include fluid-type($min_width, $max_width, 61px, 63px);
+}
+
+.f64 {
+  @include fluid-type($min_width, $max_width, 62px, 64px);
+}
+
+.f65 {
+  @include fluid-type($min_width, $max_width, 63px, 65px);
+}
+
+.f66 {
+  @include fluid-type($min_width, $max_width, 64px, 66px);
+}
+
+.f67 {
+  @include fluid-type($min_width, $max_width, 65px, 67px);
+}
+
+.f68 {
+  @include fluid-type($min_width, $max_width, 66px, 68px);
+}
+
+.f69 {
+  @include fluid-type($min_width, $max_width, 67px, 69px);
+}
+
+.f70 {
+  @include fluid-type($min_width, $max_width, 68px, 70px);
+}
+
+.f71 {
+  @include fluid-type($min_width, $max_width, 69px, 71px);
+}
+
+.f72 {
+  @include fluid-type($min_width, $max_width, 70px, 72px);
+}
+
+.f73 {
+  @include fluid-type($min_width, $max_width, 71px, 73px);
+}
+
+.f74 {
+  @include fluid-type($min_width, $max_width, 72px, 74px);
+}
+
+.f75 {
+  @include fluid-type($min_width, $max_width, 73px, 75px);
+}
+
+.f76 {
+  @include fluid-type($min_width, $max_width, 74px, 76px);
+}
+
+.f77 {
+  @include fluid-type($min_width, $max_width, 75px, 77px);
+}
+
+.f78 {
+  @include fluid-type($min_width, $max_width, 76px, 78px);
+}
+
+.f79 {
+  @include fluid-type($min_width, $max_width, 77px, 79px);
+}
+
+.f80 {
+  @include fluid-type($min_width, $max_width, 78px, 80px);
+}
+
+.f81 {
+  @include fluid-type($min_width, $max_width, 79px, 81px);
+}
+
+.f82 {
+  @include fluid-type($min_width, $max_width, 80px, 82px);
+}
+
+.f83 {
+  @include fluid-type($min_width, $max_width, 81px, 83px);
+}
+
+.f84 {
+  @include fluid-type($min_width, $max_width, 82px, 84px);
+}
+
+.f85 {
+  @include fluid-type($min_width, $max_width, 83px, 85px);
+}
+
+.f86 {
+  @include fluid-type($min_width, $max_width, 84px, 86px);
+}
+
+.f87 {
+  @include fluid-type($min_width, $max_width, 85px, 87px);
+}
+
+.f88 {
+  @include fluid-type($min_width, $max_width, 86px, 88px);
+}
+
+.f89 {
+  @include fluid-type($min_width, $max_width, 87px, 89px);
+}
+
+.f90 {
+  @include fluid-type($min_width, $max_width, 88px, 90px);
+}
+
+.f91 {
+  @include fluid-type($min_width, $max_width, 89px, 91px);
+}
+
+.f92 {
+  @include fluid-type($min_width, $max_width, 90px, 92px);
+}
+
+.f93 {
+  @include fluid-type($min_width, $max_width, 91px, 93px);
+}
+
+.f94 {
+  @include fluid-type($min_width, $max_width, 92px, 94px);
+}
+
+.f95 {
+  @include fluid-type($min_width, $max_width, 93px, 95px);
+}
+
+.f96 {
+  @include fluid-type($min_width, $max_width, 94px, 96px);
+}
+
+.f97 {
+  @include fluid-type($min_width, $max_width, 95px, 97px);
+}
+
+.f98 {
+  @include fluid-type($min_width, $max_width, 96px, 98px);
+}
+
+.f99 {
+  @include fluid-type($min_width, $max_width, 97px, 99px);
+}
+
+.f100 {
+  @include fluid-type($min_width, $max_width, 98px, 100px);
+}
+
+.f101 {
+  @include fluid-type($min_width, $max_width, 99px, 101px);
+}
+
+.f102 {
+  @include fluid-type($min_width, $max_width, 100px, 102px);
+}
+
+.f103 {
+  @include fluid-type($min_width, $max_width, 101px, 103px);
+}
+
+.f104 {
+  @include fluid-type($min_width, $max_width, 102px, 104px);
+}
+
+.f105 {
+  @include fluid-type($min_width, $max_width, 103px, 105px);
+}
+
+.f106 {
+  @include fluid-type($min_width, $max_width, 104px, 106px);
+}
+
+.f107 {
+  @include fluid-type($min_width, $max_width, 105px, 107px);
+}
+
+.f108 {
+  @include fluid-type($min_width, $max_width, 106px, 108px);
+}
+
+.f109 {
+  @include fluid-type($min_width, $max_width, 107px, 109px);
+}
+
+.f110 {
+  @include fluid-type($min_width, $max_width, 108px, 110px);
+}
+
+.f111 {
+  @include fluid-type($min_width, $max_width, 109px, 111px);
+}
+
+.f112 {
+  @include fluid-type($min_width, $max_width, 110px, 112px);
+}
+
+.f113 {
+  @include fluid-type($min_width, $max_width, 111px, 113px);
+}
+
+.f114 {
+  @include fluid-type($min_width, $max_width, 112px, 114px);
+}
+
+.f115 {
+  @include fluid-type($min_width, $max_width, 113px, 115px);
+}
+
+.f116 {
+  @include fluid-type($min_width, $max_width, 114px, 116px);
+}
+
+.f117 {
+  @include fluid-type($min_width, $max_width, 115px, 117px);
+}
+
+.f118 {
+  @include fluid-type($min_width, $max_width, 116px, 118px);
+}
+
+.f119 {
+  @include fluid-type($min_width, $max_width, 117px, 119px);
+}
+
+.f120 {
+  @include fluid-type($min_width, $max_width, 118px, 120px);
+}
+
+.f121 {
+  @include fluid-type($min_width, $max_width, 119px, 121px);
+}
+
+.f122 {
+  @include fluid-type($min_width, $max_width, 120px, 122px);
+}
+
+.f123 {
+  @include fluid-type($min_width, $max_width, 121px, 123px);
+}
+
+.f124 {
+  @include fluid-type($min_width, $max_width, 122px, 124px);
+}
+
+.f125 {
+  @include fluid-type($min_width, $max_width, 123px, 125px);
+}
+
+.f126 {
+  @include fluid-type($min_width, $max_width, 124px, 126px);
+}
+
+.f127 {
+  @include fluid-type($min_width, $max_width, 125px, 127px);
+}
+
+.f128 {
+  @include fluid-type($min_width, $max_width, 126px, 128px);
+}
+
+.f129 {
+  @include fluid-type($min_width, $max_width, 127px, 129px);
+}
+
+.f130 {
+  @include fluid-type($min_width, $max_width, 128px, 130px);
+}
+
+.f131 {
+  @include fluid-type($min_width, $max_width, 129px, 131px);
+}
+
+.f132 {
+  @include fluid-type($min_width, $max_width, 130px, 132px);
+}
+
+.f133 {
+  @include fluid-type($min_width, $max_width, 131px, 133px);
+}
+
+.f134 {
+  @include fluid-type($min_width, $max_width, 132px, 134px);
+}
+
+.f135 {
+  @include fluid-type($min_width, $max_width, 133px, 135px);
+}
+
+.f136 {
+  @include fluid-type($min_width, $max_width, 134px, 136px);
+}
+
+.f137 {
+  @include fluid-type($min_width, $max_width, 135px, 137px);
+}
+
+.f138 {
+  @include fluid-type($min_width, $max_width, 136px, 138px);
+}
+
+.f139 {
+  @include fluid-type($min_width, $max_width, 137px, 139px);
+}
+
+.f140 {
+  @include fluid-type($min_width, $max_width, 138px, 140px);
+}
+
+.f141 {
+  @include fluid-type($min_width, $max_width, 139px, 141px);
+}
+
+.f142 {
+  @include fluid-type($min_width, $max_width, 140px, 142px);
+}
+
+.f143 {
+  @include fluid-type($min_width, $max_width, 141px, 143px);
+}
+
+.f144 {
+  @include fluid-type($min_width, $max_width, 142px, 144px);
+}
+
+.f145 {
+  @include fluid-type($min_width, $max_width, 143px, 145px);
+}
+
+.f146 {
+  @include fluid-type($min_width, $max_width, 144px, 146px);
+}
+
+.f147 {
+  @include fluid-type($min_width, $max_width, 145px, 147px);
+}
+
+.f148 {
+  @include fluid-type($min_width, $max_width, 146px, 148px);
+}
+
+.f149 {
+  @include fluid-type($min_width, $max_width, 147px, 149px);
+}
+
+.f150 {
+  @include fluid-type($min_width, $max_width, 148px, 150px);
+}
+
+.f151 {
+  @include fluid-type($min_width, $max_width, 149px, 151px);
+}
+
+.f152 {
+  @include fluid-type($min_width, $max_width, 150px, 152px);
+}
+
+.f153 {
+  @include fluid-type($min_width, $max_width, 151px, 153px);
+}
+
+.f154 {
+  @include fluid-type($min_width, $max_width, 152px, 154px);
+}
+
+.f155 {
+  @include fluid-type($min_width, $max_width, 153px, 155px);
+}
+
+.f156 {
+  @include fluid-type($min_width, $max_width, 154px, 156px);
+}
+
+.f157 {
+  @include fluid-type($min_width, $max_width, 155px, 157px);
+}
+
+.f158 {
+  @include fluid-type($min_width, $max_width, 156px, 158px);
+}
+
+.f159 {
+  @include fluid-type($min_width, $max_width, 157px, 159px);
+}
+
+.f160 {
+  @include fluid-type($min_width, $max_width, 158px, 160px);
+}
+
+.f161 {
+  @include fluid-type($min_width, $max_width, 159px, 161px);
+}
+
+.f162 {
+  @include fluid-type($min_width, $max_width, 160px, 162px);
+}
+
+.f163 {
+  @include fluid-type($min_width, $max_width, 161px, 163px);
+}
+
+.f164 {
+  @include fluid-type($min_width, $max_width, 162px, 164px);
+}
+
+.f165 {
+  @include fluid-type($min_width, $max_width, 163px, 165px);
+}
+
+.f166 {
+  @include fluid-type($min_width, $max_width, 164px, 166px);
+}
+
+.f167 {
+  @include fluid-type($min_width, $max_width, 165px, 167px);
+}
+
+.f168 {
+  @include fluid-type($min_width, $max_width, 166px, 168px);
+}
+
+.f169 {
+  @include fluid-type($min_width, $max_width, 167px, 169px);
+}
+
+.f170 {
+  @include fluid-type($min_width, $max_width, 168px, 170px);
+}
+
+.f171 {
+  @include fluid-type($min_width, $max_width, 169px, 171px);
+}
+
+.f172 {
+  @include fluid-type($min_width, $max_width, 170px, 172px);
+}
+
+.f173 {
+  @include fluid-type($min_width, $max_width, 171px, 173px);
+}
+
+.f174 {
+  @include fluid-type($min_width, $max_width, 172px, 174px);
+}
+
+.f175 {
+  @include fluid-type($min_width, $max_width, 173px, 175px);
+}
+
+.f176 {
+  @include fluid-type($min_width, $max_width, 174px, 176px);
+}
+
+.f177 {
+  @include fluid-type($min_width, $max_width, 175px, 177px);
+}
+
+.f178 {
+  @include fluid-type($min_width, $max_width, 176px, 178px);
+}
+
+.f179 {
+  @include fluid-type($min_width, $max_width, 177px, 179px);
+}
+
+.f180 {
+  @include fluid-type($min_width, $max_width, 178px, 180px);
+}
+
+.f181 {
+  @include fluid-type($min_width, $max_width, 179px, 181px);
+}
+
+.f182 {
+  @include fluid-type($min_width, $max_width, 180px, 182px);
+}
+
+.f183 {
+  @include fluid-type($min_width, $max_width, 181px, 183px);
+}
+
+.f184 {
+  @include fluid-type($min_width, $max_width, 182px, 184px);
+}
+
+.f185 {
+  @include fluid-type($min_width, $max_width, 183px, 185px);
+}
+
+.f186 {
+  @include fluid-type($min_width, $max_width, 184px, 186px);
+}
+
+.f187 {
+  @include fluid-type($min_width, $max_width, 185px, 187px);
+}
+
+.f188 {
+  @include fluid-type($min_width, $max_width, 186px, 188px);
+}
+
+.f189 {
+  @include fluid-type($min_width, $max_width, 187px, 189px);
+}
+
+.f190 {
+  @include fluid-type($min_width, $max_width, 188px, 190px);
+}
+
+.f191 {
+  @include fluid-type($min_width, $max_width, 189px, 191px);
+}
+
+.f192 {
+  @include fluid-type($min_width, $max_width, 190px, 192px);
+}
+
+.f193 {
+  @include fluid-type($min_width, $max_width, 191px, 193px);
+}
+
+.f194 {
+  @include fluid-type($min_width, $max_width, 192px, 194px);
+}
+
+.f195 {
+  @include fluid-type($min_width, $max_width, 193px, 195px);
+}
+
+.f196 {
+  @include fluid-type($min_width, $max_width, 194px, 196px);
+}
+
+.f197 {
+  @include fluid-type($min_width, $max_width, 195px, 197px);
+}
+
+.f198 {
+  @include fluid-type($min_width, $max_width, 196px, 198px);
+}
+
+.f199 {
+  @include fluid-type($min_width, $max_width, 197px, 199px);
+}
+
+.f200 {
+  @include fluid-type($min_width, $max_width, 198px, 200px);
+}
+
+.f201 {
+  @include fluid-type($min_width, $max_width, 199px, 201px);
+}
+
+.f202 {
+  @include fluid-type($min_width, $max_width, 200px, 202px);
+}
+
+.f203 {
+  @include fluid-type($min_width, $max_width, 201px, 203px);
+}
+
+.f204 {
+  @include fluid-type($min_width, $max_width, 202px, 204px);
+}
+
+.f205 {
+  @include fluid-type($min_width, $max_width, 203px, 205px);
+}
+
+.f206 {
+  @include fluid-type($min_width, $max_width, 204px, 206px);
+}
+
+.f207 {
+  @include fluid-type($min_width, $max_width, 205px, 207px);
+}
+
+.f208 {
+  @include fluid-type($min_width, $max_width, 206px, 208px);
+}
+
+.f209 {
+  @include fluid-type($min_width, $max_width, 207px, 209px);
+}
+
+.f210 {
+  @include fluid-type($min_width, $max_width, 208px, 210px);
+}
+
+.f211 {
+  @include fluid-type($min_width, $max_width, 209px, 211px);
+}
+
+.f212 {
+  @include fluid-type($min_width, $max_width, 210px, 212px);
+}
+
+.f213 {
+  @include fluid-type($min_width, $max_width, 211px, 213px);
+}
+
+.f214 {
+  @include fluid-type($min_width, $max_width, 212px, 214px);
+}
+
+.f215 {
+  @include fluid-type($min_width, $max_width, 213px, 215px);
+}
+
+.f216 {
+  @include fluid-type($min_width, $max_width, 214px, 216px);
+}
+
+.f217 {
+  @include fluid-type($min_width, $max_width, 215px, 217px);
+}
+
+.f218 {
+  @include fluid-type($min_width, $max_width, 216px, 218px);
+}
+
+.f219 {
+  @include fluid-type($min_width, $max_width, 217px, 219px);
+}
+
+.f220 {
+  @include fluid-type($min_width, $max_width, 218px, 220px);
+}
+
+.f221 {
+  @include fluid-type($min_width, $max_width, 219px, 221px);
+}
+
+.f222 {
+  @include fluid-type($min_width, $max_width, 220px, 222px);
+}
+
+.f223 {
+  @include fluid-type($min_width, $max_width, 221px, 223px);
+}
+
+.f224 {
+  @include fluid-type($min_width, $max_width, 222px, 224px);
+}
+
+.f225 {
+  @include fluid-type($min_width, $max_width, 223px, 225px);
+}
+
+.f226 {
+  @include fluid-type($min_width, $max_width, 224px, 226px);
+}
+
+.f227 {
+  @include fluid-type($min_width, $max_width, 225px, 227px);
+}
+
+.f228 {
+  @include fluid-type($min_width, $max_width, 226px, 228px);
+}
+
+.f229 {
+  @include fluid-type($min_width, $max_width, 227px, 229px);
+}
+
+.f230 {
+  @include fluid-type($min_width, $max_width, 228px, 230px);
+}
+
+.f231 {
+  @include fluid-type($min_width, $max_width, 229px, 231px);
+}
+
+.f232 {
+  @include fluid-type($min_width, $max_width, 230px, 232px);
+}
+
+.f233 {
+  @include fluid-type($min_width, $max_width, 231px, 233px);
+}
+
+.f234 {
+  @include fluid-type($min_width, $max_width, 232px, 234px);
+}
+
+.f235 {
+  @include fluid-type($min_width, $max_width, 233px, 235px);
+}
+
+.f236 {
+  @include fluid-type($min_width, $max_width, 234px, 236px);
+}
+
+.f237 {
+  @include fluid-type($min_width, $max_width, 235px, 237px);
+}
+
+.f238 {
+  @include fluid-type($min_width, $max_width, 236px, 238px);
+}
+
+.f239 {
+  @include fluid-type($min_width, $max_width, 237px, 239px);
+}
+
+.f240 {
+  @include fluid-type($min_width, $max_width, 238px, 240px);
+}
+
+.f241 {
+  @include fluid-type($min_width, $max_width, 239px, 241px);
+}
+
+.f242 {
+  @include fluid-type($min_width, $max_width, 240px, 242px);
+}
+
+.f243 {
+  @include fluid-type($min_width, $max_width, 241px, 243px);
+}
+
+.f244 {
+  @include fluid-type($min_width, $max_width, 242px, 244px);
+}
+
+.f245 {
+  @include fluid-type($min_width, $max_width, 243px, 245px);
+}
+
+.f246 {
+  @include fluid-type($min_width, $max_width, 244px, 246px);
+}
+
+.f247 {
+  @include fluid-type($min_width, $max_width, 245px, 247px);
+}
+
+.f248 {
+  @include fluid-type($min_width, $max_width, 246px, 248px);
+}
+
+.f249 {
+  @include fluid-type($min_width, $max_width, 247px, 249px);
+}
+
+.f250 {
+  @include fluid-type($min_width, $max_width, 248px, 250px);
+}
+
+.fm22{
+  @include fluid-type($min_width, $max_width, 18px, 22px);
+}

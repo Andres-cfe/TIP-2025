@@ -1,0 +1,67 @@
+{
+  "title": "Manejo a la defensiva",
+  "modules": [
+    {
+      "title": "Contenido",
+      "topics": [
+        {
+          "title": "Portada",
+          "content": "contenido/01.html"
+        },
+        {
+          "title": "La nueva era del transporte",
+          "content": "contenido/02.html"
+        },
+        {
+          "title": "Beneficios",
+          "content": "contenido/03.html"
+        },
+        {
+          "title": "Técnicas de conducción defensiva",
+          "content": "contenido/04.html"
+        },
+        {
+          "title": "a) Comparativa de Emisiones Totales",
+          "content": "contenido/05.html"
+        },
+        {
+          "title": "Sé parte de la movilidad sostenible",
+          "content": "contenido/06.html"
+        },
+        {
+          "title": "a) Oportunidades en México",
+          "content": "contenido/07.html"
+        },
+        {
+          "title": "b) Incentivos del uso de Vehículos eléctricos",
+          "content": "contenido/08.html"
+        },
+        {
+          "title": "c) Infraestructura",
+          "content": "contenido/09.html"
+        },
+        {
+          "title": "d) Mantenimiento vehículos eléctricos",
+          "content": "contenido/10.html"
+        },
+        {
+          "title": "e) Retos de la movilidad sostenible",
+          "content": "contenido/11.html"
+        },
+        {
+          "title": "¿Cómo TIP México puede ayudarte en esta transición?",
+          "content": "contenido/12.html"
+        },
+        {
+          "title": "Conecta con la movilidad sostenible",
+          "content": "contenido/13.html"
+        },
+        {
+          "title": "Cierre",
+          "content": "contenido/14.html"
+        }
+
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+// Import Bootstrap functions, variables, and mixins
+@import "../bootstrap-5.2.3/scss/functions";
+@import "../bootstrap-5.2.3/scss/variables";
+@import "../bootstrap-5.2.3/scss/mixins";
+// Definir colores personalizados
+$custom-colors: (
+  "rojo-1" : #EC1F24,
+  "rojo-2" : #B1171B,
+  "rojo-3": #F04C50,
+  "blanco": #FFFFFF,
+  "gris-1": #DBE0E8,
+  "gris-2": #A4A8AE,
+  "gris-3": #393C3D,
+  "negro": #000000
+);
+
+// Colores base
+$primary: #EC1F24; // Rosa claro
+$secondary: #393C3D; // Morado
+
+// Variaciones del primario (rosa claro)
+$primary-light: lighten($primary, 15%); // Rosa más claro
+$primary-lighter: lighten($primary, 30%); // Rosa pastel
+$primary-dark: darken($primary, 10%); // Rosa más oscuro
+$primary-darker: darken($primary, 20%); // Rosa intenso
+
+// Variaciones del secundario (morado)
+$secondary-light: lighten($secondary, 15%); // Morado más claro
+$secondary-lighter: lighten($secondary, 30%); // Morado pastel
+$secondary-dark: darken($secondary, 10%); // Morado más oscuro
+$secondary-darker: darken($secondary, 20%); // Morado casi negro
+
+// Colores adicionales basados en la armonía de la paleta
+$success: #00a896; // Verde azulado (complementario al rosa)
+$danger: #ff3f4a; // Rojo coral (contraste vibrante)
+$warning: #ffcc00; // Amarillo dorado (armonía con el rosa)
+$info: #0099cc; // Azul claro (derivado del morado)
+$light: #f5f5f5; // Gris claro neutro
+$dark: #1a1a1a; // Casi negro para contrastes
+$muted: #6c757d; // Gris neutro para textos secundarios
+$white: #ffffff; // Blanco puro
+
+// Combinar colores en $theme-colors
+$theme-colors: map-merge(("primary": $primary,
+      "primary-light": $primary-light,
+      "primary-lighter": $primary-lighter,
+      "primary-dark": $primary-dark,
+      "primary-darker": $primary-darker,
+      "secondary": $secondary,
+      "secondary-light": $secondary-light,
+      "secondary-lighter": $secondary-lighter,
+      "secondary-dark": $secondary-dark,
+      "secondary-darker": $secondary-darker,
+      "success": $success,
+      "danger": $danger,
+      "warning": $warning,
+      "info": $info,
+      "light": $light,
+      "dark": $dark,
+      "muted": $muted,
+      "white": $white,
+    ),
+    $custom-colors);
+
+// Sobrescribir otros colores si es necesario
+$body-bg: #fff;
+$body-color: #000;
+
+// Import Bootstrap components
+@import "../bootstrap-5.2.3/scss/bootstrap";

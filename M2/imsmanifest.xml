@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a Reload version 2.5.6 SCORM 1.2 Content Package document-->
+<!--Spawned from the Reload Content Package Generator - http://www.reload.ac.uk-->
+<manifest xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" identifier="MANIFEST-0F067BEFB100E40ED7BAA97302DA82BE" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <organizations default="ORG-1EDF6F092DED4DD64BD8AC6F6508C5C1">
+    <organization identifier="ORG-1EDF6F092DED4DD64BD8AC6F6508C5C1" structure="hierarchical">
+      <title>TIP - Manejo a la defensiva</title>
+      <item identifier="ITEM-61061EB73379DCAEB5B7392CF860C1E3" isvisible="true" identifierref="RES-BF38A3FCDFBEADE235817159629C457B">
+        <title>TIP - Manejo a la defensiva</title>
+      </item>
+      <metadata>
+        <schema>ADL SCORM</schema>
+        <schemaversion>1.2</schemaversion>
+      </metadata>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-BF38A3FCDFBEADE235817159629C457B" type="webcontent" href="index.html" adlcp:scormtype="sco">
+      <file href="index.html" />
+    </resource>
+  </resources>
+</manifest>
+

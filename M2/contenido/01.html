@@ -1,0 +1,217 @@
+<style>
+  .fake {
+    background-image: url("img/bg00.webp");
+    background-size: cover;
+    background-position: bottom center;
+  }
+
+  @media (min-width: 768px) {
+    #fake {
+      background-position: top center;
+    }
+  }
+</style>
+
+
+<div class="page-sco w-100 h-100 d-flex flex-row align-items-center">
+  <div class="container-fluid h-100">
+    <div class="row align-items-center justify-content-center h-100">
+      <div class="col-12">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-12 col-md-6 order-2 order-md-1 text-center">
+            <div class="row justify-content-center">
+              <div class="col-12 mb-0">
+                <div class="card bg-transparent border-0 rounded-15 py-2 px-3">
+                  <div class="d-flex justify-content-center align-items-center w-100">
+                    <div class="wtexts mx-1 mx-lg-3">
+                      <h3 class="">Módulo 2:</h3>
+                      <h1 class="big-font fw-bold text-rojo-1">Hacia una movilidad sostenible</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-12 my-4 ins0" style="display: block;">
+                <div class="row justify-content-center align-items-center w-auto">
+                  <div class="text-rojo-1 border border-2 border-dark rounded w-auto">
+                    <div class="d-flex flex-row py-2">
+                      <i class="fa-light fa-arrow-pointer mx-2"></i>
+                      <span>Da clic en Comenzar</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 text-center">
+                <div
+                  class="btn btn-primary animate__animated animate__pulse animate__infinite waves-effect disabled bree"
+                  id="go">
+                  Comenzar
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 text-center order-1 order-md-2 px-0 px-md-0">
+            <img src="img/01.0.png" class="img-fluid floating">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    $('body').addClass('fake');
+    $('.fake').waitForImages().done(function () {
+      if (!course360.isVisited() || course360.isDebug) {
+        tour();
+      } else {
+        showIntro();
+      }
+    });
+    function showIntro() {
+      $("#go").removeClass('disabled');
+      $(".arrow-left, .arrow-right").addClass("animate__animated animate__shakeY");
+    }
+    $("#go").click(function () {
+      if (!$(this).hasClass('disbaled')) {
+        course360.setSlideVisited();
+        course360.soundClick();
+        course360.gotoSlide(1);
+      }
+    });
+
+
+    /**
+     * Inicia un tour interactivo que guía al usuario a través de las funcionalidades del curso.
+     * Utiliza la biblioteca driver.js para crear el tour y define acciones específicas para
+     * varios pasos, como abrir o cerrar el menú lateral, controlar el audio, y más.
+     */
+    function tour() {
+      // Crear una instancia del tour utilizando driver.js
+      const driver = window.driver.js.driver;
+
+      // Definir los pasos del tour
+      const driverObj = driver({
+        showProgress: false, // No mostrar el progreso del tour
+        allowClose: true, // Permitir cerrar el tour
+        disableActiveInteraction: true, // Deshabilitar la interacción activa durante el tour
+        onNextClick: () => {
+          course360.soundClick(); // Reproducir sonido al hacer clic en "Siguiente"
+          driverObj.moveNext();
+        },
+        onPrevClick: () => {
+          course360.soundClick(); // Reproducir sonido al hacer clic en "Siguiente"
+          driverObj.movePrevious();
+        },
+        steps: [
+          {
+            popover: {
+              title: "Bienvenido",
+              description: "Este tour te mostrará las funcionalidades de nuestro curso.",
+            },
+          },
+          {
+            element: "#audio-icon",
+            popover: {
+              title: "Control de Audio",
+              description: "Con este botón puedes silenciar el audio.",
+            },
+          },
+          {
+            element: "#menu-toggle",
+            popover: {
+              title: "Menú de Navegación",
+              description: "Usa este botón para abrir y cerrar el menú de navegación lateral.",
+            },
+            onHighlightStarted: () => {
+              // Acción específica cuando se resalta este paso
+              course360.closeSidebar();
+            }
+          },
+          {
+            element: "#menu",
+            popover: {
+              title: "Contenido",
+              description: "Aquí encontrarás el contenido del curso.",
+            },
+            onHighlightStarted: () => {
+              // Acción específica cuando se resalta este paso
+              if (!$(".toggle-icon").first().find('i').hasClass('fa-square-chevron-down')) {
+                $(".toggle-icon").first().click();
+              }
+              course360.openSidebar();
+            },
+          },
+          {
+            element: "#wprogress",
+            popover: {
+              title: "Barra de Progreso",
+              description: "Esta barra muestra tu progreso en el curso.",
+            },
+            onHighlightStarted: () => {
+              // Acción específica cuando se resalta este paso
+              if (!$(".toggle-icon").first().find('i').hasClass('fa-square-chevron-down')) {
+                $(".toggle-icon").first().click();
+              }
+              course360.openSidebar();
+            },
+          },
+          {
+            element: "#prev-btn",
+            popover: {
+              title: "Botón Anterior",
+              description: "Usa este botón para regresar al tema anterior.",
+            },
+            onHighlightStarted: () => {
+              // Acción específica cuando se resalta este paso
+              course360.closeSidebar();
+            }
+          },
+          {
+            element: "#next-btn",
+            popover: {
+              title: "Botón Siguiente",
+              description: "Usa este botón para avanzar al tema siguiente.",
+            },
+          },
+          {
+            element: "#go",
+            popover: {
+              title: "Acciones",
+              description: "Realiza diferentes acciones dando clic en los botones con animación de pulso.",
+            },
+          },
+          {
+            popover: {
+              title: "¡Buena suerte!",
+              description: "Esperamos que tengas la mejor experiencia en este curso.",
+            },
+          },
+        ],
+        onDestroyStarted: () => {
+          // Manejar la destrucción del tour
+          if (driverObj.hasNextStep()) {
+            // Verificar si hay más pasos en el tour
+            if (confirm('¿Salir de tutorial?')) {
+              driverObj.destroy();
+              showIntro();
+            }
+          } else {
+            // No hay más pasos, destruir el tour sin preguntar
+            driverObj.destroy();
+            showIntro();
+          }
+        },
+        doneBtnText: "Finalizar", // Texto del botón para finalizar el tour
+        closeBtnText: "Cerrar", // Texto del botón para cerrar el tour
+        nextBtnText: "Siguiente", // Texto del botón para ir al siguiente paso
+        prevBtnText: "Anterior", // Texto del botón para ir al paso anterior
+        progressText: '{{current}} de {{total}}', // Texto para mostrar el progreso del tour
+      });
+
+      // Iniciar el tour
+      driverObj.drive();
+    }
+  });
+</script>

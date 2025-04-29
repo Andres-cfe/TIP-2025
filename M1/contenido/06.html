@@ -1,0 +1,56 @@
+<style>
+    .fake {
+        background-image: url("img/bg06.webp");
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .page-sco .rounded {
+        border-radius: 15px !important;
+    }
+
+    @media (min-width: 768px) {}
+</style>
+<div class="w-100 page-sco h-100 pt-4 pt-md-0">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-12 col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 text-center my-md-5 my-2 animate__animated animate__bounceIDown">
+                        <h4 class="text-rojo-1 fw-bold">¿Qué hacer si el auto falla en carretera?</h4>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card rounded shadow bg-gris-3 text-white animate__animated animate__bounceInUp">
+                            <div class="card-body mx-md-4 my-md-4 my-2 mx-2">
+                                <div class="row justify-content-center">
+                                    <div class="col-3 col-md-2 text-center my-md-4 my-2">
+                                        <img src="img/06.1.webp" class="img-fluid" loading="lazy" alt="Icono motor" />
+                                    </div>
+                                </div>
+                                <ul class="text-start">
+                                    <li>Enciende las luces de emergencia. </li>
+                                    <li>Coloca triángulos a 30-50 m detrás del vehículo. </li>
+                                    <li>Cambia la llanta solo si es seguro y sabes hacerlo.</li>
+                                    <li>Llama a tu seguro o asistencia vial si no puedes resolverlo. </li>
+                                    <li><b>No conduzcas si hay falla en frenos, dirección o llantas.</b></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        "use strict";
+        $('body').addClass('fake');
+        const audio_h22 = course360.createSound('audio/audio_h22.mp3');
+        course360.audioController.stopAllSoundsAndPlay(audio_h22);
+        audio_h22.on("end", function () {
+            course360.setSlideVisited();
+        });
+    });
+
+</script>

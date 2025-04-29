@@ -1,0 +1,101 @@
+<style>
+    .fake {
+        background-image: url(img/bg08.webp);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .play-button-container {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        z-index: 10002;
+        background-color: rgb(0 0 0);
+        border-radius: 15px;
+    }
+
+    #video {
+        z-index: 99;
+        border-radius: 15px;
+    }
+
+    .play-button-container button {
+        pointer-events: all;
+        /* Permitir clics solo en el botón */
+        border: none;
+        background: none;
+    }
+</style>
+<div class="w-100 page-sco h-100">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-8 text-center">
+                <h4 class="text-center text-rojo-1 fw-bold">¿Qué hacer en caso de accidente vial?</h4>
+                <p>Descubre qué hacer ante un accidente. Actuar con <b>calma y preparación</b> puede marcar la
+                    diferencia.</p>
+                <div class="w-100 animate__animated animate__flipInX">
+                    <div class="ratio ratio-16x9">
+                        <video id="video" class="embed-responsive-item" controls poster="video/poster.png">
+                            <source src="video/vm1_manejo_a_la_defensiva.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="play-button-container">
+                            <button
+                                class="p-0 animate__animated animate__heartBeat animate__infinite waves-effect disabled"
+                                id="btn_video">
+                                <i class="fa-solid fa-play fa-3x text-primary"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        "use strict";
+        $("body").addClass("fake");
+        const audio = course360.createSound('audio/audio_h29.mp3');
+        course360.audioController.stopAllSoundsAndPlay(audio);
+        let video = document.getElementById("video");
+        let btnVideo = document.getElementById("btn_video");
+        audio.on("end", function () {
+            btnVideo.classList.remove("disabled");
+        });
+        // Evitar la reproducción del video al hacer clic en el botón de reproducción
+        btnVideo.addEventListener("click", function (event) {
+            if (!btnVideo.classList.contains("disabled")) {
+                course360.soundClick();
+                document.getElementById("video").play();
+                $(".play-button-container").hide(); // Ocultar el contenedor de botón de reproducción
+            } else {
+                event.stopPropagation(); // Evita que el evento de clic llegue al video
+            }
+        });
+
+        // Evitar que el video se reproduzca al hacer clic en el área de la capa
+        video.addEventListener("click", function (event) {
+            if (!btnVideo.classList.contains("disabled")) {
+                event.preventDefault(); // Evita la acción predeterminada de reproducción del video
+            }
+        });
+
+        // Evitar la reproducción del video al hacer doble clic en cualquier parte del video
+        video.addEventListener("dblclick", function (event) {
+            if (!btnVideo.classList.contains("disabled")) {
+                event.preventDefault(); // Evita la acción predeterminada de reproducción del video
+            }
+        });
+
+        video.addEventListener("ended", function () {
+            course360.setSlideVisited();
+        });
+    });
+</script>

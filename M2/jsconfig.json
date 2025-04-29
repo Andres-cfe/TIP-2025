@@ -1,0 +1,8 @@
+{
+    "include": ["js/**/*"],       // Incluye todos los archivos en la carpeta js
+    "typeAcquisition": {
+        "include": [
+            "jquery"
+        ]
+    }
+}

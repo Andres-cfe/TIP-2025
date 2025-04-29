@@ -1,0 +1,39 @@
+// Import Bootstrap functions, variables, and mixins
+@import "../bootstrap-5.2.3/scss/functions";
+@import "../bootstrap-5.2.3/scss/variables";
+@import "../bootstrap-5.2.3/scss/mixins";
+
+// Definir colores personalizados
+$custom-colors: (
+"rojo-1" : #EC1F24,
+"rojo-2" : #B1171B,
+"rojo-3": #F04C50,
+"blanco": #FFFFFF,
+"gris-1": #DBE0E8,
+"gris-2": #A4A8AE,
+"gris-3": #393C3D,
+"negro": #000000
+);
+
+// Combinar colores personalizados con los colores predeterminados de Bootstrap
+$theme-colors: map-merge(
+  (
+    "primary": #EC1F24,
+    "secondary": #A4A8AE,
+    "success": #7AB800,
+    "info": #DBE0E8,
+    "warning": #F04C50,
+    "danger": #B1171B,
+    "light": #FFFFFF,
+    "dark": #000000,
+    "gray": #393C3D
+  ),
+  $custom-colors
+);
+
+// Sobrescribir otros colores si es necesario
+$body-bg: #FFF;
+$body-color: #010003;
+
+// Import Bootstrap components
+@import "../bootstrap-5.2.3/scss/bootstrap";

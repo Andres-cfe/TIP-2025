@@ -1,0 +1,55 @@
+{
+  "title": "Manejo a la defensiva",
+  "modules": [
+    {
+      "title": "Contenido",
+      "topics": [
+        {
+          "title": "Portada",
+          "content": "contenido/01.html"
+        },
+        {
+          "title": "Introducción",
+          "content": "contenido/02.html"
+        },
+        {
+          "title": "Técnicas de conducción defensiva",
+          "content": "contenido/02a.html"
+        },
+        {
+          "title": "Técnicas de conducción defensiva",
+          "content": "contenido/03.html"
+        },
+        {
+          "title": "Técnicas de conducción defensiva",
+          "content": "contenido/04.html"
+        },
+        {
+          "title": "Revisión preventiva del vehículo",
+          "content": "contenido/05.html"
+        },
+        {
+          "title": "Revisión preventiva del vehículo",
+          "content": "contenido/06.html"
+        },
+        {
+          "title": "Checklist antes de conducir y documentos obligatorios",
+          "content": "contenido/07.html"
+        },
+        {
+          "title": "Qué hacer en caso de accidente vial",
+          "content": "contenido/08.html"
+        },
+        {
+          "title": "Conduce con inteligencia",
+          "content": "contenido/09.html"
+        },
+        {
+          "title": "Cierre",
+          "content": "contenido/10.html"
+        }
+
+      ]
+    }
+  ]
+}

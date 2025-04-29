@@ -1,0 +1,621 @@
+<style>
+    .fake {
+        background-image: url('img/bg07.webp');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .grid-containter {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .grid-containter .grid-item {
+        height: 100px;
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        margin-bottom: .5rem;
+        border-radius: 71px;
+        cursor: pointer;
+
+    }
+
+    .grid-containter .grid-item.active {
+        height: max-content;
+        border-radius: 30px;
+    }
+
+    .grid-containter .grid-item .custom-card .card-body {
+        display: none;
+    }
+
+    .grid-containter .grid-item.active .custom-card .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid-containter .grid-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .custom-card {
+        height: 100%;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .custom-card .card-body {
+        padding: 0;
+    }
+
+    .grid-containter .grid-item .img-grid {
+        position: absolute;
+        bottom: 12%;
+        left: 1em;
+        width: 75px;
+        height: 75px;
+        border-radius: 100%;
+
+    }
+
+    .grid-containter .grid-item.active .img-grid {
+        bottom: .3em;
+    }
+
+    .page-sco .bg-rojo-2 {
+        background: linear-gradient(45deg, #e91f24 21%, #e73e41 21%, #d03e3f 65%, #b2171b 65%);
+    }
+
+    .page-sco .bg-gris-1 {
+        background: linear-gradient(45deg, #dcdcdc 0%, #dcdcdc 21%, #e2e2e2 21%, #e7e7e7 65%, #dcdcdc 65%, #dcdcdc 100%);
+    }
+
+    .page-sco .bg-gris-3 {
+        background: linear-gradient(45deg, #a1a5ab 0%, #a3a7ad 21%, #b5b8bd 21%, #adb0b4 65%, #81858a 65%, #3c3f40 100%);
+    }
+
+    /* DOTS */
+    .dot {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        display: block;
+        background-color: transparent;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        margin-right: 15px;
+        background: #fff;
+        border: solid 3px var(--bs-rojo-1);
+    }
+
+    .dot:hover {
+        background: var(--bs-rojo-1);
+    }
+
+    .dot:last-child {
+        margin-right: 0;
+    }
+
+    .dot.active {
+        width: 30px;
+        border-radius: 15px;
+        background: var(--bs-rojo-1);
+    }
+
+    /*
+    .dot.animate__pulse.animate__infinite {
+        animation: aura_dot 1.7s infinite ease-in-out;
+    }
+    */
+
+    .innernavs {
+        display: inline-flex;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin: 0 auto;
+        background: transparent;
+        padding: 3px;
+        border-radius: 30px;
+        box-shadow: none;
+    }
+
+    .innernavs.active {
+        background: transparent;
+    }
+
+    .inner {
+        display: none;
+    }
+
+    .inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+
+    .btn_pop {
+        border-radius: 100%;
+        cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+        .grid-containter {
+            width: 100%;
+            height: 400px;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+
+        .grid-containter .grid-item {
+            height: 100%;
+            width: 90px;
+            margin-bottom: 0;
+            margin-right: .5rem;
+        }
+
+        .grid-containter .grid-item.active {
+            border-radius: 30px;
+            width: calc(100% - 250px);
+            height: 400px;
+        }
+
+        .grid-containter .grid-item .img-grid {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            bottom: 10px;
+        }
+
+        .grid-containter .grid-item.active .img-grid {
+            left: 1em;
+            margin: 0;
+        }
+    }
+</style>
+<div class="page-sco full">
+    <div class="container ">
+        <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-md-12">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <h4 class="text-center animate__animated animate__backInDown text-primary fw-bold">Checklist
+                                antes de conducir y documentos obligatorios</h4>
+                        </div>
+                        <div class="text-center w-100 animate__animated animate__slideInLeft my-d-3 my-2 ins0"
+                            style="display: none;">
+                            <div class="border-dark text-rojo-1 px-4 py-2 border border-2 d-inline-block"
+                                style="border-radius: 0.5em;">
+                                <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en cada botón
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-10 animate__animated animate__backInLeft">
+                            <div class="grid-containter">
+                                <div class="grid-item bg-rojo-2 disabled">
+                                    <div class="card custom-card">
+                                        <div class="card-body">
+                                            <div class="col-12 col-md-11 p-3 text-white">
+                                                <div class="row justify-content-center align-items-center">
+                                                    <div class="col-12 col-md-10">
+                                                        <p>Antes de conducir (inspección rápida de 1 minuto) </p>
+                                                        <ul class="text-start">
+                                                            <li>¿Estás descansado y en condiciones físicas/emocionales
+                                                                para
+                                                                manejar?</li>
+                                                            <li>Ajusta tu asiento, espejos y cinturón.</li>
+                                                            <li>Verifica luces y neumáticos de forma visual.</li>
+                                                            <li>Revisa que los pasajeros también estén asegurados. </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-5 col-md-2 text-end">
+                                                        <img src="img/07.4.webp" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <span class="img-grid" data-index="0"><img src="img/07.1.webp"
+                                                class="img-fluid"></span>
+                                    </div>
+                                </div>
+                                <div class="grid-item bg-gris-1 disabled">
+                                    <div class="card custom-card">
+                                        <div class="card-body">
+                                            <div class="col-12 col-md-11 p-3">
+                                                <div class="row justify-content-center align-items-center">
+                                                    <div class="col-12 col-md-12">
+                                                        <p class="text-rojo-3 fw-bold">Documentos y elementos que debes
+                                                            llevar para manejar o salir a carretera</p>
+                                                    </div>
+                                                    <div class="col-12 col-md-10 carrousel-0">
+                                                        <div class="inner">
+                                                            <div class="col-12">
+                                                                <b class="text-primary fw-bold">1.</b> <b>Licencia de
+                                                                    conducir vigente</b><br>
+                                                                <span class="ms-2">Asegúrate de que esté dentro de su
+                                                                    periodo de validez y corresponda al tipo de vehículo
+                                                                    que
+                                                                    manejas.</span><br>
+
+                                                                <b class="text-primary fw-bold">2.</b> <b>Tarjeta de
+                                                                    circulación del vehículo</b><br>
+                                                                <span class="ms-2">Debe estar actualizada y a nombre del
+                                                                    propietario o con permiso adecuado si es de flotilla
+                                                                    o
+                                                                    arrendado.</span><br>
+
+                                                                <b class="text-primary fw-bold">3.</b> <b>Póliza de
+                                                                    seguro
+                                                                    vigente</b><br>
+                                                                <span class="ms-2">En México, el seguro de
+                                                                    responsabilidad
+                                                                    civil es obligatorio por ley en vías federales.
+                                                                </span><br>
+                                                                <span class="ms-2">Lleva al menos la carátula o número
+                                                                    de
+                                                                    póliza y contacto de tu aseguradora (puede ser app o
+                                                                    PDF). </span>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="inner">
+                                                            <div class="col-12">
+                                                                <b class="text-primary fw-bold">4.</b> <b>Verificación
+                                                                    vehicular vigente (si aplica)</b><br>
+                                                                <span class="ms-2">Especialmente importante para
+                                                                    circular en CDMX y
+                                                                    Edo.
+                                                                    de México. </span><br>
+
+                                                                <b class="text-primary fw-bold">5.</b> <b>Comprobante de
+                                                                    pago de tenencia o refrendo</b><br>
+                                                                <span class="ms-2">Puede ser útil si te lo solicitan en
+                                                                    algún retén o
+                                                                    punto de revisión. </span><br>
+
+                                                                <b class="text-primary fw-bold">6.</b> <b>Identificación
+                                                                    oficial adicional (INE o pasaporte)</b><br>
+                                                                <span class="ms-2">No siempre es obligatoria, pero es
+                                                                    útil para
+                                                                    cualquier
+                                                                    eventualidad (accidente, seguro, reporte).</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-100 text-center">
+                                                            <div class="innernavs">
+                                                                <div class="dot disabled active visited"
+                                                                    data-audio="audio_19_hombre"></div>
+                                                                <div class="dot disabled animate__animated animate__pulse animate__infinite waves-effect"
+                                                                    data-audio="audio_20_hombre"></div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-5 col-md-2 text-end">
+                                                        <img src="img/07.5.webp" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <span class="img-grid" data-index="1"><img src="img/07.2.webp"
+                                                class="img-fluid"></span>
+                                    </div>
+                                </div>
+                                <div class="grid-item bg-gris-3 disabled">
+                                    <div class="card custom-card">
+                                        <div class="card-body">
+                                            <div class="col-12 col-md-11 p-3">
+                                                <div class="row justify-content-center align-items-center">
+                                                    <div class="col-12 col-md-12">
+                                                        <p class="text-rojo-3 fw-bold">Elementos de seguridad y
+                                                            emergencia</p>
+                                                    </div>
+                                                    <div class="col-12 col-md-10 carrousel-1">
+                                                        <div class="inner">
+                                                            <div class="col-12">
+                                                                <b class="text-primary fw-bold">1.</b> <b>Triángulos
+                                                                    reflejantes (mínimo 2).
+                                                                </b><br>
+                                                                <span class="ms-2">Para colocar a 30-50 metros detrás
+                                                                    del vehículo en caso de avería. </span><br>
+
+                                                                <b class="text-primary fw-bold">2.</b> <b>Botiquín de
+                                                                    primeros auxilios.</b><br>
+                                                                <span class="ms-2">Con gasas, alcohol, vendas, tijeras,
+                                                                    guantes y algún analgésico básico. </span><br>
+
+                                                                <b class="text-primary fw-bold">3.</b> <b>Extintor
+                                                                    cargado.</b><br>
+                                                                <span class="ms-2">De preferencia tipo ABC y dentro de
+                                                                    su vigencia.</span><br>
+                                                                <b class="text-primary fw-bold">4.</b> <b>Llanta de
+                                                                    refacción en buen estado.</b><br>
+                                                                <span class="ms-2">Verifica que esté inflada y no
+                                                                    dañada.</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="inner">
+                                                            <div class="col-12">
+                                                                <b class="text-primary fw-bold">5.</b> <b>Herramientas
+                                                                    básicas.</b><br>
+                                                                <span>Gato hidráulico o de palanca.</span><br>
+                                                                <span class="ms-2">Llave de cruz.</span><br>
+                                                                <span class="ms-2">Cables pasa corriente.</span><br>
+
+                                                                <b class="text-primary fw-bold">6.</b> <b>Linterna con
+                                                                    baterías.</b><br>
+                                                                <span class="ms-2">O una luz de emergencia
+                                                                    recargable.</span><br>
+
+                                                                <b class="text-primary fw-bold">7.</b> <b>Chaleco
+                                                                    reflejante.</b><br>
+                                                                <span class="ms-2">Para hacerte visible si desciendes
+                                                                    del vehículo en carretera. </span><br>
+
+                                                                <b class="text-primary fw-bold">8.</b> <b>Copias
+                                                                    impresas o respaldo digital de documentos.</b><br>
+                                                                <span class="ms-2">Puedes llevarlas en una carpeta o
+                                                                    cargarlas en una app como Google Drive o tu correo.
+                                                                </span><br>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-100 text-center">
+                                                            <div class="innernavs">
+                                                                <div class="dot disabled active visited"
+                                                                    data-audio="audio_19_hombre"></div>
+                                                                <div class="dot disabled animate__animated animate__pulse animate__infinite waves-effect"
+                                                                    data-audio="audio_20_hombre"></div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-5 col-md-2 text-end">
+                                                        <img src="img/07.5.webp" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="img-grid" data-index="2"><img src="img/07.3.webp"
+                                                class="img-fluid"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="col-3 col-md-2 px-md-5 text-center slide0 d-block animate__animated animate__fadeInRight">
+                            <div class="row justify-content-center align-items-end h-100">
+                                <img src="img/warning.webp" class="img-fluid btn_pop disabled" style="opacity: 0;"
+                                    data-popid="#pop0" data-audio="audio_h28" loading="lazy" alt="icono Alerta" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-none">
+    <div id="pop0">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-11 text-start">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-7 col-md-5 text-center mb-3">
+                            <div class="personaje h1 play mx-auto"></div>
+                        </div>
+                        <div class="col-12 col-md-7">
+                            <p class="text-center text-rojo-1 fw-bold">Consejo práctico</p>
+                            <p class=""><b>Haz un checklist previo a viajes largos o uso diario</b> y guarda todo en una
+                                carpeta en la guantera o en una bolsa en la cajuela. ​
+                                Así, si ocurre una emergencia o retén, tienes todo al instante. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        "use strict";
+        $('body').addClass('fake');
+        const audio_h23 = course360.createSound('audio/audio_h23.mp3');
+        const audio_h28 = course360.createSound('audio/audio_h28.mp3');
+        const paths = [
+            'audio/audio_h36.mp3',
+            'audio/audio_h24.mp3',
+            'audio/audio_h26.mp3',
+        ];
+        // Array para almacenar los objetos de audio creados.
+        let audios = [];
+        // Crea y almacena objetos de sonido para cada archivo de audio en 'paths'.
+        paths.forEach(function (element) {
+            audios.push(course360.createSound(element));
+        });
+
+        //CAROUSEL 1
+        const paths_1 = [
+            'audio/audio_h24.mp3',
+            'audio/audio_h25.mp3',
+        ];
+        // Array para almacenar los objetos de audio creados.
+        let audios_1 = [];
+        // Crea y almacena objetos de sonido para cada archivo de audio en 'paths'.
+        paths_1.forEach(function (element) {
+            audios_1.push(course360.createSound(element));
+        });
+
+        //CAROUSEL 2
+        const paths_2 = [
+            'audio/audio_h26.mp3',
+            'audio/audio_h27.mp3',
+        ];
+        // Array para almacenar los objetos de audio creados.
+        let audios_2 = [];
+        // Crea y almacena objetos de sonido para cada archivo de audio en 'paths'.
+        paths_2.forEach(function (element) {
+            audios_2.push(course360.createSound(element));
+        });
+
+        course360.audioController.stopAllSoundsAndPlay(audio_h23);
+        audio_h23.on('end', () => {
+            $('.ins0').show();
+            $(".grid-item").removeClass('disabled');
+            $(".grid-item").find('.img-grid').addClass('animate__animated animate__pulse animate__infinite waves-effect');
+            $(".grid-item").find('.img-grid').first().trigger('click');
+        });
+
+        audio_h28.on('end', () => {
+            $('.personaje').removeClass('play').addClass('stop');
+        });
+
+        $(".grid-item").find('.img-grid').on('click', function () {
+            $(this).closest('.grid-item').addClass('visited');
+            const indexAudio = $(this).data('index');
+            course360.audioController.stopAllSoundsAndPlay(audios[indexAudio]);
+            $(".grid-item").removeClass('active');
+
+            if (indexAudio === 1) {
+                $('.inner').hide();
+                $('.dot').removeClass('active');
+                $('.carrousel-0 .dot').first().addClass('active');
+                $('.dot').removeClass('disabled');
+                $('.carrousel-0 .inner').first().show();
+                carousel('.carrousel-0', audios_1);
+            } else if (indexAudio === 2) {
+                $('.inner').hide();
+                $('.dot').removeClass('active');
+                $('.carrousel-1 .dot').first().addClass('active');
+                $('.carrousel-1 .inner').first().show();
+                carousel('.carrousel-1', audios_2);
+            }
+
+            $(this).removeClass('animate__animated animate__pulse animate__infinite waves-effect');
+            $(this).closest('.grid-item').addClass('active');
+            if ($(".grid-item").length === $(".grid-item.visited").length) {
+                $('.btn_pop').css('opacity', 1).removeClass('disabled').addClass('animate__animated animate__pulse animate__infinite waves-effect');
+            }
+        });
+
+        function carousel(container, audios) {
+            let dots, texts;
+
+            carouselint();
+            function carouselint() {
+                // Manejo de los puntos de navegación
+                dots = $("" + container + "").find(".dot");
+                texts = $("" + container + "").find(".inner");
+
+                // Manejo de clic en los puntos de navegación
+                dots.each(function (index) {
+                    $(this).click(function () {
+
+                        if (index == 0) {
+                            $('.innernavs').removeClass('active');
+                        } else {
+                            $('.innernavs').addClass('active');
+                        }
+
+                        if (!$(this).hasClass('disabled')) {
+                            var textId = $(this).data('textId');
+                            var btn = $(this).data('btn');
+                            course360.soundClick();
+                            showText(index); // Mostrar el texto correspondiente
+                            activateDot(index); // Activar el punto correspondiente
+                            dots.eq(index).removeClass('animate__animated animate__pulse animate__infinite').addClass('visited');
+                            course360.audioController.stopAllSoundsAndPlay(audios[index]);
+                            audios[index].on("end", function () {
+                                if ($(".dot").length === $(".dot.visited").length) {
+                                    // $('#pop0 .btn-cerrar-pop').show();
+                                } else {
+                                    // $('.dot').removeClass('disabled');
+                                }
+                            });
+                        }
+                    });
+                });
+            }
+
+            function showText(index) {
+                $('.inner').hide(); // Oculta todos los textos
+                gsap.fromTo(texts.eq(index), { opacity: 0 }, { opacity: 1, display: 'flex', duration: 0.5 });
+            }
+
+            function activateDot(index) {
+                dots.removeClass('active'); // Desactiva todos los puntos
+                dots.eq(index).addClass('active'); // Activa el punto seleccionado
+            }
+        }
+
+        $(".btn_pop").click(function (e) {
+            e.preventDefault();
+            if (!$(this).hasClass("disabled")) {
+                if ($(this).data("audio")) {
+                    course360.audioController.stopAllSoundsAndPlay(eval($(this).data("audio")));
+                } else {
+                    course360.soundClick();
+                }
+                $(".btn_pop").removeClass("visited");
+                $(this).removeClass("animate__animated animate__pulse animate__infinite waves-effect");
+                $(this).addClass("completed visited");
+                var html = $($(this).data("popid")).html();
+                var audio = $(this).data("audio");
+                course360.audioController.stopAllSoundsAndPlay(audio);
+                Swal.fire({
+                    html: html,
+                    showCloseButton: true,
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    allowEnterKey: false,
+                    confirmButtonText: 'Cerrar',
+                    target: "body",
+                    width: "60em",
+                    customClass: 'pop_style',
+                    willOpen: function () {
+                        //course360.audioController.stopAudio();
+                    },
+                    didOpen: function () { },
+                    didRender: function () { },
+                    didClose: function () {
+                        //course360.audioController.stopAudio();
+                    },
+                    didDestroy: function () { },
+                    willClose: function () {
+                        course360.audioController.stopAudio();
+                        course360.soundClick();
+                        if ($(".btn_pop").length == $(".btn_pop.completed").length) {
+                            course360.setSlideVisited();
+                            $('.ins0').hide();
+                        }
+                    }
+                });
+            }
+        });
+
+    });
+</script>

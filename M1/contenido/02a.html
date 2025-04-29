@@ -1,0 +1,67 @@
+<style>
+    .fake {
+        background-image: url("img/bg02a.webp");
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .page-sco .bg-white {
+        background: #fff !important;
+    }
+    .card {
+        border-radius: 15px;
+    }
+
+    .custom {
+        display: none;
+    }
+
+    @media (min-width: 768px) {
+        .fake {
+            background-image: url("img/bg02a.webp");
+            background-size: cover;
+            background-position: center center;
+        }
+    }
+</style>
+<div class="w-100 page-sco h-100 pt-4 pt-md-0">
+    <div class="container">
+        <div class="row align-items-center justify-content-md-end">
+            <div class="col-12 col-md-12">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-12 col-md-10">
+                        <div class="card bg-white shadow animate__animated animate__fadeInUp">
+                            <div class="card-body my-md-5 mx-3 my-2 mx-2 text-center">
+                                <h4 class="text-center text-rojo-1 fw-bold">Técnicas de conducción defensiva</h4>
+                                <h5 class="text-center text-rojo-1 fw-bold">¿Sabías que 9 de cada 10 accidentes en
+                                    México son causados por errores humanos?</h5>
+                                <p class="custom animate__animated animate__fadeInLeft">Esta estadística revela que la mayoría de los accidentes son evitables.</p>
+
+                                <p class="custom animate__animated animate__fadeInLeft">Acciones tan simples como mirar el celular, distraerse un par de segundos o manejar
+                                    con fatiga pueden tener consecuencias fatales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        "use strict";
+        $('body').addClass('fake');
+        const audio_h01 = course360.createSound('audio/audio_h01.mp3');
+        const audio_h02 = course360.createSound('audio/audio_h02.mp3');
+        course360.audioController.stopAllSoundsAndPlay(audio_h01);
+        audio_h01.on("end", function () {
+            course360.audioController.stopAllSoundsAndPlay(audio_h02);
+            $('.custom').show();
+        });
+
+        audio_h02.on("end", function () {
+            course360.setSlideVisited();
+        });
+
+    });
+</script>
