@@ -1,444 +1,245 @@
 <style>
-    .fakeBody {
-        background-image: url("img/activity/bg-inicio.jpg");
-        background-repeat: no-repeat;
+    .fake {
+        background-image: url("img/bg11.webp");
         background-size: cover;
-        background-position: top center;
+        background-position: right center;
     }
 
-    .fakeBodyInicio {
-        height: 100%;
-        padding-top: 0;
+    .card-body img {
+        width: 10%;
     }
 
-    .fakeBodyDesarrollo {
-        background-image: url("img/activity/bg-desarrollo.jpg");
-        background-position: top center;
+    .inner {
+        display: none;
     }
 
-    .fakeBodyCierreGood {
-        background-image: url("img/activity/bg-cierre-good.jpg");
-        background-position: bottom center;
-    }
-
-    .fakeBodyCierreBad {
-        background-image: url("img/activity/bg-cierre-bad.jpg");
-        background-position: bottom center;
-    }
-
-
-
-    /* Fondos para respuestas correctas */
-    .background-correct-1 {
-        background-image: url("img/activity/bg-1.jpg");
-    }
-
-    .background-correct-2 {
-        background-image: url("img/activity/bg-2.jpg");
-    }
-
-    .background-correct-3 {
-        background-image: url("img/activity/bg-3.jpg");
-    }
-
-    .background-correct-4 {
-        background-image: url("img/activity/bg-4.jpg");
-    }
-
-    .background-correct-5 {
-        background-image: url("img/activity/bg-5.jpg");
-    }
-
-    /* Fondos para respuestas incorrectas */
-    .background-incorrect-1 {
-        background-image: url("img/activity/bg-b-1.jpg");
-    }
-
-    .background-incorrect-2 {
-        background-image: url("img/activity/bg-b-2.jpg");
-    }
-
-    .background-incorrect-3 {
-        background-image: url("img/activity/bg-b-3.jpg");
-    }
-
-    .background-incorrect-4 {
-        background-image: url("img/activity/bg-b-4.jpg");
-    }
-
-    .background-incorrect-5 {
-        background-image: url("img/activity/bg-b-5.jpg");
-    }
-
-
-    /****
-    // estilos de la actividad
-    ****/
-    .escena {
-        height: 100%;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex: 1 1 auto;
-        flex-direction: column;
-        justify-content: center;
-        margin-bottom: 11%;
-    }
-
-    .pasos,
-    .personaje-pasos {
-        display: grid;
-        grid-template-rows: 1fr;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 0;
-        width: 100%;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
-        justify-items: center;
-
-    }
-
-    .pasos {
-        margin-top: -10%;
-    }
-
-    .paso,
-    .personaje {
-        text-align: center;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        z-index: 2;
-        border-radius: 50%;
-    }
-
-    .paso {
-        cursor: pointer;
-        transform: translate(0px, -15px);
-    }
-
-    .personaje img {
-        opacity: 0;
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-    }
-
-    .paso img {
-        width: auto;
-        max-width: 65%;
-        filter: grayscale(0);
-        -webkit-transition: filter 0.5s ease;
-        -moz-transition: filter 0.5s ease;
-        -o-transition: filter 0.5s ease;
-        transition: filter 0.5s ease;
-    }
-
-    .paso.active img {
-        filter: grayscale(0);
-    }
-
-    .paso.disabled img {
-        filter: grayscale(1);
-    }
-
-    .personaje.active img {
-        opacity: 1;
-    }
-
-    #paso1 {
-        grid-area: 1/1/2/2;
-
-    }
-
-    #paso2 {
-        grid-area: 1/2/2/3;
-
-    }
-
-    #paso3 {
-        grid-area: 1/3/2/4;
-
-    }
-
-    #paso4 {
-        grid-area: 1/4/2/5;
-
-    }
-
-    #paso5 {
-        grid-area: 1/5/2/6;
-
-    }
-
-    #paso6 {
-        grid-area: 1/6/2/7;
-    }
-
-    .pasos-background {
+    .navsvg {
         position: absolute;
+        bottom: 3%;
+        left: 40%;
+        width: 20%;
+    }
+
+    #svg-container {
         width: 100%;
-        height: 145px;
-        background: url('img/carretera.png');
-        z-index: 1;
-        background-size: cover;
-        background-repeat: repeat-x;
-
+        height: 100%;
     }
 
-
-    /****
-    // Estilos de los popups de SweetAlert2
-    ****/
-
-    .overswall {
-        border-radius: 30px;
+    .ins1 {
+        position: absolute;
+        bottom: 25%;
+        left: 0%;
     }
 
-    .bg-primary-custom {
-        background: linear-gradient(90deg, #ef4b4f 0%, #b0171b 100%);
+    #svg-container svg {
+        width: 100%;
+        height: 100%;
     }
 
-    .fullretro.swal2-popup {
+    .btn-slide {
+        cursor: pointer;
+        transform-box: content-box;
+        transform-origin: center !important;
+    }
+
+    .btn-slide.active {
+        fill: #00c40e !important;
+    }
+
+    .btn_pop {
+        cursor: pointer;
+        border-radius: 100%;
+    }
+
+    .mt-25 {
+        margin-top: 0%;
+    }
+
+    .custom-card {
+        border-radius: 0px 0px 0px 0px !important;
+    }
+
+    .responsive-icon {
+        display: block;
+        position: absolute;
+        left: 35%;
+        top: 17%;
+        width: 12%;
+    }
+
+    .btn-open-info {
+        cursor: pointer;
+        border-radius: 100%;
+    }
+
+    .pop_full {
+        max-width: 100% !important;
+    }
+
+    .pop_full.swal2-show {
         background-color: transparent !important;
-        box-shadow: none;
-        border: none;
-        /* Remove shadow */
+        border: none !important;
+        box-shadow: none !important;
     }
 
-    .fullretro .swal2-modal {
-        background-color: transparent;
+    .pop_full .swal2-html-container {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
     }
 
-    .fullretro .swal2-container {
-        background-color: transparent;
-    }
-
-    .correcto::before {
-        content: "";
-        display: block;
-        width: 50px;
-        height: 50px;
-        background-image: url("img/activity/correcto.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        margin: 0 auto;
-        margin-top: -5%;
-    }
-
-    .incorrecto::before {
-        content: "";
-        display: block;
-        width: 50px;
-        height: 50px;
-        background-image: url("img/activity/incorrecto.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        margin: 0 auto;
-        margin-top: -5%;
-    }
-
-
-    /****
-    // estilos de la pregunta y opciones
-    */
-
-    .wtext {
-        /*margin-bottom: 1.3em;*/
-        /*margin-bottom: 1.3em;*/
-        /*box-shadow: 0px 0px 8px 0px #000;*/
-        /*background: #fff;*/
-        color: #000;
-    }
-
-
-    .option {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+    .btn_sliders {
         cursor: pointer;
-        padding-top: .5rem;
-        padding-bottom: .5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        margin-bottom: 1em;
-        border-radius: 15px;
-        border: solid 0px;
-        /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
-        -webkit-transition: background-color 0.5s ease;
-        -moz-transition: background-color 0.5s ease;
-        -o-transition: background-color 0.5s ease;
-        transition: background-color 0.5s ease;
     }
 
-    .option .letter {
-        background: var(--bs-gris-3);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 45px;
-        height: 40px;
+    .bg-custom {
+        background: linear-gradient(90deg, #85878b 0%, #474849 100%);
+    }
+
+    .rounded-custom {
         border-radius: 20px;
-        margin-right: 20px;
-        /*box-shadow: 2px 1px 8px 2px #000;*/
-    }
-
-    .option>.option-text {
-        width: 100%;
-        text-align: start;
-    }
-
-    .option:hover {
-        background-color: transparent;
-        color: #000;
-    }
-
-    .option:hover>.letter {
-        background-color: var(--bs-gris-1);
-    }
-
-    .option.selected {
-        background: transparent;
-        color: #FFF;
-    }
-
-    .question-class-pop {
-        border-radius: 15px !important;
-        border: 4px solid var(--bs-naranja);
-    }
-
-    /****
-  //circulo de califiacion
-  */
-    #progress-container {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        border-radius: 50%;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        background-color: #fff;
-        max-width: 200px;
-        max-height: 200px;
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        padding: 5px;
-    }
-
-    #progress-container svg {
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        border-radius: 50%;
-    }
-
-    .progress-text {
-        position: absolute;
-        font-size: 50px;
-        font-weight: bold;
-        color: #3D3D3D;
-        /* Color del texto */
     }
 
     @media (min-width: 768px) {
-        #desarrollo .container {
-            height: 100%;
+        .mt-25 {
+            margin-top: -25%;
         }
 
-        .escena {
-            margin-bottom: 0%;
-        }
-
-        .pasos-background {
+        .custom-card {
+            border-radius: 0px 0px 15px 15px !important;
             position: absolute;
-            width: 100%;
-            height: 145px;
-            background: url('img/carretera.png');
-            z-index: 1;
-            background-size: contain;
-            background-repeat: repeat-x;
-
+            top: 2%;
+            left: 14%;
+            width: 75%;
         }
 
-        .pasos {
-            margin-top: -10%;
-        }
-
-        .paso img {
-            width: auto;
-            max-width: 35%;
-            filter: grayscale(0);
-            -webkit-transition: filter 0.5s ease;
-            -moz-transition: filter 0.5s ease;
-            -o-transition: filter 0.5s ease;
-            transition: filter 0.5s ease;
-        }
-
-        .overswall,
-        .fullretro {
-            max-width: 800px;
-            width: 100%;
-            border: none;
-        }
-
-        #progress-container {
-            max-width: 300px;
-            max-height: 300px;
-        }
-    }
-
-    .page-sco {
-        line-height: 1.1;
-    }
-
-    .object_handler {
-        transform-origin: center;
-        transform-box: content-box;
     }
 </style>
-<div class="page-sco h-100" id="inicio">
-    <div class="container-fluid">
-        <div class="row justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-11">
+<div class="w-100 page-sco h-100 pt-4 pt-md-0">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-12 col-md-12">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-12 col-md-5 text-center">
-                        <div class="row justify-content-md-end justify-content-center align-items-center">
-                            <div class="col-6 col-md-7">
-                                <!-- <img src="img/activity/1.png" class="img-fluid"> -->
-                                <div class="avatar h1 mx-auto"></div>
+                    <div class="col-12 col-md-7">
+                        <div class="row align-items-center justify-content-center">
+                            <div id="slide0" class="col-12 col-md-12 inner animate__animated animate__flipInY">
+                                <div class="col-12">
+                                    <p class="text-start text-primary fw-bold">Infraestructura</p>
+                                    <p>La infraestructura de carga sigue creciendo en México. A continuación, conocerás
+                                        los <b class="text-primary">avances, retos y herramientas</b> que facilitan la
+                                        ubicación de estaciones de
+                                        carga en todo el país.​</p>
+                                </div>
+                                <div class="card bg-primary">
+                                    <div id="card0" class="card-body text-white py-md-3 px-md-3">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p class="text-center"><img src="img/11.1.webp" class="img-fluid"
+                                                        loading="lazy" alt="" /></p>
+                                                <p>Uno de los <b>grandes</b> retos alrededor de la
+                                                    movilidad eléctrica en México es que
+                                                    no hay suficiente infraestructura de carga. </p>
+
+                                                <p>Sin embargo, los datos más recientes muestran que esta red ha crecido
+                                                    de
+                                                    forma constante y ya permite que los <b class="">vehículos
+                                                        eléctricos sean una opción
+                                                        viable</b> para miles de usuarios.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="slide1" class="col-12 col-md-12 inner animate__animated animate__flipInY">
+                                <div class="col-12">
+                                    <p class="text-start text-primary fw-bold">Infraestructura</p>
+                                    <p>México avanza en la adopción de la movilidad eléctrica con más de <b
+                                            class="text-primary">600 estaciones
+                                            de carga rápida</b> en carreteras y zonas urbanas, y <b
+                                            class="text-primary">2,700 cargadores públicos nivel
+                                            2</b> en espacios como centros comerciales y estacionamientos. ​​</p>
+                                </div>
+                                <div id="card1" class="card bg-primary">
+                                    <div class="card-body text-white py-md-3 px-md-3">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p class="text-center"><img src="img/11.2.webp" class="img-fluid"
+                                                        loading="lazy" alt="" /></p>
+                                                <p>El sector corporativo también crece, con <b>más de 5,300 puntos de
+                                                        carga
+                                                        privados</b> en oficinas y centros de distribución, impulsando
+                                                    el uso
+                                                    entre flotillas y usuarios frecuentes.</p>
+
+                                                <p>En total, hay <b>más de 8,600 cargadores públicos y corporativos</b>
+                                                    disponibles. ​</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="slide2" class="col-12 col-md-12 inner animate__animated animate__flipInY"
+                                style="display: block;">
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-12 col-md-12">
+                                        <img src="img/11.5.webp" class="img-fluid" loading="lazy" alt="Mapa" />
+                                        <div class="responsive-icon">
+                                            <img src="img/11.7.webp" class="img-fluid btn-open-info" data-popid="#pop1"
+                                                data-audio="audio_m33" loading="lazy" alt="Chicheta" style="display: none;" />
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 mt-25">
+                                        <div class="row justify-content-start align-items-center h-100">
+                                            <div class="col-3 col-md-2 text-center px-md-4 nota animate__animated animate__fadeInRight"
+                                                style="display: none;">
+                                                <img src="img/warning.webp"
+                                                    class="img-fluid btn_pop animate__animated animate__pulse animate__infinite waves-effect"
+                                                    data-popid="#pop0" data-audio="audio_m32b" loading="lazy"
+                                                    alt="icono Alerta" />
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <div class="text-center w-100 animate__animated animate__slideInLeft ins2"
+                                                    style="display:none;">
+                                                    <div class="border-dark text-rojo-1 bg-white px-4 py-2 border border-2 d-inline-block"
+                                                        style="border-radius: 0.5em;">
+                                                        <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en
+                                                        el botón
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-7">
-                        <div class="row justify-content-start align-items-center">
+                    <div class="col-9 col-md-5 animate__animated animate__fadeInRight">
+                        <div class="row justify-content-center align-items-center">
                             <div class="col-12 col-md-10">
                                 <div
-                                    class="card border bg-white border-0 shadow d-flex align-items-center justify-content-center flex-column h-100 rounded-15 p-md-4 p-2">
-                                    <div class="col-12 col-md-9 text-center">
-                                        <h2 class="text-primary fw-bold">Conduce con inteligencia</h2>
+                                    class="card bg-primary custom-card d-none card-info animate__animated animate__fadeInDown animate__delay-1s">
+                                    <div class="card-body text-white">
+                                        <p>Gracias a las autonomías de entre <b>300 y 600 km</b> por carga que
+                                            ofrecen muchos
+                                            vehículos eléctricos disponibles en el país, hoy es posible utilizarlos
+                                            tanto
+                                            para el uso diario como para trayectos largos.</p>
                                     </div>
-                                    <div class="col-12 col-md-12 order-1 order-md-0">
-                                        <p class="">En esta actividad, demostrarás qué tanto dominas los conceptos clave
-                                            sobre <b>conducción defensiva y tomar buenas decisiones al volante.</b></p>
+                                </div>
+                                <img src="img/11.3.webp" class="img-fluid source" loading="lazy" alt="imagen" />
+                                <div class="col-12 col-md-4">
+                                    <div class="text-center w-100 animate__animated animate__slideInLeft ins1"
+                                        style="display: block;">
+                                        <div class="border-dark text-rojo-1 bg-white px-4 py-2 border border-2 d-inline-block"
+                                            style="border-radius: 0.5em;">
+                                            <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en cada
+                                            botón
+                                        </div>
+                                    </div>
+                                    <div class="navsvg">
+                                        <div id="svg-container"></div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="text-center my-2 w-100 animate__animated animate__slideInDown ins0"
-                        style="display: none;">
-                        <div class="border-dark text-rojo-1 bg-white px-4 py-2 border border-2 d-inline-block"
-                            style="border-radius: 0.5em;">
-                            <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en Comenzar
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-12 my-2">
-                        <div class="text-center">
-                            <button class="btn btn-primary btn-comenzar disab">Comenzar</button>
                         </div>
                     </div>
                 </div>
@@ -446,124 +247,446 @@
         </div>
     </div>
 </div>
-<div class="page-sco full" id="desarrollo" style="display: none">
-    <div class="container-fluid">
-        <div class="row justify-content-center align-items-md-start align-items-center">
-            <div class="col-12 col-md-12" id="parrafo_instrucciones">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-12 px-0 text-center">
-                        <div class="card border border-0 rounded-0 shadow-lg bg-primary-custom text-white">
-                            <div class="card-body">
-                                <div class="row justify-content-center align-items-center">
-                                    <div class="col-12 col-md-9 text-center">
-                                        <span>
-                                            <b class="fw-bold">Instrucciones:</b> Da clic en cada número del camino, lee
-                                            la situación y elige la mejor respuesta. Cada acierto te lleva por un camino
-                                            claro. Si fallas, se vuelve oscuro y lluvioso. ¿Listo para avanzar con
-                                            precaución?
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+<div class="d-none">
+    <div id="pop0">
+        <div class="container-fluid">
+            <div class="row justify-content-center my-4">
+                <div class="col-12 col-md-12 text-start">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-12 col-md-5">
+                            <div class="personaje m1 play mx-auto"></div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-12 h-md-75 h-75">
-                <div class="row justify-content-center align-items-md-end align-items-end h-100">
-                    <div class="col-12 col-md-6 d-none">
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-md-10 py-md-4 py-2">
-                                <div class="card rounded-15 card-question" style="display: none;">
-                                    <div class="card-body py-md-4 px-md-3 py-2 px-2">
-                                        <div id="pregunta"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <div class="col-12 col-md-7">
+                            <p>Aunque la infraestructura aún representa un reto, estos avances muestran que México se
+                                encamina hacia una adopción masiva de la movilidad eléctrica. </p>
 
-                    <div class="col-12 col-md-12">
-                        <div class="row justify-content-center">
-                            <div class="escena">
-                                <div class="personaje-pasos">
-                                    <div class="personaje"><img src="img/auto.png" class="img-fluid"></div>
-                                    <div class="personaje"><img src="img/auto.png" class="img-fluid"></div>
-                                    <div class="personaje"><img src="img/auto.png" class="img-fluid"></div>
-                                    <div class="personaje"><img src="img/auto.png" class="img-fluid"></div>
-                                    <div class="personaje"><img src="img/auto.png" class="img-fluid"></div>
-                                </div>
-                                <div class="pasos">
-                                    <div class="pasos-background"></div>
-                                    <div data-slideid="#content0" data-backdrop="bg-azul" data-paso="0"
-                                        class="paso disabled animate__animated animate__pulse animate__infinite waves-effect"
-                                        id="paso1">
-                                        <img src="img/0.1.png">
-                                    </div>
-                                    <div data-slideid="#content1" data-backdrop="bg-gentera-naranja" data-paso="1"
-                                        class="paso disabled animate__animated animate__pulse animate__infinite waves-effect"
-                                        id="paso2">
-                                        <img src="img/0.2.png">
-                                    </div>
-                                    <div data-slideid="#content2" data-backdrop="bg-gentera-azul" data-paso="2"
-                                        class="paso disabled animate__animated animate__pulse animate__infinite waves-effect"
-                                        id="paso3">
-                                        <img src="img/0.3.png">
-                                    </div>
-                                    <div data-slideid="#content3" data-backdrop="bg-morado" data-paso="3"
-                                        class="paso disabled animate__animated animate__pulse animate__infinite waves-effect"
-                                        id="paso4">
-                                        <img src="img/0.4.png">
-                                    </div>
-                                    <div data-slideid="#content4" data-backdrop="bg-morado" data-paso="4"
-                                        class="paso disabled animate__animated animate__pulse animate__infinite waves-effect"
-                                        id="paso5">
-                                        <img src="img/0.5.png">
-                                    </div>
-                                </div>
-                            </div>
+                            <p>Para lograrlo, es clave <b class="text-primary">mantener el ritmo de expansión</b>,
+                                asegurar la interoperabilidad de
+                                los sistemas y establecer políticas que impulsen su instalación a nivel nacional.​</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="page-sco h-100" id="cierre" style="display: none">
-    <div class="container h-100">
-        <div class="row h-100 justify-content-center align-items-center">
-            <div class="col-12 text-center">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-12 col-md-6 colscores mt-5 mt-md-0">
-                        <div class="animate__animated  animate__backInDown border-0 w-100">
-                            <div class="card rounded-15 bg-morado">
-                                <div class="card-body text-center" id="retrotxt">
-
+    <div id="pop1">
+        <div class="w-100">
+            <div class="container-fluid">
+                <div class="row justify-content-center my-4">
+                    <div class="col-12 col-md-12 text-start">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-12 col-md-9 text-white text-center">
+                                <p>Para localizar electrolineras en México, puedes utilizar las siguientes plataformas:
+                                </p>
+                                <div class="text-center w-100 my-2 animate__animated animate__slideInDown ins4"
+                                    style="display: none;">
+                                    <div class="border-dark text-rojo-1 bg-white px-4 py-2 border border-2 d-inline-block"
+                                        style="border-radius: 0.5em;">
+                                        <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en cada botón
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-12 col-md-12">
+                                <div class="row justify-content-center align-items-center bg-custom">
+                                    <div class="col-12 col-md-6">
+                                        <div class="row justify-content-center align-items-center">
+                                            <div class="col-4 col-md-4">
+                                                <img src="img/11.8.webp" class="img-fluid btn_sliders disabled"
+                                                    data-bs-slide-to="0" loading="lazy" alt="PlugShare" />
+                                            </div>
+                                            <div class="col-4 col-md-4">
+                                                <img src="img/11.9.webp" class="img-fluid btn_sliders disabled"
+                                                    data-bs-slide-to="1" loading="lazy" alt="PlugShare" />
+                                            </div>
+                                            <div class="col-4 col-md-4">
+                                                <img src="img/11.10.webp" class="img-fluid btn_sliders disabled"
+                                                    data-bs-slide-to="2" loading="lazy" alt="PlugShare" />
+                                            </div>
 
-                            <div class="w-100 text-center" style="margin-top: 1em;">
-                                <button onclick="course360.reload()" style="display: none;"
-                                    class="score80menos bree btn btn-primary text-white animate__animated animate__pulse animate__infinite waves-effect waves-ripple">Reintentar</button>
-                                <button onclick="course360.resetCourse()" style="display: none;"
-                                    class="intentos bree btn btn-primary text-white animate__animated animate__pulse animate__infinite waves-effect waves-ripple">Reiniciar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <div class="row justify-content-center align-items-center h-100">
+                                    <div class="col-12 col-md-11 d-block d-md-block" id="col-cards">
+                                        <div class="row justify-content-center align-items-center">
+                                            <div class="col-12 col-md-12 mt-4">
+                                                <div id="slider2" class="carousel slide my-4 my-md-2"
+                                                    data-ride="carousel">
+                                                    <div class="carousel-inner card animate__animated animate__fadeInUp rounded-custom border-0 py-md-4 px-md-3 py-2 px-2"
+                                                        style="display: block;">
+                                                        <div class="carousel-item active">
+                                                            <div id="text1" class="border-0">
+                                                                <div
+                                                                    class="row justify-content-center align-items-center">
+                                                                    <div class="col-12 col-md-12 ">
+                                                                        <p>​
+
+                                                                            Ofrece un mapa interactivo con
+                                                                            estaciones de carga para vehículos
+                                                                            eléctricos en todo el país. Puedes
+                                                                            acceder a través de su sitio web o
+                                                                            descargar su aplicación móvil para iOS y
+                                                                            Android. ​</p>
+                                                                    </div>
+                                                                    <div class="col-12 px-0">
+                                                                        <div class="bg-verde py-3 px-5">
+                                                                            <div
+                                                                                class="row justify-content-center align-items-center">
+                                                                                <div class="col-3 col-md-1">
+                                                                                    <img src="img/11.11.webp"
+                                                                                        class="img-fluid" loading="lazy"
+                                                                                        alt="Web" />
+                                                                                </div>
+                                                                                <div class="col-9 col-md-8 text-white">
+                                                                                    <p>Mapa de estaciones de carga de
+                                                                                        vehículos eléctricos en México |
+                                                                                        Plugshare</p>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <div id="text2" class="border-0 bg-rosa">
+                                                                <div
+                                                                    class="row justify-content-center align-items-center">
+                                                                    <div class="col-12 col-md-12 ">
+                                                                        <p>
+                                                                            Proporciona información detallada sobre
+                                                                            puntos de recarga en México, incluyendo tipo
+                                                                            de conector, velocidad de carga y
+                                                                            disponibilidad. Disponible en su página web
+                                                                            y como aplicación móvil.​​</p>
+                                                                    </div>
+                                                                    <div class="col-12 px-0">
+                                                                        <div class="bg-verde py-3 px-5">
+                                                                            <div
+                                                                                class="row justify-content-center align-items-center">
+                                                                                <div class="col-3 col-md-1">
+                                                                                    <img src="img/11.11.webp"
+                                                                                        class="img-fluid" loading="lazy"
+                                                                                        alt="Web" />
+                                                                                </div>
+                                                                                <div class="col-9 col-md-8 text-white">
+                                                                                    <p>Mapa de estaciones y puntos de
+                                                                                        carga para vehículos eléctricos
+                                                                                        - Electromaps​</p>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <div id="text3" class="border-0">
+                                                                <div
+                                                                    class="row justify-content-center align-items-center">
+                                                                    <div class="col-12 col-md-12 ">
+                                                                        <p>
+                                                                            Especializada en estaciones de carga,
+                                                                            permite localizar puntos de recarga en
+                                                                            diversas ciudades mexicanas.​​​</p>
+                                                                    </div>
+                                                                    <div class="col-12 px-0">
+                                                                        <div class="bg-verde py-3 px-5">
+                                                                            <div
+                                                                                class="row justify-content-center align-items-center">
+                                                                                <div class="col-3 col-md-1">
+                                                                                    <img src="img/11.11.webp"
+                                                                                        class="img-fluid" loading="lazy"
+                                                                                        alt="Web" />
+                                                                                </div>
+                                                                                <div class="col-9 col-md-8 text-white">
+                                                                                    <p>ChargeNow – Sistema de carga para
+                                                                                        vehículos eléctricos​</p>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-12 text-white">
+                                                                        <p>Estas herramientas te ayudarán a encontrar
+                                                                            estaciones de carga cercanas y planificar
+                                                                            tus rutas de manera eficiente.​</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-7 col-md-4 d-flex justify-content-center py-4 py-md-2">
-                        <!-- <div id="progress-container"></div> -->
-                        <img src="img/activity/bien.png" class="img-fluid score80mas" loading="lazy" alt="" />
-                        <img src="img/activity/mal.png" class="img-fluid score80menos" loading="lazy" alt="" />
-                        <img src="img/activity/intentos.png" class="img-fluid intentos" loading="lazy" alt="" />
-                    </div>
                 </div>
-                <!-- <button onclick="course360.reload()" style="display: none" class="score80menos btn btn-mango animate__animated animate__pulse animate__infinite waves-effect waves-ripple mt-3">
-                    Reintentar
-                </button> -->
             </div>
         </div>
     </div>
-</div>
-<script src="js/activity.min.js"></script>
+    <script>
+        $(function () {
+            "use strict";
+            $('#template-instruction').removeClass('show');
+            $('body').addClass('fake');
+            const audio_m30b = course360.createSound('audio/audio_m30b.mp3');
+            const audio_m32 = course360.createSound('audio/audio_m32.mp3');
+            const audio_m32b = course360.createSound('audio/audio_m32b.mp3');
+            const audio_m33 = course360.createSound('audio/audio_m33.mp3');
+
+            //Audios Slide
+            const paths = [
+                "audio/audio_m30.mp3",
+                "audio/audio_m31.mp3"
+            ];
+
+            let audios = [];
+            paths.forEach(function (element) {
+                audios.push(course360.createSound(element));
+            });
+
+            const paths_slide = [
+                "audio/audio_m34.mp3",
+                "audio/audio_m35.mp3",
+                "audio/audio_m36.mp3"
+            ];
+            let audios_slide = [];
+            paths_slide.forEach(function (element) {
+                audios_slide.push(course360.createSound(element));
+            });
+
+
+            audios[0].on('end', function () {
+                course360.audioController.stopAllSoundsAndPlay(audio_m30b);
+            });
+
+            audio_m32.on('end', function () {
+                $('.nota').show();
+                $('.ins2').show();
+            });
+
+            audio_m32b.on('end', function () {
+                $('.personaje').removeClass('play').addClass('stop');
+                // $('.ins2').hide();
+            });
+
+            audio_m33.on('end', function () {
+                $('.ins4').show();
+                $('.swal2-container .btn_sliders').addClass('animate__animated animate__pulse animate__infinite').removeClass('disabled');
+                $('.swal2-container .btn_sliders').first().removeClass('disabled animate__pulse animate__infinite').click();
+            });
+
+            //Audios Slide
+            const imgs = [
+                "img/11.3.webp",
+                "img/11.4.webp",
+                "img/11.6.webp",
+            ];
+
+            loadSVG();
+            setTimeout(function () {
+                $('.btn-slide').addClass('animate__animated animate__pulse animate__infinite').removeClass('disabled');
+                $('.btn-slide').first().click();
+            }, 300);
+
+            // Function to load the SVG file and insert it into the container
+            function loadSVG() {
+                var figura = "";
+                figura = "img/btns11.svg";
+                $.get(
+                    figura,
+                    function (data) {
+                        var svg = $(data).find("svg");
+                        $("#svg-container").html(svg);
+                        // Remove width and height attributes to make SVG responsive
+                        svg.removeAttr("width").removeAttr("height");
+                        $('[id*="btns"]').each(function (index, element) {
+                            $(this).addClass('btn-slide disabed');
+                            $(this).attr('data-slideId', index);
+                        });
+                        slide();
+                    },
+                    "xml"
+                );
+            }
+
+            // slide();
+
+            function slide() {
+                $('.btn-slide').on('click', function () {
+                    if (!$(this).hasClass('disabled')) {
+                        let slideId = $(this).attr('data-slideId');
+                        $('.inner').hide();
+                        $('.btn-slide').removeClass('active');
+                        $('#slide' + slideId).show();
+                        $(this).removeClass('animate__animated animate__pulse animate__infinite').addClass('visited active');
+                        course360.audioController.stopAllSoundsAndPlay(audios[slideId]);
+                        $('.source').addClass('animate__animated animate__flipOutY').on('animationend', function () {
+                            $(this).attr('src', imgs[slideId]).removeClass('animate__flipOutY').addClass('animate__flipInY').on('animationend', function () {
+                                $(this).removeClass('animate__flipInY');
+                            });
+                        });
+                        if ($('.btn-slide').length == $('.btn-slide.visited').length) {
+                            audios[slideId].on('end', function () {
+                                $('.inner').hide();
+                                $('#slide2').show();
+                                $('.source').addClass('animate__animated animate__flipOutY').on('animationend', function () {
+                                    $(this).attr('src', imgs[2]).removeClass('animate__flipOutY').addClass('animate__flipInY').on('animationend', function () {
+                                        $(this).removeClass('animate__flipInY');
+                                    });
+                                });
+                                $('.navsvg').hide();
+                                $('.custom-card').removeClass('d-none');
+                                course360.audioController.stopAllSoundsAndPlay(audio_m32);
+                                $('.ins1').hide();
+                            });
+                        }
+                    }
+                });
+            }
+
+            $(".btn_pop").click(function (e) {
+                e.preventDefault();
+                if (!$(this).hasClass("disabled")) {
+                    if ($(this).data("audio")) {
+                        course360.audioController.stopAllSoundsAndPlay(eval($(this).data("audio")));
+                    } else {
+                        course360.soundClick();
+                    }
+                    $(".btn_pop").removeClass("visited");
+                    $(this).removeClass("animate__animated animate__pulse animate__infinite waves-effect");
+                    $(this).addClass("completed visited");
+                    var html = $($(this).data("popid")).html();
+                    var audio = $(this).data("audio");
+                    course360.audioController.stopAllSoundsAndPlay(audio);
+                    Swal.fire({
+                        html: html,
+                        showCloseButton: true,
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: false,
+                        confirmButtonText: 'Cerrar',
+                        target: "body",
+                        width: "100%",
+                        customClass: 'pop_style',
+                        willOpen: function () {
+                            //course360.audioController.stopAudio();
+                        },
+                        didOpen: function () { },
+                        didRender: function () { },
+                        didClose: function () {
+                            //course360.audioController.stopAudio();
+                        },
+                        didDestroy: function () { },
+                        willClose: function () {
+                            course360.audioController.stopAudio();
+                            course360.soundClick();
+                            if ($(".btn_pop").length == $(".btn_pop.completed").length) {
+                                $('.nota').hide();
+                                $('.btn-open-info').show().addClass('animate__animated animate__pulse animate__infinite waves-effect').removeClass('disabled');
+                            }
+                        }
+                    });
+                }
+            });
+
+            $(".btn-open-info").click(function (e) {
+                e.preventDefault();
+                if (!$(this).hasClass("disabled")) {
+                    if ($(this).data("audio")) {
+                        course360.audioController.stopAllSoundsAndPlay(eval($(this).data("audio")));
+                    } else {
+                        course360.soundClick();
+                    }
+                    $(".btn-open-info").removeClass("visited");
+                    $(this).removeClass("animate__animated animate__pulse animate__infinite waves-effect");
+                    $(this).addClass("completed visited");
+                    var html = $($(this).data("popid")).html();
+                    var audio = $(this).data("audio");
+                    course360.audioController.stopAllSoundsAndPlay(audio);
+                    Swal.fire({
+                        html: html,
+                        showCloseButton: false,
+                        showCancelButton: false,
+                        showConfirmButton: true,
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: false,
+                        confirmButtonText: 'Cerrar',
+                        target: "body",
+                        width: "100%",
+                        customClass: 'pop_full',
+                        backdrop: `
+                        rgba(0, 0, 0, 0.9)
+                    `,
+                        willOpen: function () {
+                            //course360.audioController.stopAudio();
+                        },
+                        didOpen: function () {
+                            btns();
+                            if (course360.isVisited()) {
+                                $('.swal2-confirm').show().addClass('animate__animated animate__pulse animate__infinite');
+                            } else {
+                                $('.swal2-confirm').hide().addClass('animate__animated animate__pulse animate__infinite');
+                            }
+                        },
+                        didRender: function () { },
+                        didClose: function () {
+                            //course360.audioController.stopAudio();
+                        },
+                        didDestroy: function () { },
+                        willClose: function () {
+                            course360.audioController.stopAudio();
+                            course360.soundClick();
+                            if ($(".btn-open-info").length == $(".btn-open-info.completed").length) {
+
+                            }
+                        }
+                    });
+                }
+            });
+
+            function btns() {
+                var cid = document.querySelector('.swal2-container #slider2');
+                var carousel = new bootstrap.Carousel(cid, {
+                    interval: false,
+                    wrap: false
+                });
+
+                $(".swal2-container .btn_sliders").click(function (e) {
+                    e.preventDefault();
+                    if (!$(this).hasClass("disabled")) {
+                        let slideIndex = $(this).data("bs-slide-to");
+                        let textId = `#text${slideIndex + 1}`;
+                        $(".btn_sliders").removeClass("visited active").css("transform", "scale(1)");
+                        course360.soundClick();
+                        course360.audioController.stopAllSoundsAndPlay(audios_slide[slideIndex]);
+                        $(this).removeClass("animate__animated animate__pulse animate__infinite waves-effect");
+                        $(this).addClass("completed visited active").css("transform", "scale(1.15)");
+                        // if ($('#col-cards').is(':visible')) {
+                        carousel.to(slideIndex);
+                        // } else {
+                        //     mobilePop(textId);
+                        // }
+
+                        if ($(".swal2-container .btn_sliders").length == $(".swal2-container .btn_sliders.completed").length) {
+                            course360.setSlideVisited();
+                            $('.swal2-confirm').show();
+                        }
+                    }
+                });
+            }
+
+        });
+    </script>
