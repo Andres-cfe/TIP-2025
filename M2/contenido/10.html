@@ -7,6 +7,10 @@
         background-size: cover;
     }
 
+    .custom-tooltip {
+        --bs-tooltip-bg: var(--bs-white);
+        --bs-tooltip-color: var(--bs-dark);
+    }
 
     .btn-slider {
         border-radius: 25px;
@@ -54,7 +58,12 @@
             <div class="col-12 col-md-12">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-12 animate__animated animate__fadeInDown">
-                        <h4 class="text-center text-rojo-1 fw-bold">Incentivos del uso de Vehículos eléctricos</h4>
+                        <h4 class="text-center text-rojo-1 fw-bold">Incentivos del uso de Vehículos eléctricos <i
+                                class="fa-solid fa-book-open text-rojo-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-custom-class="custom-tooltip"
+                                data-bs-title="<b>Milenio.</ (2023, diciembre 22). <i>Beneficios de tener vehículos eléctricos en México</i>. Recuperado el 24 de abril de 2025, de <a href='https://www.milenio.com/negocios/beneficios-de-tener-vehiculos-electricos-en-mexico' target='_blank' class='text-verde'>https://www.milenio.com/negocios/beneficios-de-tener-vehiculos-electricos-en-mexico</a>"></i>
+                        </h4>
                         <p class="text-center fw-bold text-verde">Conducir un vehículo eléctrico también tiene
                             beneficios fiscales y económicos.</p>
                         <p class="text-center">Conoce algunos de los incentivos disponibles en México:</p>
@@ -190,6 +199,28 @@
     </div>
 </div>
 <script>
+    //Inicializa los tooltips de BS5
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        var tooltip = new bootstrap.Tooltip(tooltipTriggerEl, {
+            trigger: 'manual',
+            html: true
+        });
+        tooltipTriggerEl.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (tooltip._element.getAttribute('aria-describedby')) {
+                tooltip.hide();
+            } else {
+                tooltip.show();
+            }
+        });
+
+        document.body.addEventListener('click', function (e) {
+            if (!tooltipTriggerEl.contains(e.target) && tooltip._element.getAttribute('aria-describedby')) {
+                tooltip.hide();
+            }
+        });
+    });
     $(function () {
         "use strict";
         $('body').addClass('fake');
