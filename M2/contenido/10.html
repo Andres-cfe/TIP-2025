@@ -1,7 +1,7 @@
 <!-- PARA MAYOR INFORMACIÓN CONSULTE LA DOCUMENTACIÓN DE SWIPER EN SU PAGINA OFICIAL https://swiperjs.com/ -->
 <style>
     .fake {
-        background-image: url('img/bg18.webp');
+        background-image: url('img/bg10.webp');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -34,136 +34,17 @@
         color: var(--bs-verde);
     }
 
-    .bg-success {
-        background: linear-gradient(90deg, #78c845, #01ae9d);
-    }
-
-    .bg-aqua {
-        background: linear-gradient(90deg, #006990, #6b3284);
-    }
-
-    .bg-mango {
-        background: linear-gradient(90deg, #f36c20, #f58025);
-    }
-
-    .btn-plus {
-        cursor: pointer;
-    }
-
-    table {
-        border-collapse: collapse;
-        margin: 10px auto;
-        min-width: 720px;
-        font-size: 16px;
-    }
-
-    th {
-        border: solid 3px #fff;
-        padding: 3px;
-    }
-
-    td {
-        border: solid 3px #0d8c9b;
-        padding: 3px;
-    }
-
-    .pop_class {
-        background-color: transparent !important;
-        width: 100%;
-        border: none !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-    }
-
-    .swal2-container.bg-azul {
-        background: linear-gradient(0deg, rgb(13 119 151) 30%, rgb(13 174 162) 100%) !important;
-    }
-
-    .swal2-popup {
-        max-width: 1320px !important;
-    }
-
-    /* Agregar el icono de mano como elemento after */
-    .clickable::after {
-        content: '\f25a';
-        font-family: 'Font Awesome 6 Pro';
-        display: inline-block;
-        font-weight: 400;
-        font-size: 1.9em;
-        color: #B2105E;
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        top: 50%;
-        animation: moveLeftRight 2s infinite linear;
-        text-align: center;
-        /*transform: rotate(180deg);*/
-    }
-
-    /* Animación para moverse de izquierda a derecha */
-    @keyframes moveLeftRight {
-        0% {
-            transform: translateX(0)
-                /*rotate(180deg)*/
-            ;
-
-        }
-
-        50% {
-            transform: translateX(-10px)
-                /*rotate(180deg)*/
-            ;
-            /* Ajusta el desplazamiento horizontal */
-        }
-
-        100% {
-            transform: translateX(0)
-                /*rotate(180deg)*/
-            ;
-        }
-    }
-
-
-
-
     @media(min-width: 768px) {
         .btn-slider {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
-
-        .mano {
-            width: 50px;
-            height: 59px;
-            position: relative;
-            left: -33px;
-            top: 32px;
-        }
-
-        .table-responsive {
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .table-responsive {
-            -webkit-overflow-scrolling: touch;
-        }
     }
 
     /* Extra small devices (phones, 600px and down) */
     @media only screen and (max-width: 600px) {
-        .f80 {
-            font-size: 40px !important;
-        }
-
-        .mano {
-            width: 30px;
-            height: 34px;
-            position: relative;
-        }
-
         .cid0 {
-            height: 350px;
+            height: max-content;
         }
     }
 </style>
@@ -172,30 +53,47 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-md-12">
                 <div class="row justify-content-center">
-                    <div class="col-12 col-md-10 col-xl-8 intro">
+                    <div class="col-12 col-md-12">
                         <h4 class="text-center text-rojo-1 fw-bold">Incentivos del uso de Vehículos eléctricos</h4>
-                        <p class="text-center text-verde">Conducir un vehículo eléctrico también tiene beneficios fiscales y económicos.</p>
-                        <p>Conoce algunos de los incentivos disponibles en México:</p>
+                        <p class="text-center fw-bold text-verde">Conducir un vehículo eléctrico también tiene
+                            beneficios fiscales y económicos.</p>
+                        <p class="text-center">Conoce algunos de los incentivos disponibles en México:</p>
+                        <div class="text-center w-100 animate__animated animate__slideInLeft mb-1 mb-2 ins0"
+                            style="display: none;">
+                            <div class="border-dark text-rojo-1 px-4 py-2 border border-2 d-inline-block"
+                                style="border-radius: 0.5em;">
+                                <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en cada botón
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-12 col-md-10">
+                    <div class="col-12 col-md-8">
+                        <div class="row justify-content-center align-items-end h-100">
+                            <div class="col-12 col-md-12">
                                 <div class="row justify-content-center">
                                     <div class="col-12 ps-md-5">
                                         <div class="row justify-content-center justify-content-md-start">
-                                            <div class="col-6 col-md-4 col-lg-3 mb-2 mb-md-0 px-md-0">
+                                            <div class="col-4 col-md-4 col-lg-1 mb-2 mb-md-0 px-md-2 px-2">
                                                 <div class="card btn-slider px-3 py-2 h-100 disabled select visited"
                                                     data-slide="0">
                                                     <div class="row justify-content-center align-items-center h-100">
-                                                        <div class="col-12 text-center bree fw-bold">Investigación
+                                                        <div class="col-12 text-center bree fw-bold">1
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-md-4 col-lg-3 mb-2 mb-md-0 px-md-0">
-                                                <div class="card btn-slider border-0 px-3 py-2 h-100 " data-slide="1">
+                                            <div class="col-4 col-md-4 col-lg-1 mb-2 mb-md-0 px-md-2 px-2">
+                                                <div class="card btn-slider border-0 px-3 py-2 h-100  disabled"
+                                                    data-slide="1">
                                                     <div class="row justify-content-center align-items-center h-100">
-                                                        <div class="col-12 text-center bree fw-bold">Riesgo</div>
+                                                        <div class="col-12 text-center bree fw-bold">2</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 col-md-4 col-lg-1 mb-2 mb-md-0 px-md-2 px-2">
+                                                <div class="card btn-slider border-0 px-3 py-2 h-100 disabled"
+                                                    data-slide="2">
+                                                    <div class="row justify-content-center align-items-center h-100">
+                                                        <div class="col-12 text-center bree fw-bold">3</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -207,57 +105,67 @@
                                                 <div class="swiper-slide visited completed">
                                                     <div class="card st-card-slide line-1 px-3 py-3 py-md-5">
                                                         <div class="row justify-content-center align-items-center">
-                                                            <div class="col-12 col-md-9">
-                                                                <p>Investigación a nuestros candidatos en temas de:</p>
+                                                            <div class="col-12 col-md-12">
                                                                 <ul class="text-start list-arrow">
-                                                                    <li>Referencias laborales.</li>
-                                                                    <li>Personales.</li>
-                                                                    <li>Redes sociales.</li>
-                                                                    <li>Documentos para contratación.</li>
-                                                                    <li>Historial crediticio.</li>
+                                                                    <p><b class="text-primary">Descuentos</b> en casetas
+                                                                        de cobro en carreteras de la
+                                                                        CDMX y EDOMEX.</p>
+                                                                    <p>Si compras un auto nuevo eléctrico o híbrido,
+                                                                        puedes
+                                                                        aprovechar la exención del pago de impuestos
+                                                                        federales, es decir, <b class="text-primary">no
+                                                                            pagas el impuesto</b> que
+                                                                        normalmente aplicaría por adquirir un automóvil
+                                                                        nuevo.</p>
+                                                                    <p>Puedes deducir el 25% del ISR al invertir en
+                                                                        bicicletas o motocicletas eléctricas, siempre
+                                                                        que
+                                                                        funcionen con baterías recargables.</p>
                                                                 </ul>
-                                                            </div>
-                                                            <div class="col- col-md-3 d-none d-md-block">
-                                                                <img src="img/19.1.webp" class="img-fluid"
-                                                                    loading="lazy" alt="Icono" />
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <div class="card st-card-slide line-2 px-3 py-3 py-md-5 text-white">
+                                                    <div class="card st-card-slide line-1 px-3 py-3 py-md-5">
                                                         <div class="row justify-content-center align-items-center">
-                                                            <div class="col-7 col-md-3 d-none d-md-block">
-                                                                <img src="img/19.2.webp" class="img-fluid"
-                                                                    loading="lazy" alt="Icono" />
+                                                            <div class="col-12 col-md-12">
+                                                                <ul class="text-start list-arrow">
+                                                                    <li><b class="text-primary">Puedes deducir</b> hasta
+                                                                        $285 diarios de ISR por cada
+                                                                        automóvil que uses o rentes, siempre que sea
+                                                                        eléctrico, híbrido (con motor eléctrico y de
+                                                                        gasolina) o funcione con hidrógeno.</li>
+                                                                    <li>Si compras un vehículo eléctrico o híbrido, en
+                                                                        los
+                                                                        estados donde aplica, no pagas el impuesto de
+                                                                        tenencia <b class="text-primary">durante los
+                                                                            primeros 5 años</b> y después
+                                                                        recibes un 50% de descuento en los siguientes 5
+                                                                        años.</li>
+                                                                </ul>
                                                             </div>
-                                                            <div class="col-12 col-md-9">
-                                                                <div
-                                                                    class="bg-success d-none animate__animated animate__bounceInDown py-3 px-3 rounded my-2">
-                                                                    <span><b class="text-white">Básico:</b> Riesgo bajo
-                                                                        y medio​</span>
-                                                                </div>
-                                                                <div
-                                                                    class="bg-aqua d-none animate__animated animate__bounceInDown py-3 px-3 rounded my-2">
-                                                                    <span><b class="text-white">Completo:</b> Riesgo
-                                                                        alto (con Buró de Crédito)</span>
-                                                                </div>
-                                                                <p class="text-center p0 d-none">El tiempo de entrega es
-                                                                    de 3 días
-                                                                    hábiles y no aplica para Promotor.​</p>
-                                                                <div
-                                                                    class="w-100 d-flex justify-content-center align-items-center">
-                                                                    <div class="col-12 col-md-8">
-                                                                        <div class="bg-mango py-3 px-3 rounded my-2 btn-plus d-none animate__animated animate__bounceInRight"
-                                                                            data-backdrop="bg-azul">
-                                                                            <img src="img/19.3.webp"
-                                                                                class="img-fluid mano" loading="lazy"
-                                                                                alt="mano" /> <span
-                                                                                class="amor fw-bold">Consulta aquí
-                                                                                los niveles de riesgo</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="card st-card-slide line-1 px-3 py-3 py-md-5">
+                                                        <div class="row justify-content-center align-items-center">
+                                                            <div class="col-12 col-md-12">
+                                                                <ul class="text-start list-arrow">
+                                                                    <li>Los vehículos eléctricos <b
+                                                                            class="text-primary">no están sujetos al
+                                                                            programa Hoy No Circula</b> en CDMX y otros
+                                                                        estados.</li>
+                                                                    <li>Si <b class="text-primary">renuevas</b> tu
+                                                                        camión o vehículo de carga por uno
+                                                                        eléctrico, puedes recibir un bono de hasta
+                                                                        $500,000.
+                                                                        Este apoyo es parte de un programa que impulsa
+                                                                        el
+                                                                        uso de transporte de mercancías con bajas o cero
+                                                                        emisiones para cuidar el medio ambiente.</li>
+                                                                </ul>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -269,176 +177,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="d-none">
-    <div id="pop0" class="w-100">
-        <div class="container-fluid py-md-4 py-2">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-12 col-md-12">
-                    <p class="text-white text-center">En la siguiente tabla podrás consultar los niveles de riesgo por
-                        cada puesto:</p>
-                </div>
-                <div class="col-12 col-md-12">
-                    <div class="table-container">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="bg-azul text-white text-center border border-3 border-white">
-                                    <tr>
-                                        <th>NOMBRE POSICION</th>
-                                        <th>Códigos de evaluación</th>
-                                        <th>Códigos de evaluación</th>
-                                        <th>Códigos de evaluación</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="bg-white border border-2 border-dark">
-                                    <tr>
-                                        <td>Administrador Operaciones Servicio</td>
-                                        <td>Campo</td>
-                                        <td>Alto</td>
-                                        <td>Completo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Administrador Sucursal</td>
-                                        <td>Campo</td>
-                                        <td>Alto</td>
-                                        <td>Completo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Asesor CI</td>
-                                        <td>Campo</td>
-                                        <td>Medio</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Asesor Comercial</td>
-                                        <td>Campo</td>
-                                        <td>Bajo</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Auxiliar Operaciones Servicio</td>
-                                        <td>Campo</td>
-                                        <td>Alto</td>
-                                        <td>Completo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cajero Sucursal / 2 Tiempo</td>
-                                        <td>Campo</td>
-                                        <td>Medio</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cajero Comodín</td>
-                                        <td>Campo</td>
-                                        <td>Alto</td>
-                                        <td>Completo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Coordinador Cobranza</td>
-                                        <td>Campo</td>
-                                        <td>Bajo</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ejecutivo Servicio a Cliente Oficina</td>
-                                        <td>Campo</td>
-                                        <td>Alto</td>
-                                        <td>Completo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ejecutivo Servicio a Cliente Sucursal</td>
-                                        <td>Campo</td>
-                                        <td>Alto</td>
-                                        <td>Completo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Formador Regional</td>
-                                        <td>Campo</td>
-                                        <td>Bajo</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gerente Oficina de Servicios</td>
-                                        <td>Campo</td>
-                                        <td>Alto</td>
-                                        <td>Completo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gerente Regional Operaciones Servicio</td>
-                                        <td>Campo</td>
-                                        <td>Medio</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gerente Ventas Yastás</td>
-                                        <td>Campo</td>
-                                        <td>Medio</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gestor Cobranza</td>
-                                        <td>Campo</td>
-                                        <td>Medio</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Líder CM / CCR</td>
-                                        <td>Campo</td>
-                                        <td>Medio</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Líder Personas Negocio</td>
-                                        <td>Campo</td>
-                                        <td>Bajo</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Líder Soluciones Financieras</td>
-                                        <td>Campo</td>
-                                        <td>Medio</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Promotor CCR / CM / Entrenamiento</td>
-                                        <td>Campo</td>
-                                        <td>Promotor</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Representante Personas Regional</td>
-                                        <td>Campo</td>
-                                        <td>Medio</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Subdirector Regional VTS</td>
-                                        <td>Campo</td>
-                                        <td>Alto</td>
-                                        <td>Completo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Subdirector Ventas Yastás</td>
-                                        <td>Campo</td>
-                                        <td>Medio</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Subgerente CI / Líder CI</td>
-                                        <td>Campo</td>
-                                        <td>Medio</td>
-                                        <td>Básico</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="col-7 col-md-4">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-12 col-md-10">
+                                <img src="img/10.1.webp" class="img-fluid interactive" loading="lazy" alt="" />
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -447,15 +193,15 @@
     $(function () {
         "use strict";
         $('body').addClass('fake');
+        $('#template-instruction').removeClass('show');
         const audio_m26 = course360.createSound('audio/audio_m26.mp3');
-        const audio_m088 = course360.createSound('audio/audio_m088.mp3');
-        const audio_m089 = course360.createSound('audio/audio_m089.mp3');
-        const audio_m090 = course360.createSound('audio/audio_m090.mp3');
 
         audio_m26.on('end', function () {
+            $('.btn-slider').first().removeClass("disabled animate__animated animate__pulse animate__infinite").click();
             $(".btn-slider").removeClass("disabled").addClass("animate__animated animate__pulse animate__infinite");
-            $(".btn-slider").first().removeClass("animate__animated animate__pulse animate__infinite");
-            course360.audioController.stopAllSoundsAndPlay(audios[0]);
+            $('.ins0').fadeIn();
+            // $(".btn-slider").first().removeClass("animate__animated animate__pulse animate__infinite");
+            // course360.audioController.stopAllSoundsAndPlay(audios[0]);
         });
 
         course360.audioController.stopAllSoundsAndPlay(audio_m26);
@@ -473,8 +219,9 @@
 
         //Audios Slide
         const paths = [
-            "audio/audio_m086.mp3",
-            "audio/audio_m087.mp3"
+            "audio/audio_m27.mp3",
+            "audio/audio_m28.mp3",
+            "audio/audio_m29.mp3"
         ];
 
         let audios = [];
@@ -482,19 +229,11 @@
             audios.push(course360.createSound(element));
         });
 
-        audios[1].on('end', function () {
-            course360.audioController.stopAllSoundsAndPlay(audio_m088);
-            $('.bg-success, .bg-aqua').removeClass('d-none');
-        });
-
-        audio_m088.on('end', function () {
-            course360.audioController.stopAllSoundsAndPlay(audio_m089);
-            $('.p0').removeClass('d-none');
-        });
-
-        audio_m089.on('end', function () {
-            btn_plus();
-        });
+        let imgs = [
+            "img/10.1.webp",
+            "img/10.2.webp",
+            "img/10.3.webp"
+        ]
 
         $('.btn-slider').click(function (e) {
             const indexAudio = $(this).data("slide");
@@ -504,65 +243,14 @@
             course360.audioController.stopAllSoundsAndPlay(audios[indexAudio]);
             const slideIndex = $(this).data('slide');
             mySwiper.slideTo(slideIndex);
+            $('.interactive').addClass('animate__animated animate__flipInY').attr('src', imgs[slideIndex]);
+            $('.interactive').on('animationend', function () {
+                $(this).removeClass('animate__animated animate__flipInY');
+            });
             if ($(".btn-slider").length == $(".btn-slider.visited").length) {
-                //course360.setSlideVisited();
+                course360.setSlideVisited();
             }
         });
-        function btn_plus() {
-            $('.btn-plus').addClass("animate__animated animate__pulse animate__infinite").removeClass("disabled").removeClass("d-none");
-
-            $(".btn-plus").click(function () {
-                course360.audioController.stopAllSoundsAndPlay(audio_m090);
-
-                audio_m090.on("end", function () {
-                    $('.swal2-confirm').show().addClass('bg-mango text-white fw-bold animate__animated animate__pulse animate__infinite waves-effect');
-                });
-
-                const backdrop = $(this).data("backdrop");
-
-                if (!$(this).hasClass('disabled')) {
-                    $(this).removeClass('animate__animated animate__pulse animate__infinite waves-effect');
-                    const html = $('#pop0').html();
-                    Swal.fire({
-                        html: html,
-                        target: 'body',
-                        customClass: 'pop_class ',
-                        confirmButtonText: 'Cerrar',
-                        showConfirmButton: true,
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                        focusConfirm: false,
-                        didOpen: () => {
-                            $('.swal2-confirm').hide();
-                            $(".swal2-container.swal2-center.swal2-backdrop-show").addClass(backdrop);
-                            if (window.matchMedia("(max-width: 768px)").matches) {
-                                $('.table-responsive').addClass('clickable');
-                            }
-
-                            $('.swal2-confirm').addClass('animate__animated animate__pulse naranja animate__infinite');
-
-                            const swalContent = Swal.getContainer();
-
-                            // Detectar clics o deslizamientos dentro del modal
-                            Swal.getContainer().addEventListener('click', function () {
-                                $('.table-responsive').removeClass('clickable');
-                            });
-
-                            Swal.getContainer().addEventListener('touchstart', function () {
-                                $('.table-responsive').removeClass('clickable');
-                            });
-                        },
-                        didClose: scoIsComplete
-                    });
-                }
-                function scoIsComplete() {
-                    course360.audioController.stopAudio();
-                    course360.setSlideVisited();
-                }
-
-            });
-        }
-
 
     });
 </script>

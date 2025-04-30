@@ -189,9 +189,9 @@
         color: var(--bs-primary);
     }
 </style>
-<div class="w-100 page-sco" id="sco15">
+<div class="w-100 page-sco h-100 pt-4 pt-md-0" id="sco15">
     <div class="container-fluid g-0">
-        <div class="row">
+        <div class="row justify-content-center align-items-center h-100">
             <div class="col-12">
                 <div class="row">
                     <div class="col-12 text-center px-4 animate__animated animate__backInLeft">
@@ -321,7 +321,7 @@
                     <div class="col-7 col-md-4">
                         <img src="img/05.1.webp" class="img-fluid" loading="lazy" alt="" />
                     </div>
-                    <div class="col-1 col-md-8">
+                    <div class="col-12 col-md-8">
                         <p class="text-center fw-bold text-primary">Análisis respaldado por datos técnicos​</p>
                         <p>Este análisis fue realizado con base en datos del modelo <b class="text-primary">HBEFA,</b>
                             considerando un vehículo de
@@ -416,9 +416,13 @@
             // Validación del audio
             let audio = null;
             const audioData = $element.data("sound");
+            console.log(audioData);
             if (audioData) {
                 try {
                     audio = eval(audioData);
+                    if (audio) {
+                        course360.audioController.stopAllSoundsAndPlay(audio);
+                    }
                 } catch (error) {
                     console.error(`Error al evaluar el audio: ${audioData}`, error);
                 }
