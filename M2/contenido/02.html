@@ -161,18 +161,18 @@
 
         course360.audioController.stopAllSoundsAndPlay(audio_m01);
         audio_m01.on("end", function () {
-            course360.audioController.stopAllSoundsAndPlay(audio_m02);
-            gsap.fromTo('#card1', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 });
+            course360.audioController.stopAllSoundsAndPlay(audio_m03);
+            gsap.fromTo('#card0', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 });
         });
 
         audio_m02.on("end", function () {
-            gsap.fromTo('#card0', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 });
-            course360.audioController.stopAllSoundsAndPlay(audio_m03);
+            gsap.fromTo('#card2', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 });
+            course360.audioController.stopAllSoundsAndPlay(audio_m04);
         });
 
         audio_m03.on("end", function () {
-            gsap.fromTo('#card2', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 });
-            course360.audioController.stopAllSoundsAndPlay(audio_m04);
+            gsap.fromTo('#card1', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 });
+            course360.audioController.stopAllSoundsAndPlay(audio_m02);
         });
 
         audio_m04.on("end", function () {
