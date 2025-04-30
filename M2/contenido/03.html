@@ -19,6 +19,7 @@
         cursor: pointer;
         transform-box: content-box;
         transform-origin: center !important;
+        animation: auramax 1.7s infinite ease-in-out;
     }
 
     .btn_svg.disabled {
@@ -34,7 +35,7 @@
         transition: all 0.5s ease;
     }
 
-    @keyframes aura {
+    @keyframes auramax {
         0% {
             box-shadow: 0 0 0 20px rgba(var(--bs-danger-rgb), 0);
             transform: scale(1);
@@ -59,6 +60,60 @@
 
     .slide.active {
         display: block;
+    }
+
+
+    .c0::before {
+        content: "1";
+        position: absolute;
+        top: 65%;
+        left: 75%;
+        transform: translate(-55%, -75%);
+        font-size: 10rem;
+        font-weight: bold;
+        color: #EC1F24;
+        opacity: 0.2;
+        z-index: 0;
+    }
+
+
+    .c1::before {
+        content: "2";
+        position: absolute;
+        top: 65%;
+        left: 75%;
+        transform: translate(-55%, -75%);
+        font-size: 10rem;
+        font-weight: bold;
+        color: #f5c331;
+        opacity: 0.2;
+        z-index: 0;
+    }
+
+    .c2::before {
+        content: "3";
+        position: absolute;
+        top: 65%;
+        left: 75%;
+        transform: translate(-55%, -75%);
+        font-size: 10rem;
+        font-weight: bold;
+        color: #95cb4e;
+        opacity: 0.2;
+        z-index: 0;
+    }
+
+    .c3::before {
+        content: "4";
+        position: absolute;
+        top: 65%;
+        left: 75%;
+        transform: translate(-55%, -75%);
+        font-size: 10rem;
+        font-weight: bold;
+        color: #00b928;
+        opacity: 0.2;
+        z-index: 0;
     }
 
     .red {
@@ -127,7 +182,7 @@
                                 <div class="wslides">
                                     <div class=" inslides pt-md-2 pt-lg-5">
                                         <div class="slide animate__animated animate__flipInX">
-                                            <div class="card border-0 border rounded shadow">
+                                            <div class="card border-0 border rounded shadow c0">
                                                 <div class="card-body my-md-5 mx-md-3 my-2 mx-2">
                                                     <div class="row justify-content-center align-items-center">
                                                         <div class="col-12 col-md-10">
@@ -147,7 +202,7 @@
                                             </div>
                                         </div>
                                         <div class="slide animate__animated animate__flipInX">
-                                            <div class="card border-0 border rounded shadow">
+                                            <div class="card border-0 border rounded shadow c1">
                                                 <div class="card-body my-md-5 mx-md-3 my-2 mx-2">
                                                     <div class="row justify-content-center align-items-center">
                                                         <div class="col-12 col-md-10">
@@ -168,7 +223,7 @@
                                             </div>
                                         </div>
                                         <div class="slide animate__animated animate__flipInX">
-                                            <div class="card border-0 border rounded shadow">
+                                            <div class="card border-0 border rounded shadow c2">
                                                 <div class="card-body my-md-5 mx-md-3 my-2 mx-2">
                                                     <div class="row justify-content-center align-items-center">
                                                         <div class="col-12 col-md-10">
@@ -187,7 +242,7 @@
                                             </div>
                                         </div>
                                         <div class="slide animate__animated animate__flipInX">
-                                            <div class="card border-0 border rounded shadow">
+                                            <div class="card border-0 border rounded shadow c3">
                                                 <div class="card-body my-md-5 mx-md-3 my-2 mx-2">
                                                     <div class="row justify-content-center align-items-center">
                                                         <div class="col-12 col-md-10">
@@ -228,9 +283,9 @@
 
             // audio_m05.on("end", function () {
             setTimeout(function () {
-                $("#btn0").removeClass('disabled');
-                $("#btn0").click();
-            }, 500);
+                // $("#btn0").removeClass('disabled');
+                // $("#btn0").click();
+            }, 800);
             // });
 
             const paths = [
@@ -255,6 +310,15 @@
                         svg.removeAttr("width").removeAttr("height");
                         attachClickHandlers(); // Attach click handlers after SVG is loaded
                         animateButtons();
+
+                        // Validate if the SVG is successfully added to the DOM
+                        if ($("#svg-container").find("svg").length > 0) {
+                            console.log("SVG loaded successfully into the DOM.");
+                            $("#btn0").removeClass('disabled');
+                            $("#btn0").click();
+                        } else {
+                            console.error("Failed to load SVG into the DOM.");
+                        }
                     },
                     "xml"
                 );

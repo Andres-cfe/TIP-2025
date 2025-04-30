@@ -62,6 +62,7 @@
 <script>
   $(function () {
     $('body').addClass('fake');
+    $('#template-instruction').removeClass('show');
     $('.fake').waitForImages().done(function () {
       if (!course360.isVisited() || course360.isDebug) {
         tour();

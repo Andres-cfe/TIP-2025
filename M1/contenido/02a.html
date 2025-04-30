@@ -51,6 +51,7 @@
     $(function () {
         "use strict";
         $('body').addClass('fake');
+        $('#template-instruction').removeClass('show');
         const audio_h01 = course360.createSound('audio/audio_h01.mp3');
         const audio_h02 = course360.createSound('audio/audio_h02.mp3');
         course360.audioController.stopAllSoundsAndPlay(audio_h01);
