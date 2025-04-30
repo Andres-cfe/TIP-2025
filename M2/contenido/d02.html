@@ -1,0 +1,295 @@
+<style>
+    .fake {
+        background-image: url(img/p2/bg3.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #svg-container {
+        width: 100%;
+        height: auto;
+    }
+
+    #svg-container svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .btn_svg {
+        cursor: pointer;
+        transform-box: content-box;
+        transform-origin: center !important;
+    }
+
+    .txts {
+        box-shadow: 0 0 15px rgba(0,0,0,.5);
+        display: none;
+    }
+
+    .bg-verde2 {
+        background-color: #00c40e;
+    }
+
+    .btn_svg {
+        opacity: 1!important;
+    }
+
+    .btn_svg.selected .cambio_color path {
+        fill: #00c40e;
+        transition: fill 0.3s ease; /* Transición suave al cambiar de color */
+    }
+
+    .btn_svg.selected .cambio_color {
+        fill: #00c40e;
+        transition: fill 0.3s ease; /* Transición suave al cambiar de color */
+    }
+
+    .btn_svg.selected .color_cruz {
+        fill: #393c3d;
+        transition: fill 0.3s ease; /* Transición suave al cambiar de color */
+    }
+
+    .btn-pop {
+        cursor: pointer;
+    }
+</style>
+<div class="page-sco full w-100">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="row justify-content-center">
+                    <div class="col-12 mb-3 animate__animated animate__lightSpeedInLeft">
+                        <h3 class="text-rojo-1 fw-bold">¿Cómo TIP México puede ayudarte en esta transición?</h3>
+                        <p class="mb-0">A través de su programa <strong class="text-verde">EcoLeasing<sup>®</sup></strong>, <strong>TIP México</strong> impulsa la adopción de vehículos eléctricos e híbridos mediante esquemas de arrendamiento flexibles y accesibles para empresas.</p>
+                    </div>
+                    <div class="col-12 ins0 animate__animated animate__zoomIn text-center mb-3" style="display: none;">
+                        <div class="text-rojo-1 bg-white border border-2 border-dark rounded w-auto d-inline-block px-2">
+                            <div class="d-flex flex-row py-2">
+                                <i class="fa-light fa-arrow-pointer mx-2"></i>
+                                <span>Da clic en cada Botón</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="row justify-content-center align-items-center">
+                            <div id="col-apa" class="col-12 col-md-10 order-md-2 order-lg-1 col-lg-6 col-apa0 d-none">
+                                <div class="grupo-txt">
+                                    <div id="txts1" class="txts card bg-white border-0 rounded-3 p-3">
+                                        <p class="mb-0 mt-5 text-start mt-md-0">A través de su <strong class="text-rojo-1">innovador programa</strong> <strong
+                                                class="text-verde">EcoLeasing<sup>®</sup></strong>, TIP México ofrece soluciones integrales para que empresas y
+                                            particulares puedan acceder a vehículos híbridos y eléctricos <strong class="text-rojo-1">sin la necesidad de
+                                                realizar grandes inversiones iniciales</strong>.</p>
+                                    </div>
+                                    <div id="txts2" class="txts card bg-white border-0 rounded-3 p-3">
+                                        <p class="mb-0 mt-5 text-start mt-md-0"><strong class="text-verde">EcoLeasing<sup>®</sup></strong> permite arrendar una amplia gama de vehículos
+                                            ecológicos con <strong class="text-rojo-1">beneficios económicos, fiscales y ambientales</strong> que hacen que la
+                                            movilidad sostenible sea una realidad accesible.</p>
+                                    </div>
+                                    <div id="txts3" class="txts card bg-white border-0 rounded-3 px-0 py-3">
+                                        <div class="card-body bg-transparent border-0 rounded-0 shadow-none p-3 mt-5 text-start mt-md-0">
+                                            <p class="mb-0">Con este esquema, las empresas pueden deducir hasta un <strong class="text-rojo-1">41%</strong> más que con un vehículo de combustión.</p>
+                                        </div>
+                                        <div class="card-footer bg-verde2 text-white shadow-none border-0 rounded-0 p-3">
+                                            <div class="d-flex flex-row justify-content-center align-items-center">
+                                                <img src="img/p2/03.png" class="img-fluid me-3">
+                                                <div class="link-page">
+                                                    <p class="mb-0"><em>Te invitamos a ingresar en:</em></p>
+                                                    <a class="text-white text-decoration-none" href="https://www.tipmexico.com/leasing/ecoleasing/" target="_blank">Ecoleasing de TIP México</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-8 col-lg-6 order-md-1 order-lg-2 mb-md-3 mb-lg-0">
+                                <div id="svg-container"></div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center justify-content-md-start mt-md-3 mt-lg-0">
+                            <div class="col-4 col-md-12 col-lg-6 text-center">
+                                <div class="btn-pop disabled animate__animated animate__pulse animate__infinite" data-popid="#pop0" data-audio="audio_m58" style="display: none;border-radius: 100%;">
+                                    <img src="img/p2/02.png" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-none">
+    <div id="pop0">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-5 col-md-4 col-lg-3 mb-3 mb-md-0">
+                    <div class="personaje m1 mx-auto"></div>
+                </div>
+                <div class="col-12 col-md-8 col-lg-9 text-start">
+                    <p class="mb-0">Además, TIP México acompaña a sus clientes en cada paso, <strong class="text-rojo-1">ofreciendo asesoría personalizada</strong> para elegir el vehículo que mejor se adapte a sus necesidades operativas, siempre promoviendo la eficiencia y la reducción de la huella de carbono.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        "use strict";
+
+        $('body').addClass('fake');
+
+        $('#template-instruction').removeClass('show');
+
+        const audio_m37 = course360.createSound('audio/audio_m37.mp3');
+        const audio_m58 = course360.createSound('audio/audio_m58.mp3');
+
+        const paths = [
+            "audio/audio_m38.mp3",
+            "audio/audio_m39.mp3",
+            "audio/audio_m40.mp3"
+        ];
+    
+        let audios = [];
+    
+        paths.forEach(function (element) {
+            audios.push(course360.createSound(element));
+        });
+
+        course360.audioController.stopAllSoundsAndPlay(audio_m37);
+
+        audio_m37.on('end',function(){
+            $('.ins0').show();
+            $('[id*="xbtn"]').removeClass('disabled');
+        });
+
+        audio_m58.on('play',function(){
+            $('.m1').removeClass('stop').addClass('play');
+        });
+
+        audio_m58.on('end',function(){
+            $('.m1').removeClass('play').addClass('stop');
+        });
+
+        function loadSVG() {
+            $.get('img/p2/01.svg', function (data) {
+                var svg = $(data).find('svg');
+                $('#svg-container').html(svg);
+                attachClickHandlers(); // Attach click handlers after SVG is loaded
+                // Remove width and height attributes to make SVG responsive
+                svg.removeAttr('width').removeAttr('height');
+                animateButtons();
+            }, 'xml');
+        }
+
+        function handleButtonClick(buttonId, textId, audioIndex, nextButtonId) {
+            $(buttonId).addClass("animate__animated animate__pulse animate__infinite btn_svg disabled");
+            $(buttonId).find('[id*="xgreen"]').addClass('cambio_color');
+            $(buttonId).find('[id*="xcolor"]').addClass('color_cruz');
+            $(buttonId).click(function () {
+                course360.soundClick();
+                $(".col-apa0").addClass('d-md-block');
+                // Detener todas las animaciones activas
+                gsap.globalTimeline.clear();
+                // Hide all text sections
+                $('.txts').hide();
+                // Show the selected text section
+                gsap.fromTo(textId, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, display: 'block' });
+                $('.btn_svg').removeClass('selected');
+                $(buttonId).removeClass('animate__animated animate__pulse animate__infinite').addClass('selected visited');
+                // Play the corresponding audio
+                course360.audioController.stopAllSoundsAndPlay(audios[audioIndex]);
+    
+                if ($("#col-apa").css('display') == 'none') {
+                    mobilePop(textId,audioIndex);
+                }else{
+                    objectIsCompleted();
+                }
+    
+                // Habilitar el siguiente botón después de hacer clic
+                if (nextButtonId) {
+                    $(nextButtonId).removeClass('disabled');
+                }
+            });
+        }
+
+        function attachClickHandlers() {
+            handleButtonClick('#xbtn0', '#txts1', 0);
+            handleButtonClick('#xbtn1', '#txts2', 1);
+            handleButtonClick('#xbtn2', '#txts3', 2);
+            // Add more buttons as needed
+        }
+
+        function animateButtons() {
+            const buttons = ['#xbtn1', '#xbtn2', '#xbtn3'];
+            buttons.forEach((button, index) => {
+                gsap.from(button, {
+                    opacity: 0,
+                    y: -20,
+                    duration: 0.5,
+                    delay: index * 0.2
+                });
+            });
+        }
+
+        function mobilePop(textId,audioIndex) {
+            let numId = textId.replace(/\D/g, ""); // Elimina todo lo que no sea número
+            let currentAudio = audios[audioIndex];
+            Swal.fire({
+                html: $(textId).html(),
+                target: 'body',
+                showConfirmButton: false,
+                showCloseButton: true,
+                customClass: "swal-class",
+                didOpen: () => {
+                    if(!course360.isVisited()){
+                        Swal.getActions().style.display = "none";
+                        audios[audioIndex].on('end', function () {
+                            Swal.getActions().style.display = "flex";
+                        });
+                    }
+                },
+                willClose: () => { course360.audioController.stopAudio(); objectIsCompleted(); }
+            });
+        }
+
+        function objectIsCompleted() {
+            if ($(".btn_svg").length === $(".btn_svg.visited").length) {
+                $('.btn-pop').show().removeClass('disabled').addClass('d-inline-block');
+            }
+        }
+
+
+        $('.btn-pop').click(function (e) {
+            e.preventDefault();
+            course360.audioController.stopAllSoundsAndPlay(eval($(this).data('audio')));
+            $(this).removeClass('animate__animated animate__pulse naranja animate__infinite');
+            $(this).addClass('visited');
+            const html = $($(this).data('popid')).html();
+            Swal.fire({
+                html: html,
+                target: 'body',
+                customClass: 'pop_class',
+                showConfirmButton: false,
+                showCloseButton: true,
+                allowOutsideClick: false,
+                allowEnterKey: false,
+                allowEscapeKey: false,
+                willOpen: null,
+                didOpen: function () {
+                    
+                },
+                willClose: null,
+                didClose: function () {
+                    $('.m1').removeClass('play').addClass('stop');
+                    course360.audioController.stopAudio();
+                    course360.setSlideVisited();
+                },
+                didRender: null,
+                didDestroy: null
+            });
+        });
+
+        loadSVG();
+    });
+</script>
