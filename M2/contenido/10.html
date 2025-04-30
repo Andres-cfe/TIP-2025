@@ -62,7 +62,7 @@
                                 class="fa-solid fa-book-open text-rojo-2" data-bs-toggle="tooltip"
                                 data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                                 data-bs-custom-class="custom-tooltip"
-                                data-bs-title="<b>Milenio.</ (2023, diciembre 22). <i>Beneficios de tener vehículos eléctricos en México</i>. Recuperado el 24 de abril de 2025, de <a href='https://www.milenio.com/negocios/beneficios-de-tener-vehiculos-electricos-en-mexico' target='_blank' class='text-verde'>https://www.milenio.com/negocios/beneficios-de-tener-vehiculos-electricos-en-mexico</a>"></i>
+                                data-bs-title="<b>Milenio.</b> (2023, diciembre 22). <i>Beneficios de tener vehículos eléctricos en México</i>. Recuperado el 24 de abril de 2025, de <a href='https://www.milenio.com/negocios/beneficios-de-tener-vehiculos-electricos-en-mexico' target='_blank' class='text-verde'>https://www.milenio.com/negocios/beneficios-de-tener-vehiculos-electricos-en-mexico</a>"></i>
                         </h4>
                         <p class="text-center fw-bold text-verde">Conducir un vehículo eléctrico también tiene
                             beneficios fiscales y económicos.</p>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-8 animate__animated animate__fadeInLeft">
-                        <div class="row justify-content-center align-items-end h-100">
+                        <div class="row justify-content-center align-items-center h-100">
                             <div class="col-12 col-md-12">
                                 <div class="row justify-content-center">
                                     <div class="col-12 ps-md-5">
@@ -116,20 +116,20 @@
                                                         <div class="row justify-content-center align-items-center">
                                                             <div class="col-12 col-md-12">
                                                                 <ul class="text-start list-arrow">
-                                                                    <p><b class="text-primary">Descuentos</b> en casetas
+                                                                    <li><b class="text-primary">Descuentos</b> en casetas
                                                                         de cobro en carreteras de la
-                                                                        CDMX y EDOMEX.</p>
-                                                                    <p>Si compras un auto nuevo eléctrico o híbrido,
+                                                                        CDMX y EDOMEX.</li>
+                                                                    <li>Si compras un auto nuevo eléctrico o híbrido,
                                                                         puedes
                                                                         aprovechar la exención del pago de impuestos
                                                                         federales, es decir, <b class="text-primary">no
                                                                             pagas el impuesto</b> que
                                                                         normalmente aplicaría por adquirir un automóvil
-                                                                        nuevo.</p>
-                                                                    <p>Puedes deducir el 25% del ISR al invertir en
+                                                                        nuevo.</li>
+                                                                    <li>Puedes deducir el 25% del ISR al invertir en
                                                                         bicicletas o motocicletas eléctricas, siempre
                                                                         que
-                                                                        funcionen con baterías recargables.</p>
+                                                                        funcionen con baterías recargables.</li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -199,7 +199,7 @@
     </div>
 </div>
 <script>
-    //Inicializa los tooltips de BS5
+    // Inicializa los tooltips de BS5
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.forEach(function (tooltipTriggerEl) {
         var tooltip = new bootstrap.Tooltip(tooltipTriggerEl, {
@@ -215,11 +215,20 @@
             }
         });
 
-        document.body.addEventListener('click', function (e) {
-            if (!tooltipTriggerEl.contains(e.target) && tooltip._element.getAttribute('aria-describedby')) {
+        var hideTooltip = function () {
+            if (tooltip._element.getAttribute('aria-describedby')) {
                 tooltip.hide();
             }
+        };
+
+        document.body.addEventListener('click', function (e) {
+            if (!tooltipTriggerEl.contains(e.target)) {
+                hideTooltip();
+            }
         });
+
+        document.querySelector('#next-btn')?.addEventListener('click', hideTooltip);
+        document.querySelector('#prev-btn')?.addEventListener('click', hideTooltip);
     });
     $(function () {
         "use strict";

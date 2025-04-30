@@ -91,6 +91,24 @@
         cursor: pointer;
     }
 
+    @keyframes aura {
+        0% {
+            box-shadow: 0 0 0 20px rgba(var(--bs-danger-rgb), 0);
+            transform: scale(1);
+        }
+
+        50% {
+            box-shadow: 0 0 0 0 rgba(var(--bs-danger-rgb), 0.4);
+            transform: scale(1.1);
+        }
+
+        100% {
+            box-shadow: 0 0 0 20px rgba(var(--bs-danger-rgb), 0);
+            transform: scale(1);
+        }
+    }
+
+
     .bg-custom {
         background: linear-gradient(90deg, #85878b 0%, #474849 100%);
     }
@@ -178,13 +196,14 @@
                                 </div>
                             </div>
                             <div id="slide2" class="col-12 col-md-12 inner animate__animated animate__flipInY"
-                                style="display: block;">
+                                style="display: none;">
                                 <div class="row justify-content-center align-items-center">
                                     <div class="col-12 col-md-12">
                                         <img src="img/11.5.webp" class="img-fluid" loading="lazy" alt="Mapa" />
                                         <div class="responsive-icon">
                                             <img src="img/11.7.webp" class="img-fluid btn-open-info" data-popid="#pop1"
-                                                data-audio="audio_m33" loading="lazy" alt="Chicheta" style="display: none;" />
+                                                data-audio="audio_m33" loading="lazy" alt="Chicheta"
+                                                style="display: none;" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-12 mt-25">
@@ -216,7 +235,7 @@
                         <div class="row justify-content-center align-items-center">
                             <div class="col-12 col-md-10">
                                 <div
-                                    class="card bg-primary custom-card d-none card-info animate__animated animate__fadeInDown animate__delay-1s">
+                                    class="card bg-primary custom-card d-none card-info animate__animated animate__fadeInRight animate__delay-1s" style="z-index: 5000;">
                                     <div class="card-body text-white">
                                         <p>Gracias a las autonomías de entre <b>300 y 600 km</b> por carga que
                                             ofrecen muchos
@@ -340,9 +359,13 @@
                                                                                         alt="Web" />
                                                                                 </div>
                                                                                 <div class="col-9 col-md-8 text-white">
-                                                                                    <p>Mapa de estaciones de carga de
-                                                                                        vehículos eléctricos en México |
-                                                                                        Plugshare</p>
+                                                                                    <p><a class="text-white text-decoration-none"
+                                                                                            href="https://www.plugshare.com/map/m%C3%A9xico"
+                                                                                            target="_blank">Mapa de
+                                                                                            estaciones de carga de
+                                                                                            vehículos eléctricos en
+                                                                                            México |
+                                                                                            Plugshare</a></p>
                                                                                 </div>
 
                                                                             </div>
@@ -374,9 +397,13 @@
                                                                                         alt="Web" />
                                                                                 </div>
                                                                                 <div class="col-9 col-md-8 text-white">
-                                                                                    <p>Mapa de estaciones y puntos de
-                                                                                        carga para vehículos eléctricos
-                                                                                        - Electromaps​</p>
+                                                                                    <p><a class="text-white text-decoration-none"
+                                                                                            href="https://www.electromaps.com/"
+                                                                                            target="_blank">Mapa de
+                                                                                            estaciones y puntos de
+                                                                                            carga para vehículos
+                                                                                            eléctricos
+                                                                                            - Electromaps​</a></p>
                                                                                 </div>
 
                                                                             </div>
@@ -405,14 +432,18 @@
                                                                                         alt="Web" />
                                                                                 </div>
                                                                                 <div class="col-9 col-md-8 text-white">
-                                                                                    <p>ChargeNow – Sistema de carga para
-                                                                                        vehículos eléctricos​</p>
+                                                                                    <p><a class="text-white text-decoration-none"
+                                                                                            href="https://www.chargenow.mx/"
+                                                                                            target="_blank">ChargeNow –
+                                                                                            Sistema de carga para
+                                                                                            vehículos eléctricos​</a>
+                                                                                    </p>
                                                                                 </div>
 
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-12 text-white">
+                                                                    <div class="col-12">
                                                                         <p>Estas herramientas te ayudarán a encontrar
                                                                             estaciones de carga cercanas y planificar
                                                                             tus rutas de manera eficiente.​</p>
@@ -446,7 +477,8 @@
             //Audios Slide
             const paths = [
                 "audio/audio_m30.mp3",
-                "audio/audio_m31.mp3"
+                "audio/audio_m31.mp3",
+                "audio/audio_m32.mp3"
             ];
 
             let audios = [];
@@ -468,8 +500,11 @@
             audios[0].on('end', function () {
                 course360.audioController.stopAllSoundsAndPlay(audio_m30b);
             });
+            audios[2].on('play', function () {
+                $('.custom-card').removeClass('d-none');
+            });
 
-            audio_m32.on('end', function () {
+            audios[2].on('end', function () {
                 $('.nota').show();
                 $('.ins2').show();
             });
@@ -526,7 +561,8 @@
                     if (!$(this).hasClass('disabled')) {
                         let slideId = $(this).attr('data-slideId');
                         $('.inner').hide();
-                        $('.btn-slide').removeClass('active');
+                        // $('.btn-slide').removeClass('active');
+                        $('.custom-card').addClass('d-none');
                         $('#slide' + slideId).show();
                         $(this).removeClass('animate__animated animate__pulse animate__infinite').addClass('visited active');
                         course360.audioController.stopAllSoundsAndPlay(audios[slideId]);
@@ -535,20 +571,22 @@
                                 $(this).removeClass('animate__flipInY');
                             });
                         });
+
+
                         if ($('.btn-slide').length == $('.btn-slide.visited').length) {
-                            audios[slideId].on('end', function () {
-                                $('.inner').hide();
-                                $('#slide2').show();
-                                $('.source').addClass('animate__animated animate__flipOutY').on('animationend', function () {
-                                    $(this).attr('src', imgs[2]).removeClass('animate__flipOutY').addClass('animate__flipInY').on('animationend', function () {
-                                        $(this).removeClass('animate__flipInY');
-                                    });
-                                });
-                                $('.navsvg').hide();
-                                $('.custom-card').removeClass('d-none');
-                                course360.audioController.stopAllSoundsAndPlay(audio_m32);
-                                $('.ins1').hide();
-                            });
+                            // audios[slideId].on('end', function () {
+                            //     $('.inner').hide();
+                            //     $('#slide2').show();
+                            //     $('.source').addClass('animate__animated animate__flipOutY').on('animationend', function () {
+                            //         $(this).attr('src', imgs[2]).removeClass('animate__flipOutY').addClass('animate__flipInY').on('animationend', function () {
+                            //             $(this).removeClass('animate__flipInY');
+                            //         });
+                            //     });
+                            //     $('.navsvg').hide();
+                            //     $('.custom-card').removeClass('d-none');
+                            //     course360.audioController.stopAllSoundsAndPlay(audio_m32);
+                            //     $('.ins1').hide();
+                            // });
                         }
                     }
                 });

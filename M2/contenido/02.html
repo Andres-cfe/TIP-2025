@@ -79,7 +79,7 @@
                                     <i class="fa-solid fa-book-open text-verde" data-bs-toggle="tooltip"
                                         data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                                         data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Centro Virtual de Vigilancia Epidemiológica y Control de Enfermedades (CEVECE). (2024, septiembre). Boletín epidemiológico especial – Calidad del aire. Gobierno del Estado de México. <a href='https://cevece.edomex.gob.mx/sites/cevece.edomex.gob.mx/files/files/docs/boletin/2024/BoletinCalidadAireSep2024.pdf' target='_blank' class='text-verde'>https://cevece.edomex.gob.mx/sites/cevece.edomex.gob.mx/files/files/docs/boletin/2024/BoletinCalidadAireSep2024.pdf</a>"></i>
+                                        data-bs-title="<b>Centro Virtual de Vigilancia Epidemiológica y Control de Enfermedades (CEVECE)</b>. (2024, septiembre). <i>Boletín epidemiológico especial – Calidad del aire.</i> Gobierno del Estado de México. <a href='https://cevece.edomex.gob.mx/sites/cevece.edomex.gob.mx/files/files/docs/boletin/2024/BoletinCalidadAireSep2024.pdf' target='_blank' class='text-verde'>https://cevece.edomex.gob.mx/sites/cevece.edomex.gob.mx/files/files/docs/boletin/2024/BoletinCalidadAireSep2024.pdf</a>"></i>
                                 </p>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-custom-class="custom-tooltip"
                                                 data-bs-custom-class="custom-tooltip"
-                                                data-bs-title="ONU-Habitat. (s.f.). Contaminación, automóviles y calidad del aire. Recuperado el 24 de abril de 2025, de <a target='_blank' href='https://onu-habitat.org/index.php/contaminacion-automoviles-y-calidad-del-aire' class='text-verde'>https://onu-habitat.org/index.php/contaminacion-automoviles-y-calidad-del-aire</a>"></i>
+                                                data-bs-title="<b>ONU-Habitat.</b> (s.f.). <i>Contaminación, automóviles y calidad del aire.</i> Recuperado el 24 de abril de 2025, de <a target='_blank' href='https://onu-habitat.org/index.php/contaminacion-automoviles-y-calidad-del-aire' class='text-verde'>https://onu-habitat.org/index.php/contaminacion-automoviles-y-calidad-del-aire</a>"></i>
                                         </p>
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-custom-class="custom-tooltip"
                                                 data-bs-custom-class="custom-tooltip"
-                                                data-bs-title="Secretaría de Medio Ambiente y Recursos Naturales (SEMARNAT). (2015). Informe de la situación del medio ambiente en México 2015: Capítulo 5 - Energía. <a href='https://apps1.semarnat.gob.mx:8443/dgeia/informe15/tema/cap5.html' target='_blank' class='text-verde'>https://apps1.semarnat.gob.mx:8443/dgeia/informe15/tema/cap5.html</a>"></i>
+                                                data-bs-title="<b>Secretaría de Medio Ambiente y Recursos Naturales (SEMARNAT).</b> (2015). <i>Informe de la situación del medio ambiente en México 2015: Capítulo 5 - Energía.</i> <a href='https://apps1.semarnat.gob.mx:8443/dgeia/informe15/tema/cap5.html' target='_blank' class='text-verde'>https://apps1.semarnat.gob.mx:8443/dgeia/informe15/tema/cap5.html</a>"></i>
                                         </p>
                                         </p>
                                     </div>
@@ -127,7 +127,7 @@
 </div>
 </div>
 <script>
-    //Inicializa los tooltips de BS5
+    // Inicializa los tooltips de BS5
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.forEach(function (tooltipTriggerEl) {
         var tooltip = new bootstrap.Tooltip(tooltipTriggerEl, {
@@ -143,12 +143,22 @@
             }
         });
 
-        document.body.addEventListener('click', function (e) {
-            if (!tooltipTriggerEl.contains(e.target) && tooltip._element.getAttribute('aria-describedby')) {
+        var hideTooltip = function () {
+            if (tooltip._element.getAttribute('aria-describedby')) {
                 tooltip.hide();
             }
+        };
+
+        document.body.addEventListener('click', function (e) {
+            if (!tooltipTriggerEl.contains(e.target)) {
+                hideTooltip();
+            }
         });
+
+        document.querySelector('#next-btn')?.addEventListener('click', hideTooltip);
+        document.querySelector('#prev-btn')?.addEventListener('click', hideTooltip);
     });
+    
     $(function () {
         "use strict";
         $('#template-instruction').removeClass('show');

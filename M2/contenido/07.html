@@ -24,11 +24,13 @@
         max-width: 90% !important;
     }
 
-    @media (min-width: 768px) {}
+    @media (min-width: 768px) {
+
+    }
 </style>
-<div class="w-100 page-sco h-100 pt-4 pt-md-0">
+<div class="w-100 page-sco h-100 pt-5 pt-md-0">
     <div class="container-fluid">
-        <div class="row align-items-center justify-content-md-center">
+        <div class="row align-items-center justify-content-md-center h-100">
             <div class="col-12 col-md-11 col-lg-10">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-12 col-md-12 text-center">
@@ -213,9 +215,12 @@
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
-                                            <div class="card custom-card bg-white" style="position: relative; z-index: 5;">
-                                                <div class="card-body py-0 px-0" style="position: relative; z-index: 5;">
-                                                    <div class="row justify-content-center align-items-center h-100" style="position: relative; z-index: 5;">
+                                            <div class="card custom-card bg-white"
+                                                style="position: relative; z-index: 5;">
+                                                <div class="card-body py-0 px-0"
+                                                    style="position: relative; z-index: 5;">
+                                                    <div class="row justify-content-center align-items-center h-100"
+                                                        style="position: relative; z-index: 5;">
                                                         <div
                                                             class="col-12 col-md-12 bg-verde text-center text-white py-md-3 py-2">
                                                             <span class="fw-bold">Emisiones Totales del Ciclo de
@@ -301,7 +306,7 @@
     </div>
 </div>
 <script>
-    //Inicializa los tooltips de BS5
+    // Inicializa los tooltips de BS5
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.forEach(function (tooltipTriggerEl) {
         var tooltip = new bootstrap.Tooltip(tooltipTriggerEl, {
@@ -317,11 +322,20 @@
             }
         });
 
-        document.body.addEventListener('click', function (e) {
-            if (!tooltipTriggerEl.contains(e.target) && tooltip._element.getAttribute('aria-describedby')) {
+        var hideTooltip = function () {
+            if (tooltip._element.getAttribute('aria-describedby')) {
                 tooltip.hide();
             }
+        };
+
+        document.body.addEventListener('click', function (e) {
+            if (!tooltipTriggerEl.contains(e.target)) {
+                hideTooltip();
+            }
         });
+
+        document.querySelector('#next-btn')?.addEventListener('click', hideTooltip);
+        document.querySelector('#prev-btn')?.addEventListener('click', hideTooltip);
     });
     $(function () {
         "use strict";

@@ -93,11 +93,17 @@
     .mySwiper {
         height: 360px;
     }
+    table {
+        font-size: 12px;
+    }
 
     @media (min-width: 768px) {
         .mySwiper {
-            height: max-content;
+            height: 300px;
         }
+        table {
+        font-size: 20px;
+    }
     }
 </style>
 <div class="w-100 page-sco h-100 pt-4 pt-md-0">
@@ -184,7 +190,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-md-5">
+                                                            <div class="col-7 col-md-5">
                                                                 <canvas id="energyChart" width="400"
                                                                     height="400"></canvas>
                                                             </div>
@@ -440,7 +446,7 @@
                 data: {
                     labels: ['Vehículos Eléctricos', 'Auto de gasolina'],
                     datasets: [{
-                        data: [30, 70],
+                        data: [70, 30],
                         backgroundColor: [gradientEV, gradientGas]
                     }]
                 },
@@ -569,8 +575,8 @@
                         activateDot(index); // Activar el punto correspondiente
                         dots.eq(index).removeClass('animate__animated animate__pulse animate__infinite').addClass('visited');
                         let indexAudio = $(this).index();
-                        console.log(indexAudio, index);
                         course360.audioController.stopAllSoundsAndPlay(audios_slide[index]);
+                        $(Swal.getHtmlContainer()).find(".dot").removeClass('disabled');
 
                         switch (index) {
                             case 0:
@@ -588,18 +594,19 @@
                                 break;
                                 break;
                             case 1:
-                                // Agregar dinámicamente una nueva etiqueta y valor al gráfico
-                                const newLabel = 'Vehículo eléctrico (50 kWh, $200)';
-                                const newValue = 400; // Valor para el nuevo dataset
-                                const newColor = getGradient(emissionsChart.ctx, '#006400', '#32CD32'); // Degradado verde para el nuevo dataset
+                                    $(this).addClass('active disabled');
+                                    // Agregar dinámicamente una nueva etiqueta y valor al gráfico
+                                    const newLabel = 'Vehículo eléctrico (50 kWh, $200)';
+                                    const newValue = 400; // Valor para el nuevo dataset
+                                    const newColor = getGradient(emissionsChart.ctx, '#006400', '#32CD32'); // Degradado verde para el nuevo dataset
 
-                                // Agregar la nueva etiqueta y valor al gráfico
-                                emissionsChart.data.labels.push(newLabel); // Agregar la nueva etiqueta
-                                emissionsChart.data.datasets[0].data.push(newValue); // Agregar el nuevo valor
-                                emissionsChart.data.datasets[0].backgroundColor.push(newColor); // Agregar el nuevo color
+                                    // Agregar la nueva etiqueta y valor al gráfico
+                                    emissionsChart.data.labels.push(newLabel); // Agregar la nueva etiqueta
+                                    emissionsChart.data.datasets[0].data.push(newValue); // Agregar el nuevo valor
+                                    emissionsChart.data.datasets[0].backgroundColor.push(newColor); // Agregar el nuevo color
 
-                                // Actualizar el gráfico para reflejar los cambios
-                                emissionsChart.update();
+                                    // Actualizar el gráfico para reflejar los cambios
+                                    emissionsChart.update();
                                 break;
 
 
