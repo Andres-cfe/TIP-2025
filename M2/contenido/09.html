@@ -61,6 +61,7 @@
 <script>
     $(function () {
         "use strict";
+        $('#template-instruction').removeClass('show');
         $("body").addClass("fake");
         const audio = course360.createSound('audio/audio_m25.mp3');
         course360.audioController.stopAllSoundsAndPlay(audio);
