@@ -1,0 +1,165 @@
+<style>
+    .fake {
+        background-image: url(img/p2/bg5.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .banner {
+        background-image: url(img/p2/banner0.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .two-section {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: .5fr 1fr;
+    }
+
+    .btn-slide {
+        filter: grayscale(1);
+        cursor: pointer;
+    }
+
+    .btn-slide.selected {
+        filter: grayscale(0);
+    }
+
+    .slide-card {
+        background-color: rgba(255, 255, 255, .9);
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+    }
+
+    .sw-slide {
+        display: none;
+    }
+
+    @media(min-width: 768px) {
+        .two-section {
+            grid-template-rows: .3fr 1fr;
+        }
+    }
+
+    @media(min-width: 1400px) {
+        .two-section {
+            grid-template-rows: .2fr 1fr;
+        }
+    }
+</style>
+<div class="page-sco full w-100">
+    <div class="two-section w-100 h-100">
+        <div class="fila1 banner animate__animated animate__fadeInLeft">
+            <div class="container h-100">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-12 text-white">
+                        <h2 class="fw-bold">Mantenimiento vehículos eléctricos</h2>
+                        <p class="mb-0">A diferencia de los autos a combustión, que tienen cientos de partes móviles, un auto eléctrico tiene muchos menos componentes susceptibles al desgaste. Descubre por qué el mantenimiento de un <strong>auto eléctrico es más sencillo y económico</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fila2">
+            <div class="container h-100">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-12">
+                        <div class="row justify-content-center">
+                            <div class="col-12 ins0 animate__animated animate__zoomIn text-center mb-3" style="display: none;">
+                                <div class="text-rojo-1 bg-white border border-2 border-dark rounded w-auto d-inline-block px-2">
+                                    <div class="d-flex flex-row py-2">
+                                        <i class="fa-light fa-arrow-pointer mx-2"></i>
+                                        <span>Da clic en cada Botón</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-9 col-lg-7 mb-3">
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-4 text-center animate__animated animate__zoomInDown animate__delay-1s">
+                                        <div class="btn-slide d-inline-block animate__animated animate__pulse animate__infinite disabled" data-slide="0" style="border-radius: 100%;">
+                                            <img src="img/p2/06.png" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-center animate__animated animate__zoomInDown animate__delay-2s">
+                                        <div class="btn-slide d-inline-block animate__animated animate__pulse animate__infinite disabled" data-slide="1" style="border-radius: 100%;">
+                                            <img src="img/p2/07.png" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-center animate__animated animate__zoomInDown animate__delay-3s">
+                                        <div class="btn-slide d-inline-block animate__animated animate__pulse animate__infinite disabled" data-slide="2" style="border-radius: 100%;">
+                                            <img src="img/p2/08.png" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-10 col-lg-9 swiper-apa0">
+                                <div id="sw0" class="sw-slide animate__animated animate__flipInX">
+                                    <div class="card slide-card border-0 p-3 py-md-5">
+                                        <p class="mb-0">Su tren motriz, por ejemplo, es mucho más simple y eficiente: convierte más del <strong class="text-rojo-1">90% de la energía de la batería en movimiento</strong>, en contraste con los autos de combustión que solo aprovechan entre 30 y 40%, perdiendo el resto en calor y fricción.</p>
+                                    </div>
+                                </div>
+                                <div id="sw1" class="sw-slide animate__animated animate__flipInX">
+                                    <div class="card slide-card border-0 p-3 py-md-5">
+                                        <p class="mb-0">Además, los vehículos eléctricos integran <strong class="text-rojo-1">sistemas de frenado regenerativo</strong>, que permiten recuperar energía cada vez que el conductor desacelera, reduciendo el uso de los frenos convencionales y extendiendo significativamente la vida útil de discos y balatas.</p>
+                                    </div>
+                                </div>
+                                <div id="sw2" class="sw-slide animate__animated animate__flipInX">
+                                    <div class="card slide-card border-0 p-3 py-md-5">
+                                        <p class="mb-2">Para los <strong class="text-rojo-1">usuarios</strong>, esto representa ahorros reales a lo largo del tiempo, menos visitas al taller, mayor confiabilidad y más tiempo en movimiento.</p>
+                                        <p class="mb-0">En resumen, un auto eléctrico no solo es más limpio y moderno, también es más económico de operar.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        "use strict";
+
+        $('body').addClass('fake');
+        
+        $('#template-instruction').removeClass('show');
+
+        const audio_m54 = course360.createSound('audio/audio_m54.mp3');
+
+        course360.audioController.stopAllSoundsAndPlay(audio_m54);
+
+        audio_m54.on("end", function () {
+            $(".btn-slide").removeClass("disabled");
+        });
+
+        const paths = [
+            "audio/audio_m55.mp3",
+            "audio/audio_m56.mp3",
+            "audio/audio_m57.mp3"
+        ];
+
+        let audios = [];
+
+        paths.forEach(function (element) {
+            audios.push(course360.createSound(element));
+        });
+
+        $('.btn-slide').click(function (e) {
+            const indexAudio = $(this).data("slide");
+            $('.swiper-apa0').show();
+            $(".btn-slide").removeClass("selected");
+            $(this).removeClass("animate__animated animate__pulse animate__infinite");
+            $(this).addClass("visited selected");
+            course360.audioController.stopAllSoundsAndPlay(audios[indexAudio]);
+            $('.sw-slide').hide();
+            $('#sw'+indexAudio).show();
+            if ($(".btn-slide").length == $(".btn-slide.visited").length) {
+                course360.setSlideVisited();
+            }
+        });
+    });
+</script>

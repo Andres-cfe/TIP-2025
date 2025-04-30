@@ -1,0 +1,615 @@
+<style>
+    .txt-card {
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        border-radius: 15px;
+    }
+    .fake {
+        background-image: url(img/p2/bg1.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .fakeCierre {
+        background-image: url(img/p2/bg2.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .pila {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr;
+        gap: 10px;
+        background-color: #fff;
+        border: solid #393c3d;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        border-radius: 10px;
+    }
+
+    .pila::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 100%;
+        margin: 0 auto;
+        width: 10px;
+        height: 20px;
+        background-color: #393c3d;
+    }
+
+    .carga-style {
+        border: 0;
+        box-shadow: none;
+        border-radius: 0;
+        height: 35px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out; /* Transición suave */
+    }
+
+    .carga-style:nth-child(1) {
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        background-color: #227d3a;
+    }
+    
+    .carga-style:nth-child(2) {
+        background-color: #00c40e;
+    }
+
+    .carga-style:nth-child(3) {
+        background-color: #95cb4e;
+    }
+
+    .carga-style:nth-child(4) {
+        background-color: #f5c331;
+    }
+
+    .carga-style:nth-child(5) {
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color: #ec1f24;
+    }
+
+    /* Memorama */
+    .memorama-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        justify-content: center;
+        justify-items: center;
+        padding: 1em;
+        width: 100%;
+    }
+    .memorama-card {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        text-align: center;
+    }
+    .memorama-card-inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        perspective: 1000px !important;
+    }
+    .memorama-front,
+    .memorama-back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .memorama-front img,
+    .memorama-back img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        filter: drop-shadow(2px 1px 2px #777777);
+    }
+
+    .ajustebtn {
+        margin-bottom: 0;
+    }
+    .option-btn {
+        cursor: pointer;
+        padding: 10px;
+        margin-bottom: 15px;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    .option-btn:hover {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    }
+    .option-btn .letter {
+        text-transform: lowercase;
+        color: #fff;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: #00c40e;
+        line-height: 25px;
+        text-align: center;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    .option-btn:hover .letter {
+        background-color: #00930a;
+    }
+    .mt-n {
+        margin-top: -35px;
+    }
+
+    @media(min-width: 768px) {
+        .sec2 {
+            height: calc(100% - 70px);
+        }
+        .pila {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(5, 1fr);
+            background-color: #fff;
+            border-width: 10px 5px;
+        }
+        .pila::after {
+            content: '';
+            position: absolute;
+            transform: none;
+            top: -19px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 35px;
+            height: 10px;
+            background-color: #393c3d;
+        }
+        .carga-style {
+            height: 50px;
+        }
+        .carga-style:nth-child(1) {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 0;
+        }
+        .carga-style:nth-child(5) {
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            border-top-right-radius: 0;
+        }
+        .memorama-container {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: calc(130px * 4);
+            margin: 0 auto;
+        }
+        .memorama-card {
+            width: 130px;
+            height: 130px;
+        }
+    }
+
+    @media(min-width: 991px) {
+        .memorama-container {
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            max-width: calc(160px * 5);
+            margin: 0 auto;
+        }
+        .memorama-card {
+            width: 160px;
+            height: 160px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .memorama-container {
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            max-width: calc(190px * 5);
+            margin: 0 auto;
+        }
+        .memorama-card {
+            width: 190px;
+            height: 190px;
+        }
+  }
+</style>
+<div id="portada" class="page-sco full w-100">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="row justify-content-center align-items-center mb-2">
+                    <div class="col-5 col-md-4 col-lg-3 mb-2 mb-md-0 animate__animated animate__lightSpeedInLeft">
+                        <div class="personaje m1 mx-auto"></div>
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-8 animate__animated animate__lightSpeedInRight">
+                        <div class="card txt-card bg-white p-3 text-center">
+                            <h2 class="text-rojo-1 fw-bold">Conecta con la movilidad sostenible</h2>
+                            <p class="mb-2">En esta <strong>actividad</strong> vas a descubrir cómo se relacionan los principales beneficios económicos, ambientales y sociales de la movilidad sostenible.</p>
+                            <p class="fw-bold mb-0">¡Encuentra los pares y desbloquea lo mejor de esta nueva forma de moverte!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center apa0 animate__animated animate__zoomIn" style="display: none;">
+                        <div class="position-relative mb-3 text-center">
+                            <div class="text-rojo-1 bg-white border border-2 border-dark rounded w-auto d-inline-block px-2">
+                                <div class="d-flex flex-row py-2">
+                                    <i class="fa-light fa-arrow-pointer mx-2"></i>
+                                    <span>Da clic en Comenzar</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn btn-primary animate__animated animate__pulse animate__infinite waves-effect disabled bree" id="comenzar">
+                            Comenzar
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="desarrollo" class="page-sco full w-100" style="display: none;">
+    <div class="sec1 w-100 px-2 py-3 bg-verde text-white mb-3 mb-md-0">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 text-center">
+                    <p class="mb-0"><strong>Instrucciones:</strong> Da clic en las tarjetas para encontrar los pares y, al acertar, responde la pregunta para cargar tu energía.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sec2 w-100">
+        <div class="container h-100">
+            <div class="row justify-content-center align-items-center h-100">
+              <!--   <div class="col-12 mb-3 text-center">
+                    <div class="text-rojo-1 bg-white border border-2 border-dark rounded w-auto d-inline-block px-2">
+                        <div class="d-flex flex-row py-2">
+                            <i class="fa-light fa-arrow-pointer mx-2"></i>
+                            <span>Da clic en cada Tarjeta</span>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-10 col-md-2 col-lg-1 mb-2 mb-md-0">
+                    <div class="card global-pila-card bg-white ps-1 pe-3 py-2 px-md-1 shadow-none border-0 rounded-3 h-100">
+                        <div class="porcentaje-pila position-relative mb-2 mb-md-4 text-center text-rojo-1 fw-bold">100%</div>
+                        <div class="pila p-1">
+                            <div id="carga4" class="carga-style"></div>
+                            <div id="carga3" class="carga-style"></div>
+                            <div id="carga2" class="carga-style"></div>
+                            <div id="carga1" class="carga-style"></div>
+                            <div id="carga0" class="carga-style"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-10 col-lg-11">
+                    <div class="card bg-transparent border-0 rounded-0 shadow-none p-0 h-100">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-12">
+                                <div class="memorama-container">
+                                    <!-- Se generarán las cartas dinámicamente con JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="cierreActividad" class="page-sco full w-100" style="display: none;">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-5 col-md-4 col-lg-3 mb-2 mb-md-0 animate__animated animate__lightSpeedInLeft">
+                        <div class="personaje m1 mx-auto"></div>
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-8 animate__animated animate__lightSpeedInRight">
+                        <div class="card txt-card bg-white px-3 pt-3 pb-5 text-center passed" style="display: none;">
+                            <h2 class="text-rojo-1 fw-bold">¡Excelente trabajo!</h2>
+                            <p class="mb-2">Has conectado correctamente los conceptos clave de la movilidad sostenible.</p>
+                            <p class="fw-bold mb-0">¡Sigue avanzando hacia un futuro más limpio, eficiente y responsable!</p>
+                        </div>
+                        <div class="card txt-card bg-white px-3 pt-3 pb-5 text-center failed" style="display: none;">
+                            <h2 class="text-rojo-1 fw-bold">¡Vas por buen camino!</h2>
+                            <p class="mb-2">ún puedes mejorar tus decisiones y fortalecer tus conocimientos sobre movilidad sostenible.</p>
+                            <p class="fw-bold mb-0"><strong>Da clic en volver a intentar la actividad</strong> para seguir aprendiendo y recargar tu energía.</p>
+                        </div>
+                        <div class="w-100 text-center mt-n">
+                            <div class="btn failed btn-primary text-white animate__animated animate__pulse animate__infinite mt-3" style="display: none" onclick="course360.reload()">
+                                Volver a intentar la actividad
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="question-container" class="d-none"></div>
+<script src="js/QuizManager.min.js"></script>
+<script>
+    $(document).ready(async function () {
+        $('body').addClass('fake');
+        $("#loader-course360").show();
+
+        $('#template-instruction').removeClass('show');
+
+        const audio_m42 = course360.createSound('audio/audio_m42.mp3');
+
+        course360.audioController.stopAllSoundsAndPlay(audio_m42);
+
+        audio_m42.on('play',function(){
+            $('.m1').addClass('play');
+        });
+
+        audio_m42.on('end',function(){
+            $('.apa0').show();
+            $('.m1').removeClass('play').addClass('stop');
+            $('#comenzar').removeClass('disabled');
+        });
+
+        const audio_m43 = course360.createSound('audio/audio_m43.mp3');
+        const audio_m44 = course360.createSound('audio/audio_m44.mp3');
+        const audio_m45 = course360.createSound('audio/audio_m45.mp3');
+        const incidentalError = course360.createSound("audio/feedback-incorrect.mp3");
+        const incidentalCorrecto = course360.createSound("audio/feedback-correct.mp3");
+        const flip = course360.createSound("audio/flip.mp3");
+
+        audio_m43.on("end", function () {
+            $(".memorama-card-inner").removeClass("disabled");
+        });
+
+        audio_m44.on('play',function(){
+            $('.m1').addClass('play');
+        });
+        audio_m44.on('end',function(){
+            $('.m1').removeClass('play').addClass('stop');
+        });
+
+        audio_m45.on('play',function(){
+            $('.m1').addClass('play');
+        });
+        audio_m45.on('end',function(){
+            $('.m1').removeClass('play').addClass('stop');
+        });
+
+        const quizManager = new QuizManager({
+            excelFileUrl: "preguntas_actividad_M2_haciaUnaMovilidadSostenible.xlsx",
+            mandatoryFields: {
+                question: "pregunta",
+                correctOption: "opcion_c",
+                correctFeedback: "retroalimentacion_correcta",
+                incorrectFeedback: "retroalimentacion_incorrecta",
+            },
+            optionPrefix: "opcion",
+            randomizeQuestions: true,
+            randomizeOptions: true,
+            passingScore: 80,
+            defaultWeight: 1,
+            maxQuestions: 5,
+            specialOptions: ["Ninguna de las anteriores", "Todas las anteriores"],
+        });
+
+        await loadAndStartQuiz();
+
+        $('#comenzar').click(function (e) {
+            e.preventDefault();
+            $('#portada').hide();
+            $('#desarrollo').show();
+            course360.audioController.stopAllSoundsAndPlay(audio_m43);
+        });
+
+        async function loadAndStartQuiz() {
+            try {
+                await quizManager.loadQuestionsFromExcel();
+                $("#loader-course360").hide();
+            } catch (error) {
+                console.error("Error al cargar las preguntas:", error);
+                $("#loader-course360").hide();
+            }
+        }
+
+        function renderQuestion(containerSelector, useSwal = true) {
+            const questionData = quizManager.getRenderData();
+            if (questionData) {
+                const questionHtml = `
+                <p id="question-text" class="fw-bold text-primary text-center">${questionData.text}</p>
+                <div class="mb-0">
+                    ${questionData.options
+                        .map((option, index) => `
+                            <div class="option-btn cursor d-flex flex-row align-items-center justify-content-start" data-correct="${option.isCorrect}">
+                              <span class="letter">${String.fromCharCode(65 + index)}</span>
+                              <span class="ms-3">${option.text}</span>
+                            </div>`
+                        ).join("")}
+                </div>`;
+                if (useSwal) {
+                    Swal.fire({
+                        html: questionHtml,
+                        showConfirmButton: false,
+                        showCloseButton: false,
+                        customClass: { popup: "swal-question-popup" },
+                        didOpen: () => {
+                            const swalContent = Swal.getHtmlContainer();
+                            $(swalContent)
+                                .find(".option-btn")
+                                .off("click")
+                                .on("click", function () {
+                                    const isCorrect = $(this).data("correct");
+                                    const feedback = isCorrect ? questionData.correctFeedback || "¡Correcto!" : questionData.incorrectFeedback || "Incorrecto";
+                                    handleFeedback(isCorrect, feedback, containerSelector, true);
+                                });
+                        },
+                    });
+                }
+            }
+        }
+
+        $('.carga-style').css('opacity', '0');
+        $('.porcentaje-pila').text('0%');
+        let respuestasCorrectas = 0;
+
+        function handleFeedback(isCorrect, feedback, containerSelector, useSwal) {
+            if (isCorrect) {
+                course360.audioController.stopAllSoundsAndPlay(incidentalCorrecto);
+                respuestasCorrectas++;
+            } else {
+                course360.audioController.stopAllSoundsAndPlay(incidentalError);
+            }
+
+            const questionData = quizManager.getRenderData();
+            const feedbackText = isCorrect
+                ? questionData.correctFeedback
+                : questionData.incorrectFeedback;
+
+            const html = `
+                <div class="text-center w-100">
+                    <img src="img/p2/${isCorrect ? 'correcto' : 'incorrecto'}.png" class="img-fluid mb-3">
+                    <p class="fw-bold ${isCorrect ? 'text-success' : 'text-danger'}">${feedbackText}</p>
+                </div>`;
+
+            Swal.fire({
+                html: html,
+                showConfirmButton: false,
+                showCloseButton: true,
+                target: "body",
+                customClass: "w-32em pop-retro",
+                willClose: function(){
+                    actualizarBarraProgreso();
+                }
+            }).then(() => {
+                quizManager.answerCurrentQuestion(isCorrect);
+
+                if (quizManager.hasMoreQuestions()) {
+                    quizManager.getNextQuestion();
+                } else {
+                    renderResults("#resume-container");
+                }
+            });
+        }
+
+        // Función para actualizar la barra de progreso
+        function actualizarBarraProgreso() {
+            // Asegurarse de que no exceda el número de barras disponibles
+            const barras = $('.carga-style');
+            if (respuestasCorrectas > 0 && respuestasCorrectas <= barras.length) {
+                // Activar la barra correspondiente con un pequeño retraso para efecto secuencial
+                setTimeout(() => {
+                    $(barras[barras.length - respuestasCorrectas]).css('opacity', '1');
+
+                    // Actualizar el porcentaje (opcional)
+                    const porcentaje = Math.round((respuestasCorrectas / barras.length) * 100);
+                    $('.porcentaje-pila').text(porcentaje + '%');
+                }, 300);
+            }
+        }
+
+        function renderResults(containerSelector) {
+            $("#desarrollo").hide();
+            $("#cierreActividad").show();
+            $("body").removeClass("fake").addClass("fakeCierre");
+            const summary = quizManager.getSummary();
+
+            if (summary.passed) {
+                course360.audioController.stopAllSoundsAndPlay(audio_m44);
+                $(".passed").show();
+                course360.setSlideVisited();
+            } else {
+                $(".failed").show();
+                course360.audioController.stopAllSoundsAndPlay(audio_m45);
+            }
+        }
+
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            const randomValues = crypto.getRandomValues(new Uint32Array(shuffled.length));
+
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = randomValues[i] % (i + 1);
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        const basePath = "img/p2/";
+        const cardImages = ["card1.png", "card2.png", "card3.png", "card4.png", "card5.png"];
+        let cardsArray = shuffleArray([...cardImages, ...cardImages]);
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let isProcessing = false;
+
+        // Generar las cartas del memorama
+        cardsArray.forEach((img) => {
+            $(".memorama-container").append(`
+                <div class="memorama-card">
+                    <div class="memorama-card-inner disabled" data-image="${img}">
+                        <div class="memorama-front">
+                            <img src="${basePath}cover-card.png" alt="Portada">
+                        </div>
+                        <div class="memorama-back">
+                            <img src="${basePath}${img}" alt="Carta">
+                        </div>
+                    </div>
+                </div>
+            `);
+        });
+
+        // Inicializar flip después de que las cartas se hayan creado
+        setTimeout(() => {
+            $(".memorama-card-inner").flip({
+                trigger: 'manual',
+                speed: 300,
+                front: '.memorama-front',
+                back: '.memorama-back',
+                onBefore: function () {
+                    return flippedCards.length < 2;
+                }
+            });
+
+            $(".memorama-card-inner").off('click').on('click', function () {
+                if (isProcessing ||
+                    $(this).hasClass('matched') ||
+                    $(this).hasClass('flipped') ||
+                    flippedCards.includes($(this))) return;
+
+                $(this).addClass('flipped').flip(true);
+                course360.audioController.stopAllSoundsAndPlay(flip);
+                flippedCards.push($(this));
+
+                if (flippedCards.length === 2) {
+                    isProcessing = true;
+                    const [card1, card2] = flippedCards;
+
+                    if (card1.attr('data-image') === card2.attr('data-image')) {
+                        card1.add(card2).addClass('matched').removeClass('flipped');
+                        matchedPairs++;
+
+                        if (matchedPairs === cardImages.length) {
+                            console.log('¡Memorama completado!');
+                        }
+
+                        setTimeout(() => renderQuestion('#question-container'), 1000);
+                    } else {
+                        setTimeout(() => {
+                            card1.add(card2).flip(false).removeClass('flipped');
+                        }, 1000);
+                    }
+
+                    flippedCards = [];
+                    isProcessing = false;
+                }
+            });
+        }, 100); // Pequeño retraso para asegurar que el DOM esté listo
+    });
+</script>

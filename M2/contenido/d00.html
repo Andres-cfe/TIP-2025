@@ -1,0 +1,68 @@
+<style>
+    .fake {
+        background-image: url(img/p2/bg0.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .opacidad {
+        opacity: 0;
+    }
+</style>
+<div class="page-sco full w-100">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-7 col-md-6 col-lg-5 animate__animated animate__zoomIn">
+                        <img src="img/p2/00.png" class="img-fluid mx-auto d-none d-md-block">
+                        <img src="img/p2/00s.png" class="img-fluid d-block d-md-none mx-auto">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-7 text-center animate__animated animate__lightSpeedInRight">
+                        <h2 class="text-rojo-1 fw-bold">¡Felicidades!</h2>
+                        <h2 class="text-rojo-1 opacidad anim0">Has terminado el Módulo 2.</h2>
+                        <p class="opacidad mb-2 anim1">La movilidad sostenible ya no es una visión del futuro: es una realidad que se construye hoy.</p>
+                        <p class="opacidad mb-2 anim2">Con compromiso, innovación y colaboración, podemos acelerar este cambio.</p>
+                        <p class="fw-bold text-verde opacidad mb-2 anim3">TIP México está listo para acompañarte en ese trayecto.</p>
+                        <p class="opacidad anim4"><strong>Gracias por completar este curso</strong>. Sigue avanzando y siendo parte del movimiento hacia un entorno más limpio, eficiente y responsable.</p>
+                        <div class="text-center w-100 animate__animated animate__slideInLeft ins0"
+                            style="display: none;">
+                            <div class="border-dark text-rojo-1 px-4 py-2 border border-2 d-inline-block"
+                                style="border-radius: 0.5em;">
+                                <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Puedes cerrar esta ventana
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        "use strict";
+        $('body').addClass('fake');
+        $('#template-instruction').removeClass('show');
+        $('body').addClass('fake');
+        const audio_m46 = course360.createSound('audio/audio_m46.mp3');
+        course360.audioController.stopAllSoundsAndPlay(audio_m46);
+        audio_m46.on('play',function(){
+            var tl = gsap.timeline();
+            tl.fromTo(".anim0",{ y: 90, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" },2);
+            tl.fromTo(".anim1",{ y: 90, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" },4.2);
+            tl.fromTo(".anim2",{ y: 90, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" },10.22);
+            tl.fromTo(".anim3",{ y: 90, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" },15.47);
+            tl.fromTo(".anim4",{ y: 90, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" },19.46);
+        });
+        audio_m46.on("end", function () {
+            $('#template-instruction').removeClass('show');
+            course360.setLessonStatus('completed');
+            $('.ins0').show();
+        });
+        course360.setSlideVisited();
+        course360.setLessonStatus('completed');
+        course360.save();
+        $('#template-instruction').removeClass('show');
+    });
+</script>
