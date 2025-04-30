@@ -9,31 +9,120 @@
         border-radius: 15px !important;
     }
 
+    li::marker {
+        color: var(--bs-verde);
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .row.justify-content-center.align-items-center.h-100>.col-12.col-md-5 {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    /* Igualar la altura de las tarjetas */
+    #card0,
+    #card1 {
+        height: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        opacity: 0;
+    }
+
+    .page-sco .card-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .row.justify-content-center.align-items-center.h-100 {
+        align-items: stretch;
+    }
+
+    .btn-slide {
+        cursor: pointer;
+        border-radius: 100%;
+    }
+
+    .swal-wide {
+        padding: 35px 0px
+    }
+
+
     @media (min-width: 768px) {}
 </style>
 <div class="w-100 page-sco h-100 pt-4 pt-md-0">
     <div class="container">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-12 col-md-12">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-10 text-center my-md-5 my-2 animate__animated animate__bounceIDown">
-                        <h4 class="text-rojo-1 fw-bold">¿Qué hacer si el auto falla en carretera?</h4>
+        <div class="row align-items-center justify-content-center h-md-100">
+            <div class="col-12 col-md-9 h-50">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-7 col-md-2 order-2 order-md-1">
+                        <img src="img/06.1.webp" class="img-fluid btn-slide disabled" data-audio="0" loading="lazy"
+                            alt="icono 1" />
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="card rounded shadow bg-gris-3 text-white animate__animated animate__bounceInUp">
-                            <div class="card-body mx-md-4 my-md-4 my-2 mx-2">
-                                <div class="row justify-content-center">
-                                    <div class="col-3 col-md-2 text-center my-md-4 my-2">
-                                        <img src="img/06.1.webp" class="img-fluid" loading="lazy" alt="Icono motor" />
+                    <div
+                        class="col-12 col-md-6 text-center my-md-0 my-2 animate__animated animate__bounceIDown order-1 order-md-2">
+                        <h4 class="text-rojo-1 fw-bold">¿Qué hacer si el auto falla en carretera?</h4>
+                        <p>¿Qué son las emisiones del ciclo de vida?</p>
+                        <div class="text-center w-100 animate__animated animate__slideInLeft ins0"
+                            style="display: none;">
+                            <div class="border-dark text-rojo-1 px-4 py-2 border border-2 d-inline-block"
+                                style="border-radius: 0.5em;">
+                                <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en cada botón
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-7 col-md-2 order-3 order-md-3">
+                        <img src="img/06.2.webp" class="img-fluid btn-slide disabled" data-audio="1" loading="lazy"
+                            alt="icono 1" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 h-50 d-none d-md-block" id="rows">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-5">
+                        <div id="card0" class="card shadow border border-0">
+                            <div class="card-body my-md-4 my-2 mx-md-3 mx-2">
+                                <div class="row">
+                                    <div class="col-12 col-md-12">
+                                        <p>Son las emisiones contaminantes generadas durante la fabricación, uso y
+                                            disposición
+                                            final de un producto.</p>
+                                        <p>Se miden en toneladas de CO₂ equivalente <b class="text-primary">(tCO₂e)</b>
+                                            y
+                                            permiten evaluar el impacto
+                                            ambiental total a lo largo del tiempo.</p>
                                     </div>
                                 </div>
-                                <ul class="text-start">
-                                    <li>Enciende las luces de emergencia. </li>
-                                    <li>Coloca triángulos a 30-50 m detrás del vehículo. </li>
-                                    <li>Cambia la llanta solo si es seguro y sabes hacerlo.</li>
-                                    <li>Llama a tu seguro o asistencia vial si no puedes resolverlo. </li>
-                                    <li><b>No conduzcas si hay falla en frenos, dirección o llantas.</b></li>
-                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <div id="card1" class="card shadow border border-0">
+                            <div class="card-body my-md-4 my-2 mx-md-3 mx-2">
+                                <div class="row">
+                                    <div class="col-12 col-md-12">
+                                        <p>A continuación, verás una comparativa de estas emisiones en tres tipos de
+                                            vehículos:
+                                        </p>
+                                        <ul class="text-start">
+                                            <li>Vehículo Eléctrico a Batería (<b class="text-primary">BEV</b> Battery
+                                                Electric
+                                                Vehicle)</li>
+                                            <li>Vehículo híbrido (<b class="text-primary">HEV</b> Hybrid Electric
+                                                Vehicle)​
+                                            </li>
+                                            <li>Vehículo de combustión interna (<b class="text-primary">ICEV</b>
+                                                Internal
+                                                Combustion Engine Vehicle)</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -43,14 +132,64 @@
     </div>
 </div>
 <script>
+    $('.page-sco').tooltip('dispose');
     $(function () {
         "use strict";
+
+
         $('body').addClass('fake');
-        const audio_h22 = course360.createSound('audio/audio_h22.mp3');
-        course360.audioController.stopAllSoundsAndPlay(audio_h22);
-        audio_h22.on("end", function () {
-            course360.setSlideVisited();
+        const audio_m47 = course360.createSound('audio/audio_m47.mp3');
+        const audioFiles = [
+            course360.createSound("audio/audio_m48.mp3"),
+            course360.createSound("audio/audio_m49.mp3"),
+        ];
+
+        course360.audioController.stopAllSoundsAndPlay(audio_m47);
+        audio_m47.on("end", function () {
+            $('.ins0').fadeIn();
+            $('.btn-slide').removeClass('disabled').addClass('animate__animated animate__pulse animate__infinite');
+            slide();
         });
+
+        function slide() {
+            $('.btn-slide').click(function () {
+                if (!$(this).hasClass('disabled')) {
+                    $(this).removeClass('animate__animated animate__pulse animate__infinite').addClass('visited');
+                    const audioIndex = $(this).data('audio');
+                    course360.soundClick();
+                    course360.audioController.stopAllSoundsAndPlay(audioFiles[audioIndex]);
+
+                    if ($('#rows').is(':visible')) {
+                        gsap.fromTo('#card' + audioIndex,
+                            { opacity: 0, y: 50 },
+                            { opacity: 1, y: 0, duration: 0.5 }
+                        );
+                    } else {
+                        Swal.fire({
+                            html: $('#card' + audioIndex).html(),
+                            showCloseButton: true,
+                            showConfirmButton: false,
+                            customClass: {
+                                popup: 'swal-wide'
+                            },
+                            didClose: () => {
+                                course360.soundClick();
+                                course360.audioController.stopAudio();
+                            }
+                        });
+                    }
+
+
+                    if ($('.btn-slide').length == $('.btn-slide.visited').length) {
+                        course360.setSlideVisited();
+                        $('.page-sco [class*="ins"]').hide();
+                        // console.log('📌');
+                    }
+                }
+
+            });
+        }
+
     });
 
 </script>

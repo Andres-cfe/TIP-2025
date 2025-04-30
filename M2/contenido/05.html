@@ -1,254 +1,310 @@
 <style>
     .fake {
         background-image: url("img/bg05.webp");
+        background-position: center bottom;
+        background-repeat: no-repeat;
         background-size: cover;
-        background-position: bottom center;
     }
 
-    #svg-container {
-        width: 100%;
-        height: 100%;
+    .wrap-sw {
+        background: rgb(233, 70, 70);
+        background: linear-gradient(90deg, rgb(9 11 9) 10%, rgb(0 195 29) 39%, rgb(224 225 228) 100%);
+        display: none;
     }
 
-    #svg-container svg {
+    .swiper-button-disabled {
+        opacity: 0.8;
+        filter: grayscale(1);
+    }
+
+    .card.flat {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+    }
+
+    .card.flat .card-body {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+    }
+
+    .mySwiper {
         width: 100%;
+        height: 100px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .mySwiper .swiper-slide {
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .mySwiper .swiper-slide .img-icon {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    .mySwiper .swiper-slide img {
+        max-width: 100%;
+        height: auto;
+        opacity: 0.5;
+        -webkit-transform: scale(0.6);
+        transform: scale(0.6);
+        transition: all 0.5s ease;
+    }
+
+    .mySwiper .swiper-slide-active img {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    .swiper-nav {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        width: 100%;
+        max-width: 300px;
         height: 100%;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        top: 0;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .swiper-custom-button-next img,
+    .swiper-custom-button-prev img {
+        height: 85px;
+        width: auto;
+    }
+
+    .custom-card {
+        border-radius: 15px;
+        background-color: #fff;
+        border: solid 2px var(--bs-mango);
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    }
+
+    .custom-card .swiper-slide {
+        overflow: hidden;
     }
 
     .btn-open-info {
         cursor: pointer;
-        transform-box: content-box;
-        transform-origin: center !important;
+        width: 100%;
+        max-width: 70px;
+        border-radius: 50%;
+        margin-left: 1em;
     }
 
-    .circle {
-        fill: var(--bs-rojo-2) !important;
+    @media (min-width: 768px) {
+
+        .swiper-custom-button-next img,
+        .swiper-custom-button-prev img {
+            height: 150px;
+            width: auto;
+        }
+
+        .mySwiper {
+            height: 200px !important;
+        }
     }
 
-    .pop_class {
-        background-color: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        width: 100% !important;
-        max-width: 100% !important;
+    b,
+    strong {
+        font-weight: bold;
+        color: var(--bs-primary);
     }
 
-    .backdrop {
-        background-color: var(--bs-gris-3) !important;
+    #sco15 ul {
+        list-style-image: url("img/12.7.png");
     }
 
-    /* DOTS */
-    .dot {
-        cursor: pointer;
-        width: 30px;
-        height: 30px;
-        border-radius: 100%;
-        display: block;
-        background-color: transparent;
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-        margin-right: 15px;
-        background: #fff;
-        border: solid 3px var(--bs-rojo-1);
-    }
+    /* .swal2-container.swal2-center.swal2-backdrop-show {
+        background: rgba(2, 175, 159, 0.8);
+        background: linear-gradient(90deg, rgba(2, 175, 159, 0.8) 0%, rgba(6, 106, 145, 0.8) 100%);
+    } */
 
-    .dot:hover {
-        background: var(--bs-rojo-1);
-    }
-
-    .dot:last-child {
-        margin-right: 0;
-    }
-
-    .dot.active {
-        width: 30px;
-        border-radius: 15px;
-        background: var(--bs-rojo-1);
-    }
-
-    /*
-    .dot.animate__pulse.animate__infinite {
-        animation: aura_dot 1.7s infinite ease-in-out;
-    }
-    */
-
-    .innernavs {
-        display: inline-flex;
-        justify-content: space-around;
-        flex-direction: row;
-        flex-wrap: nowrap;
+    .swal2-popup.swal-fullscreen {
         align-items: center;
-        margin: 0 auto;
-        background: transparent;
-        padding: 3px;
-        border-radius: 30px;
-        box-shadow: none;
+        height: auto !important;
+        min-height: 100vh;
+        align-content: center;
     }
 
-    .innernavs.active {
-        background: transparent;
+    .swal2-popup.swal-fullscreen .swal2-html-container {
+        overflow: hidden;
     }
 
-    .inner {
-        display: none;
+    .custom-card-swal {
+        background-color: transparent;
+        border: none;
     }
 
-    .inner {
+    .custom-card-swal.flip {
+        background-image: url("img/cardflip.webp");
+        background-size: 100% 100%;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .custom-card-swal.flip .card-body {
+        border-radius: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        display: none;
     }
 
-    .circle_number {
-        width: 30px;
-        height: 30px;
-        border-radius: 100%;
-        background: var(--bs-rojo-1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .btn_pop {
-        cursor: pointer;
-        border-radius: 100%;
-    }
-
-    .disabled {
-        cursor: not-allowed;
-        pointer-events: none;
-        opacity: 0.5;
-    }
-
-    @media (min-width: 768px) {
-        .pop_class {
-            width: 100%;
-            max-width: 100% !important;
-        }
+    b,
+    strong {
+        font-weight: bold;
+        color: var(--bs-primary);
     }
 </style>
-<div class="page-sco w-100 h-100 d-flex flex-row align-items-center">
-    <div class="container h-100">
-        <div class="row align-items-center justify-content-center h-100">
-            <div class="col-12 col-md-12">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-12 col-md-10">
-                        <h4 class="text-rojo-1 fw-bold">
-                            Revisión preventiva del vehículo
-                        </h4>
+<div class="w-100 page-sco" id="sco15">
+    <div class="container-fluid g-0">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 text-center px-4 animate__animated animate__backInLeft">
+                        <h4 class="text-primary fw-bold">Beneficios ambientales</h4>
+                        <p class="" id="lap">
+                            Imagina una ciudad con el aire más limpio, el cielo más azul y la vida más sana. Al reducir
+                            emisiones contaminantes, también reducimos enfermedades respiratorias.
+                        </p>
                     </div>
-                    <div class="text-center w-100 my-2 animate__animated animate__slideInLeft ins0"
-                        style="display: none;">
+                    <div class="text-center w-100 my-md-2 my-2 animate__animated animate__slideInLeft ins0" style="display: none;">
                         <div class="border-dark text-rojo-1 px-4 py-2 border border-2 d-inline-block"
                             style="border-radius: 0.5em;">
-                            <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en cada botón
+                            <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en las flechas
                         </div>
                     </div>
-                    <div class="col-12 col-md-8">
-                        <div id="svg-container"></div>
-                    </div>
-                    <div class="col-12 col-md-2 h-100 my-md-3 my-2">
-                        <div class="text-center w-100 my-2 animate__animated animate__slideInLeft ins3"
-                            style="display: none;">
-                            <div class="border-dark text-rojo-1 px-4 py-2 border border-2 d-inline-block"
-                                style="border-radius: 0.5em;">
-                                <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en el botón
-                            </div>
-                        </div>
-                        <div class="row justify-content-center align-items-end">
-                            <div
-                                class="col-4 col-md-8 text-center slide0 d-block animate__animated animate__fadeInRight">
-                                <img src="img/warning.webp" class="img-fluid btn_pop disabled" data-popid="#pop3"
-                                    data-audio="audio_h21" loading="lazy" alt="icono Alerta" />
-                            </div>
-                            <!-- <div class="col-12 col-md-12 my-2 ins3" style="display: none;">
-                                <div class="row justify-content-end align-items-center w-auto">
-                                    <div class="text-rojo-1 bg-white border border-2 border-dark rounded w-auto">
-                                        <div class="d-flex flex-row py-2">
-                                            <i class="fa-light fa-arrow-pointer mx-2"></i>
-                                            <span>Da clic en el botón</span>
+                </div>
+                <div class="text-center wrap-sw text-white">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-10 col-md-12">
+                                <div class="card custom-card flat">
+                                    <div class="card-body">
+                                        <!-- Swiper -->
+                                        <div class="swiper mySwiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <div class="img-icon">
+                                                        <img src="img/icon_01.png" />
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="img-icon">
+                                                        <img src="img/icon_02.png" />
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="img-icon">
+                                                        <img src="img/icon_03.png" />
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="img-icon">
+                                                        <img src="img/icon_04.png" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- navegacion -->
+                                        <div class="position-absolute mx-auto swiper-nav">
+                                            <div class="swiper-custom-button-prev">
+                                                <img src="img/prev.webp" alt="" />
+                                            </div>
+                                            <div class="swiper-custom-button-next">
+                                                <img src="img/next.webp" alt="" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="d-none">
-    <div id="pop0">
-        <div class="row w-100 h-100 justify-content-center align-items-center">
-            <div class="col-12 col-md-7 col-lg-8">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-12 col-md-12">
-                        <h4 class="text-primary fw-bold">Llantas</h4>
-                        <p class="text-white text-start">Revisa periódicamente la presión y el estado físico.</p>
-                    </div>
-                    <div class="text-center w-100 my-2 animate__animated animate__slideInLeft ins1"
-                        style="display: none;">
-                        <div class="border-dark text-rojo-1 bg-white px-4 py-2 border border-2 d-inline-block"
-                            style="border-radius: 0.5em;">
-                            <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en cada botón
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-12">
-                        <div class="card bg-white shadow rounded">
-                            <div class="card-body">
-                                <div class="w-100 text-center">
-                                    <div class="innernavs">
-                                        <div class="dot disabled active visited"></div>
-                                        <div
-                                            class="dot disabled animate__animated animate__pulse animate__infinite waves-effect">
+                <div class="wrap-cards mt-md-4 mt-2" style="display: none">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-8">
+                                <div class="card custom-card">
+                                    <div class="card-body">
+                                        <!-- Swiper con validación de slides visitados -->
+                                        <div class="swiper customSwiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <div class="swiper-content text-center">
+                                                        <h4 class="fw-bold text-verde text-start">Reducción de emisiones
+                                                            de gases de efecto invernadero (GEI)</h4>
+                                                        Disminuye significativamente las emisiones de CO₂ y otros gases
+                                                        contaminantes, ayudando a combatir el cambio climático.
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide py-3 pe-3 ps-2 text-center">
+                                                    <h4 class="fw-bold text-verde text-start">Mejora en la calidad del
+                                                        aire</h4>
+                                                    Menos vehículos contaminantes significan menos partículas tóxicas en
+                                                    el ambiente, lo que se traduce en aire más limpio y saludable para
+                                                    todos.
+                                                </div>
+                                                <div class="swiper-slide text-center">
+                                                    <h4 class="fw-bold text-verde text-start">Conservación de recursos
+                                                        naturales
+                                                    </h4>
+                                                    Al reducir el uso de combustibles fósiles, se protege el medio
+                                                    ambiente y se disminuye la dependencia de recursos no renovables.
+                                                </div>
+                                                <div class="swiper-slide text-center">
+                                                    <h4 class="fw-bold text-verde text-start">Reducción comprobada de
+                                                        emisiones</h4>
+                                                    En <b class="text-primary">México</b>, los datos son contundentes:
+                                                    <b class="text-primary">un vehículo eléctrico genera
+                                                        solo 6.61 kg de CO₂ equivalente por cada 100 km</b> recorridos,
+                                                    <b class="text-primary">frente a
+                                                        los 21.24 kg de CO₂/100 km que emite un vehículo a combustión
+                                                        interna</b>. Esto significa una reducción de aproximadamente <b
+                                                        class="text-primary">69%</b> en
+                                                    emisiones de CO₂ al elegir un auto eléctrico, considerando
+                                                    únicamente la etapa de uso.
+                                                    <div class="w-100 text-md-end text-center">
+                                                        <img src="img/i.webp"
+                                                            class="img-fluid btn-open-info animate__animated animate__pulse animate__infinite"
+                                                            data-popid="#pop-vales" data-sound="audio_m18" />
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div
-                                            class="dot disabled animate__animated animate__pulse animate__infinite waves-effect">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="inner">
-                                    <div class="row text-start">
-                                        <p class="text-rojo-1 fw-bold">Presión</p>
-                                        <p>Revisa cada <b>15 días que los neumáticos se encuentren con la presión
-                                                recomendada</b> por el
-                                            fabricante (esta información se puede encontrar en la puerta del conductor o
-                                            en
-                                            el manual
-                                            del vehículo). Puedes checar la presión en una gasolinera o hacerlo tú
-                                            mismo;
-                                            para ello,
-                                            asegúrate de que las llantas estén frías y que el vehículo no haya sido
-                                            conducido por varias
-                                            horas.</p>
-                                    </div>
-                                </div>
-                                <div class="inner">
-                                    <div class="row text-start">
-                                        <p class="fw-bold text-rojo-1">Desgaste</p>
-                                        <p>Los expertos recomiendan no utilizar un neumático cuya profundidad del dibujo
-                                            sea
-                                            <b>inferior a
-                                                3 mm</b>.
-                                        </p>
-                                        <p>Esto lo puedes verificar usando una moneda de $1 peso. Si el borde plateado
-                                            se
-                                            ve, es
-                                            momento de cambiarla.</p>
-                                    </div>
-                                </div>
-                                <div class="inner">
-                                    <div class="row text-start">
-                                        <p class="fw-bold text-rojo-1">Dibujo desigual</p>
-                                        <p>Si notas que una parte de la llanta está más desgastada que otra (por
-                                            ejemplo,
-                                            más lisa de un
-                                            lado), es señal de un problema de <b>alineación</b> o <b>suspensión</b>.</p>
                                     </div>
                                 </div>
                             </div>
@@ -256,130 +312,29 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-5 col-lg-3">
-                <img src="img/05.2.webp" class="img-fluid img-llantas d-none d-md-block" loading="lazy" alt="" />
-            </div>
-            <div class="text-center w-100 my-2 animate__animated animate__slideInLeft ins2" style="display: none;">
-                <div class="border-dark text-rojo-1 bg-white px-4 py-2 border border-2 d-inline-block"
-                    style="border-radius: 0.5em;">
-                    <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en Cerrar
-                </div>
-            </div>
         </div>
     </div>
-    <div id="pop1">
-        <div class="row w-100 h-100 justify-content-center align-items-center">
-            <div class="col-12 col-md-7 col-lg-8">
+    <div class="d-none">
+        <div id="pop-vales">
+            <div class="container py-3">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-12 col-md-12">
-                        <h4 class="text-primary fw-bold">Frenos</h4>
-                        <p class="text-white text-start">Son el sistema de seguridad más <b>importante</b> de un
-                            vehículo por lo que debes revisarlos cada 10,000 kilómetros o una vez al año y estar atento
-                            a las siguientes señales: </p>
+                    <div class="col-7 col-md-4">
+                        <img src="img/05.1.webp" class="img-fluid" loading="lazy" alt="" />
                     </div>
-                    <div class="col-12 col-md-12">
-                        <div class="card bg-white shadow rounded">
-                            <div class="card-body">
-                                <!-- <div class="row text-start">
-                                    <div class="col-3 col-md-2">
-                                        <img src="img/05.1.webp" class="img-fluid" alt="">
-                                    </div>
-                                </div> -->
-                                <div class="row text-start">
-                                    <div class="col-2 col-md-1">
-                                        <div class="circle_number fw-bold text-white">1</div>
-                                    </div>
-                                    <div class="col-10 col-md-11">
-                                        <p> <b class="text-rojo-1">Ruidos</b> al frenar <b class="text-primary">→</b>
-                                            balatas
-                                            desgastadas.</p>
-                                    </div>
-                                </div>
-                                <div class="row text-start">
-                                    <div class="col-2  col-md-1">
-                                        <div class="circle_number fw-bold text-white">2</div>
-                                    </div>
-                                    <div class="col-10 col-md-11">
-                                        <p><b class="text-rojo-1">Vibración</b> <b class="text-primary">→</b> problema
-                                            en
-                                            discos. </p>
-                                    </div>
-                                </div>
-                                <div class="row text-start">
-                                    <div class="col-2 col-md-1">
-                                        <div class="circle_number fw-bold text-white">3</div>
-                                    </div>
-                                    <div class="col-10 col-md-11">
-                                        <p>Pedal muy <b class="text-rojo-1">blando</b> <b class="text-primary">→</b>
-                                            puede
-                                            haber aire en el sistema o fuga. </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-5 col-lg-3">
-                <img src="img/05.1.webp" class="img-fluid d-none d-md-block" loading="lazy" alt="" />
-            </div>
-            <div class="text-center w-100 my-2 animate__animated animate__slideInLeft ins1" style="display: none;">
-                <div class="border-dark bg-white text-rojo-1 px-4 py-2 border border-2 d-inline-block"
-                    style="border-radius: 0.5em;">
-                    <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en Cerrar
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="pop2">
-        <div class="row w-100 h-100 justify-content-center align-items-center">
-            <div class="col-12 col-md-7 col-lg-8">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-12 col-md-12">
-                        <h4 class="text-primary fw-bold">Luces</h4>
-                        <p class="text-white text-start"><b>Revisión visual mensual</b>: enciende todas las luces y
-                            revísalas frente a una pared o con ayuda de alguien para asegurarte de que los faros estén
-                            correctamente alineados.</p>
-                    </div>
-                    <div class="col-12 col-md-12">
-                        <div class="card bg-white shadow rounded">
-                            <div class="card-body">
-                                <ul class="text-start">
-                                    <li>Si notas que <b>una luz está más tenue que la otra</b> o ha dejado de funcionar,
-                                        es
-                                        momento de reemplazar la bombilla.</li>
-                                    <li><b>Limpia</b> las luces regularmente con un paño suave y agua jabonosa ya que la
-                                        suciedad, polvo y residuos acumulados reducen su brillo y efectividad.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-5 col-lg-3">
-                <img src="img/05.5.webp" class="img-fluid d-none d-md-block" loading="lazy" alt="" />
-            </div>
-            <div class="text-center w-100 my-2 animate__animated animate__slideInLeft ins1" style="display: none;">
-                <div class="border-dark text-rojo-1 bg-white px-4 py-2 border border-2 d-inline-block"
-                    style="border-radius: 0.5em;">
-                    <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en Cerrar
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="pop3">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-11 text-start">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-7 col-md-5 text-center mb-3">
-                            <div class="personaje m1 play mx-auto"></div>
-                        </div>
-                        <div class="col-12 col-md-7">
-                            <p>Las revisiones periódicas y mantenimiento preventivo en los vehículos ayudan a
-                                identificar y corregir riesgos que puedan ocasionar accidentes viales.</p>
-                            </ul>
-                        </div>
+                    <div class="col-1 col-md-8">
+                        <p class="text-center fw-bold text-primary">Análisis respaldado por datos técnicos​</p>
+                        <p>Este análisis fue realizado con base en datos del modelo <b class="text-primary">HBEFA,</b>
+                            considerando un vehículo de
+                            gasolina Euro 5 con motor <1.4L operando en condiciones urbanas reales.</p>
+                                <p>Es importante señalar que estos cálculos no incluyen las emisiones asociadas a la
+                                    fabricación
+                                    del vehículo.</p>
+                                <p>Sin embargo, en autos eléctricos de alta utilización (como los de plataformas de
+                                    transporte
+                                    por aplicación), esas emisiones iniciales se compensan desde el tercer mes de uso,
+                                    gracias a
+                                    <b class="text-primary">su operación más limpia y eficiente.</b>
+                                </p>
                     </div>
                 </div>
             </div>
@@ -389,242 +344,163 @@
 <script>
     $(function () {
         "use strict";
-        $('body').addClass('fake');
-        const audio_h16 = course360.createSound('audio/audio_h16.mp3');
-        const audio_h21 = course360.createSound('audio/audio_h21.mp3');
+        $("body").addClass("fake");
+        const audio_m13 = course360.createSound("audio/audio_m13.mp3");
+        const audio_m18 = course360.createSound("audio/audio_m18.mp3");
+
+        let swiperIcons;
+        let swiperCards;
 
 
-        const paths_pop = [
-            'audio/audio_h18.mp3',
-            'audio/audio_h17.mp3',
-            'audio/audio_h35.mp3',
-        ];
-        // Array para almacenar los objetos de audio creados.
-        let audios_pop = [];
-        // Crea y almacena objetos de sonido para cada archivo de audio en 'paths'.
-        paths_pop.forEach(function (element) {
-            audios_pop.push(course360.createSound(element));
-        });
-
-        const paths_1 = [
-            'audio/audio_h19.mp3',
-            'audio/audio_h38.mp3',
-            'audio/audio_h20.mp3',
-        ];
-        // Array para almacenar los objetos de audio creados.
-        let audios_1 = [];
-        // Crea y almacena objetos de sonido para cada archivo de audio en 'paths'.
-        paths_1.forEach(function (element) {
-            audios_1.push(course360.createSound(element));
-        });
-
-        const paths_2 = [
-            'audio/audio_h36.mp3',
-            'audio/audio_h24.mp3',
-            'audio/audio_h26.mp3',
-        ];
-        // Array para almacenar los objetos de audio creados.
-        let audios_2 = [];
-        // Crea y almacena objetos de sonido para cada archivo de audio en 'paths'.
-        paths_2.forEach(function (element) {
-            audios_2.push(course360.createSound(element));
-        });
-
-        audio_h16.on("end", function () {
-            $(".btn-open-info").removeClass("disabled").addClass("animate__animated animate__pulse animate__infinite");
+        audio_m13.on("end", function () {
             $('.ins0').show();
-        });
-
-        audio_h21.on("end", function () {
-            $('.personaje').removeClass('play').addClass('stop');
-        });
-        course360.audioController.stopAllSoundsAndPlay(audio_h16);
-
-        loadSVG();
-
-        // Function to load the SVG file and insert it into the container
-        function loadSVG() {
-            var figura = "";
-            figura = "img/btns05.svg";
-            $.get(
-                figura,
-                function (data) {
-                    var svg = $(data).find("svg");
-                    $("#svg-container").html(svg);
-                    // Remove width and height attributes to make SVG responsive
-                    svg.removeAttr("width").removeAttr("height");
-                    $('[id*="btnslide"]').each(function (index, element) {
-                        $(this).addClass('btn-open-info disabled');
-                        $(this).attr('data-popid', '#pop' + index);
-                        $(this).attr('data-popIndex', index);
-                    });
-                    botones();
+            $("#lp").addClass("d-md-inline-block d-none");
+            $(".wrap-sw").show();
+            $(".wrap-cards").show();
+            swiperCards = initializeSwiper(".customSwiper", onAllSlidesVisited, {
+                autoHeight: true, // Ajusta la altura del contenedor al slide activo
+                grabCursor: false, // Oculta el cursor de "mano" al pasar sobre el Swiper
+                allowTouchMove: false, // Deshabilita el arrastre (drag)
+            });
+            swiperIcons = initializeSwiper(
+                ".mySwiper",
+                onAllSlidesVisited,
+                {
+                    slidesPerView: 5,
+                    centeredSlides: true,
+                    spaceBetween: 30,
+                    grabCursor: false,
+                    allowTouchMove: false, // Deshabilita el arrastre (drag)
+                    navigation: {
+                        nextEl: ".swiper-custom-button-next",
+                        prevEl: ".swiper-custom-button-prev",
+                    },
+                    breakpoints: {
+                        0: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 5,
+                            spaceBetween: 30,
+                        },
+                    },
                 },
-                "xml"
+                audioFiles,
             );
-        }
-
-        function botones() {
-            $('.form').addClass('circle')
-            $(".btn-open-info").click(function () {
-                $('.ins1').hide();
-                course360.audioController.stopAllSoundsAndPlay(audios_pop[$(this).attr("data-popIndex")]);
-                $(this).removeClass("animate__animated animate__pulse animate__infinite").addClass("visited");
-                $(this).find('.form').removeClass('circle');
-                let ArrayAudios = $(this).attr("data-popIndex");
-                Swal.fire({
-                    html: $($(this).data("popid")).html(),
-                    target: 'body',
-                    confirmButtonText: 'Cerrar',
-                    didOpen: function () {
-                        if (course360.isVisited()) {
-                            $('.swal2-confirm').show().addClass('animate__animated animate__pulse animate__infinite');
-                        } else {
-                            $('.swal2-confirm').hide().addClass('animate__animated animate__pulse animate__infinite');
-                        }
-
-                        audios_pop[ArrayAudios].on("end", function () {
-
-                            if (ArrayAudios == 0) {
-                                carousel(ArrayAudios);
-                            } else {
-                                $('.ins1').show();
-                                $('.swal2-confirm').show();
-                            }
-                        });
-                    },
-                    customClass: {
-                        popup: 'pop_class',
-                        container: 'backdrop'
-                    },
-                    willClose: isCompleted
-                });
+            // Sincronizar los Swipers
+            swiperIcons.on("slideChange", function () {
+                const currentIndex = swiperIcons.activeIndex;
+                swiperCards.slideTo(currentIndex);
             });
-
-            function isCompleted() {
-                course360.audioController.stopAudio();
-                if ($(".btn-open-info").length === $(".btn-open-info.visited").length) {
-                    // course360.setSlideVisited();
-                    $('.btn_pop').removeClass("disabled").addClass("animate__animated animate__pulse animate__infinite waves-effect");
-                    $('.ins3').show();
-                }
-            }
-        }
-
-        function carousel(index) {
-
-            //Init
-            $(Swal.getHtmlContainer()).find(".inner").hide();
-            $(Swal.getHtmlContainer()).find(".inner").eq(0).show();
-            $(Swal.getHtmlContainer()).find(".dot").removeClass('active');
-            $(Swal.getHtmlContainer()).find(".dot").eq(0).addClass('active');
-            $(Swal.getHtmlContainer()).find(".dot").removeClass('visited');
-            $(Swal.getHtmlContainer()).find(".dot").eq(0).addClass('visited');
-            $(Swal.getHtmlContainer()).find(".dot").removeClass('disabled');
-            $('.img-llantas').attr('src', 'img/05.2.webp');
-
-            // Manejo de los puntos de navegación
-            let audios;
-            let dots = $(Swal.getHtmlContainer()).find(".dot");
-            let texts = $(Swal.getHtmlContainer()).find(".inner");
-
-            if (index == 0) {
-                audios = audios_1;
-                course360.audioController.stopAllSoundsAndPlay(audios[0]);
-            }
-
-            // Manejo de clic en los puntos de navegación
-            dots.each(function (index) {
-                $(this).click(function () {
-
-                    if (!$(this).hasClass('disabled')) {
-                        var textId = $(this).data('textId');
-                        var btn = $(this).data('btn');
-                        course360.soundClick();
-                        showText(index); // Mostrar el texto correspondiente
-                        activateDot(index); // Activar el punto correspondiente
-                        dots.eq(index).removeClass('animate__animated animate__pulse animate__infinite').addClass('visited');
-                        course360.audioController.stopAllSoundsAndPlay(audios[index]);
-
-                        switch (index) {
-                            case 0:
-                                $('.img-llantas').attr('src', 'img/05.2.webp');
-                                break;
-                            case 1:
-                                $('.img-llantas').attr('src', 'img/05.3.webp');
-                                break;
-                            case 2:
-                                $('.img-llantas').attr('src', 'img/05.4.webp');
-                                break;
-
-                        }
-
-                        audios[index].on("end", function () {
-                            if ($(Swal.getHtmlContainer()).find(".dot").length === $(Swal.getHtmlContainer()).find(".dot.visited").length) {
-                                // $('#pop0 .btn-cerrar-pop').show();
-                                $('.ins2').show();
-                                $('.swal2-confirm').show().addClass('animate__animated animate__pulse animate__infinite');
-                            }
-                        });
-                    }
-                });
-            });
-            function showText(index) {
-                $('.inner').hide(); // Oculta todos los textos
-                gsap.fromTo(texts.eq(index), { opacity: 0 }, { opacity: 1, display: 'flex', duration: 0.5 });
-            }
-            function activateDot(index) {
-                dots.removeClass('active'); // Desactiva todos los puntos
-                dots.eq(index).addClass('active'); // Activa el punto seleccionado
-            }
-        }
-
-        $(".btn_pop").click(function (e) {
-            e.preventDefault();
-            if (!$(this).hasClass("disabled")) {
-                if ($(this).data("audio")) {
-                    course360.audioController.stopAllSoundsAndPlay(eval($(this).data("audio")));
-                } else {
-                    course360.soundClick();
-                }
-                $(".btn_pop").removeClass("visited");
-                $(this).removeClass("animate__animated animate__pulse animate__infinite waves-effect");
-                $(this).addClass("completed visited");
-                var html = $($(this).data("popid")).html();
-                var audio = $(this).data("audio");
-                course360.audioController.stopAllSoundsAndPlay(audio);
-                Swal.fire({
-                    html: html,
-                    showCloseButton: true,
-                    showCancelButton: false,
-                    showConfirmButton: false,
-                    allowOutsideClick: false,
-                    allowEscapeKey: false,
-                    allowEnterKey: false,
-                    confirmButtonText: 'Cerrar',
-                    target: "body",
-                    width: "60em",
-                    customClass: 'pop_style',
-                    willOpen: function () {
-                        //course360.audioController.stopAudio();
-                    },
-                    didOpen: function () { },
-                    didRender: function () { },
-                    didClose: function () {
-                        //course360.audioController.stopAudio();
-                    },
-                    didDestroy: function () { },
-                    willClose: function () {
-                        course360.audioController.stopAudio();
-                        course360.soundClick();
-                        if ($(".btn_pop").length == $(".btn_pop.completed").length) {
-                            course360.setSlideVisited();
-                            $('.page-sco [class*="ins"]').hide();
-                        }
-                    }
-                });
-            }
         });
+        course360.audioController.stopAllSoundsAndPlay(audio_m13);
+        const audioFiles = [
+            course360.createSound("audio/audio_m14.mp3"),
+            course360.createSound("audio/audio_m15.mp3"),
+            course360.createSound("audio/audio_m16.mp3"),
+            course360.createSound("audio/audio_m17.mp3"),
+            course360.createSound("audio/audio_m19.mp3"),
+        ];
+
+
+        function onAllSlidesVisited() {
+            console.log("completado");
+            course360.setSlideVisited();
+        }
+
+        $(".btn-open-info").click(function () {
+            const $element = $(this);
+            $(this).removeClass("animate__animated animate__pulse animate__infinite").addClass("visited");
+            const html = $($(this).data("popid")).html();
+            // Validación del audio
+            let audio = null;
+            const audioData = $element.data("sound");
+            if (audioData) {
+                try {
+                    audio = eval(audioData);
+                } catch (error) {
+                    console.error(`Error al evaluar el audio: ${audioData}`, error);
+                }
+            }
+
+            Swal.fire({
+                html: html,
+                target: "body",
+                customClass: "poup_class",
+                confirmButtonText: "Cerrar",
+                showConfirmButton: false,
+                showCloseButton: true,
+                closeButtonHtml: '<span class="swal2-close-x">×</span>',
+                showDenyButton: false,
+                showCancelButton: false,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                focusConfirm: false,
+                willOpen: () => {
+                    // $(".swal2-popup").css("padding", "0");
+                    // $(".swal2-popup").css("box-shadow", "none");
+                    // $(".swal2-container").css("padding", "0");
+                    // if (audio) {
+                    //     course360.audioController.stopAllSoundsAndPlay(audio);
+                    // }
+                },
+                didOpen: null,
+                didRender: null,
+                willClose: () => {
+                    course360.audioController.stopAudio();
+                },
+                didClose: null,
+                didDestroy: null,
+            });
+        });
+
+        function initializeSwiper(swiperContainer, callback, options = {}, audios = [], autoPlaySound = true) {
+            const visitedSlides = new Set();
+            const container = typeof swiperContainer === "string" ? document.querySelector(swiperContainer) : swiperContainer;
+            const parent = container.parentElement;
+            if (options.navigation && options.navigation.nextEl && options.navigation.prevEl) {
+                options.navigation.nextEl = container.querySelector(options.navigation.nextEl)
+                    ? container.querySelector(options.navigation.nextEl)
+                    : parent.querySelector(options.navigation.nextEl);
+                options.navigation.prevEl = container.querySelector(options.navigation.prevEl)
+                    ? container.querySelector(options.navigation.prevEl)
+                    : parent.querySelector(options.navigation.prevEl);
+            }
+            const defaultParams = {
+                effect: "slide",
+                loop: false,
+                autoHeight: true,
+            };
+
+            // Combina opciones personalizadas con las por defecto
+            const params = {
+                ...defaultParams,
+                ...options,
+                on: {
+                    init: function () {
+                        visitedSlides.add(this.activeIndex);
+                        if (audios.length > 0 && audios[this.activeIndex] && autoPlaySound) {
+                            course360.audioController.stopAllSoundsAndPlay(audios[this.activeIndex]);
+                        }
+                    },
+                    slideChange: function () {
+                        const index = this.activeIndex;
+                        visitedSlides.add(index);
+                        if (audios.length > 0) {
+                            course360.audioController.stopAudio();
+                        }
+                        if (audios.length > 0 && audios[index]) {
+                            course360.audioController.stopAllSoundsAndPlay(audios[index]);
+                        }
+                        if (visitedSlides.size === this.slides.length && typeof callback === "function") {
+                            callback();
+                        }
+                    },
+                },
+            };
+            return new Swiper(container, params);
+        }
 
     });
 </script>

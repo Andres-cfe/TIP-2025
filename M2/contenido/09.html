@@ -1,444 +1,56 @@
 <style>
-    .fakeBody {
-        background-image: url("img/activity/bg-inicio.jpg");
-        background-repeat: no-repeat;
+    .fake {
+        background-image: url(img/bg05.webp);
+        background-position: center bottom;
         background-size: cover;
-        background-position: top center;
+        background-repeat: no-repeat;
     }
 
-    .fakeBodyInicio {
-        height: 100%;
-        padding-top: 0;
-    }
-
-    .fakeBodyDesarrollo {
-        background-image: url("img/activity/bg-desarrollo.jpg");
-        background-position: top center;
-    }
-
-    .fakeBodyCierreGood {
-        background-image: url("img/activity/bg-cierre-good.jpg");
-        background-position: bottom center;
-    }
-
-    .fakeBodyCierreBad {
-        background-image: url("img/activity/bg-cierre-bad.jpg");
-        background-position: bottom center;
-    }
-
-
-
-    /* Fondos para respuestas correctas */
-    .background-correct-1 {
-        background-image: url("img/activity/bg-1.jpg");
-    }
-
-    .background-correct-2 {
-        background-image: url("img/activity/bg-2.jpg");
-    }
-
-    .background-correct-3 {
-        background-image: url("img/activity/bg-3.jpg");
-    }
-
-    .background-correct-4 {
-        background-image: url("img/activity/bg-4.jpg");
-    }
-
-    .background-correct-5 {
-        background-image: url("img/activity/bg-5.jpg");
-    }
-
-    /* Fondos para respuestas incorrectas */
-    .background-incorrect-1 {
-        background-image: url("img/activity/bg-b-1.jpg");
-    }
-
-    .background-incorrect-2 {
-        background-image: url("img/activity/bg-b-2.jpg");
-    }
-
-    .background-incorrect-3 {
-        background-image: url("img/activity/bg-b-3.jpg");
-    }
-
-    .background-incorrect-4 {
-        background-image: url("img/activity/bg-b-4.jpg");
-    }
-
-    .background-incorrect-5 {
-        background-image: url("img/activity/bg-b-5.jpg");
-    }
-
-
-    /****
-    // estilos de la actividad
-    ****/
-    .escena {
-        height: 100%;
-        width: 100%;
-        padding: 0;
-        margin: 0;
+    .play-button-container {
         display: flex;
-        flex: 1 1 auto;
-        flex-direction: column;
-        justify-content: center;
-        margin-bottom: 11%;
-    }
-
-    .pasos,
-    .personaje-pasos {
-        display: grid;
-        grid-template-rows: 1fr;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 0;
-        width: 100%;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
-        justify-items: center;
-
-    }
-
-    .pasos {
-        margin-top: -10%;
-    }
-
-    .paso,
-    .personaje {
-        text-align: center;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        z-index: 2;
-        border-radius: 50%;
-    }
-
-    .paso {
-        cursor: pointer;
-        transform: translate(0px, -15px);
-    }
-
-    .personaje img {
-        opacity: 0;
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-    }
-
-    .paso img {
-        width: auto;
-        max-width: 65%;
-        filter: grayscale(0);
-        -webkit-transition: filter 0.5s ease;
-        -moz-transition: filter 0.5s ease;
-        -o-transition: filter 0.5s ease;
-        transition: filter 0.5s ease;
-    }
-
-    .paso.active img {
-        filter: grayscale(0);
-    }
-
-    .paso.disabled img {
-        filter: grayscale(1);
-    }
-
-    .personaje.active img {
-        opacity: 1;
-    }
-
-    #paso1 {
-        grid-area: 1/1/2/2;
-
-    }
-
-    #paso2 {
-        grid-area: 1/2/2/3;
-
-    }
-
-    #paso3 {
-        grid-area: 1/3/2/4;
-
-    }
-
-    #paso4 {
-        grid-area: 1/4/2/5;
-
-    }
-
-    #paso5 {
-        grid-area: 1/5/2/6;
-
-    }
-
-    #paso6 {
-        grid-area: 1/6/2/7;
-    }
-
-    .pasos-background {
         position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 145px;
-        background: url('img/carretera.png');
-        z-index: 1;
-        background-size: cover;
-        background-repeat: repeat-x;
-
-    }
-
-
-    /****
-    // Estilos de los popups de SweetAlert2
-    ****/
-
-    .overswall {
-        border-radius: 30px;
-    }
-
-    .bg-primary-custom {
-        background: linear-gradient(90deg, #ef4b4f 0%, #b0171b 100%);
-    }
-
-    .fullretro.swal2-popup {
-        background-color: transparent !important;
-        box-shadow: none;
-        border: none;
-        /* Remove shadow */
-    }
-
-    .fullretro .swal2-modal {
-        background-color: transparent;
-    }
-
-    .fullretro .swal2-container {
-        background-color: transparent;
-    }
-
-    .correcto::before {
-        content: "";
-        display: block;
-        width: 50px;
-        height: 50px;
-        background-image: url("img/activity/correcto.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        margin: 0 auto;
-        margin-top: -5%;
-    }
-
-    .incorrecto::before {
-        content: "";
-        display: block;
-        width: 50px;
-        height: 50px;
-        background-image: url("img/activity/incorrecto.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        margin: 0 auto;
-        margin-top: -5%;
-    }
-
-
-    /****
-    // estilos de la pregunta y opciones
-    */
-
-    .wtext {
-        /*margin-bottom: 1.3em;*/
-        /*margin-bottom: 1.3em;*/
-        /*box-shadow: 0px 0px 8px 0px #000;*/
-        /*background: #fff;*/
-        color: #000;
-    }
-
-
-    .option {
-        display: flex;
-        flex-direction: row;
+        height: 100%;
+        justify-content: center;
         align-items: center;
-        cursor: pointer;
-        padding-top: .5rem;
-        padding-bottom: .5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        margin-bottom: 1em;
+        z-index: 10002;
+        background-color: rgb(0 0 0);
         border-radius: 15px;
-        border: solid 0px;
-        /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
-        -webkit-transition: background-color 0.5s ease;
-        -moz-transition: background-color 0.5s ease;
-        -o-transition: background-color 0.5s ease;
-        transition: background-color 0.5s ease;
     }
 
-    .option .letter {
-        background: var(--bs-gris-3);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 45px;
-        height: 40px;
-        border-radius: 20px;
-        margin-right: 20px;
-        /*box-shadow: 2px 1px 8px 2px #000;*/
+    #video {
+        z-index: 99;
+        border-radius: 15px;
     }
 
-    .option>.option-text {
-        width: 100%;
-        text-align: start;
-    }
-
-    .option:hover {
-        background-color: transparent;
-        color: #000;
-    }
-
-    .option:hover>.letter {
-        background-color: var(--bs-gris-1);
-    }
-
-    .option.selected {
-        background: transparent;
-        color: #FFF;
-    }
-
-    .question-class-pop {
-        border-radius: 15px !important;
-        border: 4px solid var(--bs-naranja);
-    }
-
-    /****
-  //circulo de califiacion
-  */
-    #progress-container {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        border-radius: 50%;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        background-color: #fff;
-        max-width: 200px;
-        max-height: 200px;
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        padding: 5px;
-    }
-
-    #progress-container svg {
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        border-radius: 50%;
-    }
-
-    .progress-text {
-        position: absolute;
-        font-size: 50px;
-        font-weight: bold;
-        color: #3D3D3D;
-        /* Color del texto */
-    }
-
-    @media (min-width: 768px) {
-        #desarrollo .container {
-            height: 100%;
-        }
-
-        .escena {
-            margin-bottom: 0%;
-        }
-
-        .pasos-background {
-            position: absolute;
-            width: 100%;
-            height: 145px;
-            background: url('img/carretera.png');
-            z-index: 1;
-            background-size: contain;
-            background-repeat: repeat-x;
-
-        }
-
-        .pasos {
-            margin-top: -10%;
-        }
-
-        .paso img {
-            width: auto;
-            max-width: 35%;
-            filter: grayscale(0);
-            -webkit-transition: filter 0.5s ease;
-            -moz-transition: filter 0.5s ease;
-            -o-transition: filter 0.5s ease;
-            transition: filter 0.5s ease;
-        }
-
-        .overswall,
-        .fullretro {
-            max-width: 800px;
-            width: 100%;
-            border: none;
-        }
-
-        #progress-container {
-            max-width: 300px;
-            max-height: 300px;
-        }
-    }
-
-    .page-sco {
-        line-height: 1.1;
-    }
-
-    .object_handler {
-        transform-origin: center;
-        transform-box: content-box;
+    .play-button-container button {
+        pointer-events: all;
+        /* Permitir clics solo en el botón */
+        border: none;
+        background: none;
     }
 </style>
-<div class="page-sco h-100" id="inicio">
-    <div class="container-fluid">
-        <div class="row justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-11">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-12 col-md-5 text-center">
-                        <div class="row justify-content-md-end justify-content-center align-items-center">
-                            <div class="col-6 col-md-7">
-                                <!-- <img src="img/activity/1.png" class="img-fluid"> -->
-                                <div class="avatar h1 mx-auto"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-7">
-                        <div class="row justify-content-start align-items-center">
-                            <div class="col-12 col-md-10">
-                                <div
-                                    class="card border bg-white border-0 shadow d-flex align-items-center justify-content-center flex-column h-100 rounded-15 p-md-4 p-2">
-                                    <div class="col-12 col-md-9 text-center">
-                                        <h2 class="text-primary fw-bold">Conduce con inteligencia</h2>
-                                    </div>
-                                    <div class="col-12 col-md-12 order-1 order-md-0">
-                                        <p class="">En esta actividad, demostrarás qué tanto dominas los conceptos clave
-                                            sobre <b>conducción defensiva y tomar buenas decisiones al volante.</b></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center my-2 w-100 animate__animated animate__slideInDown ins0"
-                        style="display: none;">
-                        <div class="border-dark text-rojo-1 bg-white px-4 py-2 border border-2 d-inline-block"
-                            style="border-radius: 0.5em;">
-                            <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en Comenzar
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-12 my-2">
-                        <div class="text-center">
-                            <button class="btn btn-primary btn-comenzar disab">Comenzar</button>
+<div class="w-100 page-sco h-100">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-8 text-center">
+                <h4 class="text-center text-rojo-1 fw-bold">Sé parte de la movilidad sostenible​</h4>
+                <p>México avanza hacia una nueva forma de moverse. Descubre cómo la movilidad eléctrica está creciendo y
+                    transformando el país.</p>
+                <div class="w-100 animate__animated animate__flipInX">
+                    <div class="ratio ratio-16x9">
+                        <video id="video" class="embed-responsive-item" controls poster="video/poster.png">
+                            <source src="video/vm2_haciaUnaMovilidadSostenible.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="play-button-container">
+                            <button
+                                class="p-0 animate__animated animate__heartBeat animate__infinite waves-effect disabled"
+                                id="btn_video">
+                                <i class="fa-solid fa-play fa-3x text-primary"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -446,124 +58,44 @@
         </div>
     </div>
 </div>
-<div class="page-sco full" id="desarrollo" style="display: none">
-    <div class="container-fluid">
-        <div class="row justify-content-center align-items-md-start align-items-center">
-            <div class="col-12 col-md-12" id="parrafo_instrucciones">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-12 px-0 text-center">
-                        <div class="card border border-0 rounded-0 shadow-lg bg-primary-custom text-white">
-                            <div class="card-body">
-                                <div class="row justify-content-center align-items-center">
-                                    <div class="col-12 col-md-9 text-center">
-                                        <span>
-                                            <b class="fw-bold">Instrucciones:</b> Da clic en cada número del camino, lee
-                                            la situación y elige la mejor respuesta. Cada acierto te lleva por un camino
-                                            claro. Si fallas, se vuelve oscuro y lluvioso. ¿Listo para avanzar con
-                                            precaución?
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-12 h-md-75 h-75">
-                <div class="row justify-content-center align-items-md-end align-items-end h-100">
-                    <div class="col-12 col-md-6 d-none">
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-md-10 py-md-4 py-2">
-                                <div class="card rounded-15 card-question" style="display: none;">
-                                    <div class="card-body py-md-4 px-md-3 py-2 px-2">
-                                        <div id="pregunta"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<script>
+    $(function () {
+        "use strict";
+        $("body").addClass("fake");
+        const audio = course360.createSound('audio/audio_m25.mp3');
+        course360.audioController.stopAllSoundsAndPlay(audio);
+        let video = document.getElementById("video");
+        let btnVideo = document.getElementById("btn_video");
+        audio.on("end", function () {
+            btnVideo.classList.remove("disabled");
+        });
+        // Evitar la reproducción del video al hacer clic en el botón de reproducción
+        btnVideo.addEventListener("click", function (event) {
+            if (!btnVideo.classList.contains("disabled")) {
+                course360.soundClick();
+                document.getElementById("video").play();
+                $(".play-button-container").hide(); // Ocultar el contenedor de botón de reproducción
+            } else {
+                event.stopPropagation(); // Evita que el evento de clic llegue al video
+            }
+        });
 
-                    <div class="col-12 col-md-12">
-                        <div class="row justify-content-center">
-                            <div class="escena">
-                                <div class="personaje-pasos">
-                                    <div class="personaje"><img src="img/auto.png" class="img-fluid"></div>
-                                    <div class="personaje"><img src="img/auto.png" class="img-fluid"></div>
-                                    <div class="personaje"><img src="img/auto.png" class="img-fluid"></div>
-                                    <div class="personaje"><img src="img/auto.png" class="img-fluid"></div>
-                                    <div class="personaje"><img src="img/auto.png" class="img-fluid"></div>
-                                </div>
-                                <div class="pasos">
-                                    <div class="pasos-background"></div>
-                                    <div data-slideid="#content0" data-backdrop="bg-azul" data-paso="0"
-                                        class="paso disabled animate__animated animate__pulse animate__infinite waves-effect"
-                                        id="paso1">
-                                        <img src="img/0.1.png">
-                                    </div>
-                                    <div data-slideid="#content1" data-backdrop="bg-gentera-naranja" data-paso="1"
-                                        class="paso disabled animate__animated animate__pulse animate__infinite waves-effect"
-                                        id="paso2">
-                                        <img src="img/0.2.png">
-                                    </div>
-                                    <div data-slideid="#content2" data-backdrop="bg-gentera-azul" data-paso="2"
-                                        class="paso disabled animate__animated animate__pulse animate__infinite waves-effect"
-                                        id="paso3">
-                                        <img src="img/0.3.png">
-                                    </div>
-                                    <div data-slideid="#content3" data-backdrop="bg-morado" data-paso="3"
-                                        class="paso disabled animate__animated animate__pulse animate__infinite waves-effect"
-                                        id="paso4">
-                                        <img src="img/0.4.png">
-                                    </div>
-                                    <div data-slideid="#content4" data-backdrop="bg-morado" data-paso="4"
-                                        class="paso disabled animate__animated animate__pulse animate__infinite waves-effect"
-                                        id="paso5">
-                                        <img src="img/0.5.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        // Evitar que el video se reproduzca al hacer clic en el área de la capa
+        video.addEventListener("click", function (event) {
+            if (!btnVideo.classList.contains("disabled")) {
+                event.preventDefault(); // Evita la acción predeterminada de reproducción del video
+            }
+        });
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        // Evitar la reproducción del video al hacer doble clic en cualquier parte del video
+        video.addEventListener("dblclick", function (event) {
+            if (!btnVideo.classList.contains("disabled")) {
+                event.preventDefault(); // Evita la acción predeterminada de reproducción del video
+            }
+        });
 
-<div class="page-sco h-100" id="cierre" style="display: none">
-    <div class="container h-100">
-        <div class="row h-100 justify-content-center align-items-center">
-            <div class="col-12 text-center">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-12 col-md-6 colscores mt-5 mt-md-0">
-                        <div class="animate__animated  animate__backInDown border-0 w-100">
-                            <div class="card rounded-15 bg-morado">
-                                <div class="card-body text-center" id="retrotxt">
-
-                                </div>
-                            </div>
-
-                            <div class="w-100 text-center" style="margin-top: 1em;">
-                                <button onclick="course360.reload()" style="display: none;"
-                                    class="score80menos bree btn btn-primary text-white animate__animated animate__pulse animate__infinite waves-effect waves-ripple">Reintentar</button>
-                                <button onclick="course360.resetCourse()" style="display: none;"
-                                    class="intentos bree btn btn-primary text-white animate__animated animate__pulse animate__infinite waves-effect waves-ripple">Reiniciar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-7 col-md-4 d-flex justify-content-center py-4 py-md-2">
-                        <!-- <div id="progress-container"></div> -->
-                        <img src="img/activity/bien.png" class="img-fluid score80mas" loading="lazy" alt="" />
-                        <img src="img/activity/mal.png" class="img-fluid score80menos" loading="lazy" alt="" />
-                        <img src="img/activity/intentos.png" class="img-fluid intentos" loading="lazy" alt="" />
-                    </div>
-                </div>
-                <!-- <button onclick="course360.reload()" style="display: none" class="score80menos btn btn-mango animate__animated animate__pulse animate__infinite waves-effect waves-ripple mt-3">
-                    Reintentar
-                </button> -->
-            </div>
-        </div>
-    </div>
-</div>
-<script src="js/activity.min.js"></script>
+        video.addEventListener("ended", function () {
+            course360.setSlideVisited();
+        });
+    });
+</script>

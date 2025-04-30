@@ -5,169 +5,84 @@
         background-position: bottom center;
     }
 
-    .swiper_02 {
-        width: 145px;
-        height: 160px;
+    #svg-container {
+        width: 100%;
+        height: auto;
     }
 
-    .swiper-slide {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 18px;
+    #svg-container svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .btn_svg {
+        cursor: pointer;
+        transform-box: content-box;
+        transform-origin: center !important;
+
+    }
+
+    .btn_svg.disabled {
+        filter: grayscale(1);
+    }
+
+    .btn_svg.visited {
+        filter: grayscale(0);
+        opacity: 1 !important;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
     }
 
     .slide {
         display: none;
-    }
-
-    .card-style {
-        border-radius: 15px;
-        background: linear-gradient(180deg, #fdfdfd 0%, #fffafa 100%);
-        padding-top: 45px !important;
-    }
-
-    .card-style::before {
-        content: "";
-        position: absolute;
-        top: -11px;
-        right: 20px;
-        background: url(img/03.8.webp) no-repeat center center;
-        background-size: cover;
-        width: 60px;
-        height: 45px;
-    }
-
-    .btn_pop {
-        cursor: pointer;
-        border-radius: 100%;
-    }
-
-    /* Agregar el icono de mano como elemento after */
-    .clickable::after {
-        content: '\f25a';
-        font-family: 'Font Awesome 6 Pro';
-        display: inline-block;
-        font-weight: 900;
-        font-size: 2.5em;
-        color: #000;
-        position: absolute;
-        left: 0%;
-        right: 0;
+        width: 100%;
         margin: 0 auto;
-        top: 5.5em;
-        animation: moveLeftRight 2s infinite linear;
-        text-align: center;
-        /*transform: rotate(180deg);*/
     }
 
-    /* Animación para moverse de izquierda a derecha */
-    @keyframes moveLeftRight {
-        0% {
-            transform: translateX(0)
-                /*rotate(180deg)*/
-            ;
-
-        }
-
-        50% {
-            transform: translateX(-10px)
-                /*rotate(180deg)*/
-            ;
-            /* Ajusta el desplazamiento horizontal */
-        }
-
-        100% {
-            transform: translateX(0)
-                /*rotate(180deg)*/
-            ;
-        }
+    .slide.active {
+        display: block;
     }
 
-    .clickable::after {
-        content: '\f25a';
-        font-family: 'Font Awesome 6 Pro';
-        display: inline-block;
-        font-weight: 900;
-        font-size: 2.5em;
-        color: #000;
-        position: absolute;
-        left: 0%;
-        right: 0;
-        margin: 0 auto;
-        top: 2.5em;
-        animation: moveLeftRight 2s infinitelinear;
-        text-align: center;
-        /* transform: rotate(180deg); */
+    .red {
+        fill: #EC1F24 !important;
+    }
+
+    .red1 {
+        fill: #B1171B !important;
+    }
+
+    .yellow {
+        fill: #f5c331 !important;
+    }
+
+    .yellow1 {
+        fill: #d6a427 !important;
     }
 
 
-    .swiper-3d .swiper-slide-shadow {
-        background: rgba(0, 0, 0, 0);
+    .green-light {
+        fill: #95cb4e !important;
+    }
+
+    .green-light1 {
+        fill: #82ad3e !important;
+    }
+
+    .green {
+        fill: #00b928 !important;
+    }
+
+    .green1 {
+        fill: #0a9b25 !important;
     }
 
     @media (min-width: 768px) {
-        .swiper_02 {
-            width: 350px;
-            height: 380px;
+        .card img {
+            transform: scale(4.5) translate(30px, -14px);
         }
 
-        .card-style {
-            border-radius: 15px;
-            background: linear-gradient(180deg, #fdfdfd 0%, #fffafa 100%);
-            padding-top: 75px !important;
-        }
-
-        .card-style::before {
-            content: "";
-            position: absolute;
-            top: -11px;
-            right: 20px;
-            background: url(img/03.8.webp) no-repeat center center;
-            background-size: cover;
-            width: 100px;
-            height: 80px;
-        }
-
-        .big-font {
-            font-size: 160px;
-        }
-
-        .pop_class {
-            width: 70%;
-        }
-
-        div:where(.swal2-container) .swal2-html-container {
-            z-index: 1;
-            justify-content: center;
-            margin: 0;
-            padding: 1em 0.6em .3em;
-            overflow: auto;
-            color: inherit;
-            font-size: 1.125em;
-            font-weight: normal;
-            line-height: normal;
-            text-align: center;
-            word-wrap: break-word;
-            word-break: break-word;
-        }
-
-        .clickable::after {
-            content: '\f25a';
-            font-family: 'Font Awesome 6 Pro';
-            display: inline-block;
-            font-weight: 900;
-            font-size: 2.5em;
-            color: #000;
-            position: absolute;
-            left: 0%;
-            right: 0;
-            margin: 0 auto;
-            top: 5.5em;
-            animation: moveLeftRight 2s infinitelinear;
-            text-align: center;
-            /* transform: rotate(180deg); */
-        }
     }
 </style>
 
@@ -178,306 +93,108 @@
             <div class="d-none d-md-block" id="row-x"></div>
             <div class="col-12 col-md-9">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-11 col-md-12 text-start">
+                    <div class="col-11 col-md-12 text-center">
                         <h4 class="text-rojo-1 fw-bold">Recomendaciones prácticas</h4>
                     </div>
-                    <div class="text-center w-100 animate__animated animate__slideInLeft ins0" style="display: none;">
-                        <div class="border-dark text-rojo-1 px-4 py-2 border border-2 d-inline-block"
+                    <div class="text-center w-100 animate__animated animate__slideInLeft ins0" style="display: block;">
+                        <div class="border-dark text-rojo-1 bg-white px-4 py-2 border border-2 d-inline-block"
                             style="border-radius: 0.5em;">
-                            <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Desliza las imágenes
+                            <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en cada número
                         </div>
                     </div>
-                    <div class="col-5 col-md-5 ">
-                        <div class="d-flex justify-content-center align-items-center position-relative act">
-                            <div class="swiper_02 mySwiper_02 my-3 my-md-0">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide btn-slide">
-                                        <div class="row justify-content-center align-items-center">
-                                            <div class="col-12 col-md-12">
-                                                <img src="img/03.1.webp" class="w-100" loading="lazy" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide btn-slide">
-                                        <div class="row justify-content-center align-items-center">
-                                            <div class="col-12 col-md-12">
-                                                <img src="img/03.2.webp" class="w-100" loading="lazy" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide btn-slide">
-                                        <div class="row justify-content-center align-items-center">
-                                            <div class="col-12 col-md-12">
-                                                <img src="img/03.3.webp" class="w-100" loading="lazy" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide btn-slide">
-                                        <div class="row justify-content-center align-items-center">
-                                            <div class="col-12 col-md-12">
-                                                <img src="img/03.4.webp" class="w-100" loading="lazy" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide btn-slide">
-                                        <div class="row justify-content-center align-items-center">
-                                            <div class="col-12 col-md-12">
-                                                <img src="img/03.5.webp" class="w-100" loading="lazy" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide btn-slide">
-                                        <div class="row justify-content-center align-items-center">
-                                            <div class="col-12 col-md-12">
-                                                <img src="img/03.6.webp" class="w-100" loading="lazy" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide btn-slide">
-                                        <div class="row justify-content-center align-items-center">
-                                            <div class="col-12 col-md-12">
-                                                <img src="img/03.7.webp" class="w-100" loading="lazy" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="col-12 col-md-12">
+                        <div class="row justify-content-md-start justify-content-center align-items-center">
+                            <div class="col-3 col-md-2">
+                                <div class="objsvg" id="svg-container"></div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-7">
-                        <div id="slider02" class="" style="display: none;">
-                            <div id="txt1" class="slide text-center">
-                                <div class="card card-style shadow border-0 py-3 px-4">
-                                    <div class="row justify-content-center align-items-center">
-                                        <div class="col-1 col-md-3">
-                                            <!-- <img src="img/03.8.webp" class="img-fluid" loading="lazy" alt="" /> -->
-                                            <h1 class="big-font fw-bold text-rojo-1">1</h1>
-                                        </div>
-                                        <div class="col-10 col-md-9">
-                                            <p><b>Mantén una distancia segura</b>: Usa la “regla de los 3 segundos”. Si
-                                                vas
-                                                a más
-                                                de 80 km/h, aumenta a 4 segundos.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-11 col-md-12 my-md-3 my-2">
-                                    <div class="row justify-content-end align-items-center">
-                                        <div
-                                            class="col-3 col-md-3 text-center order-2 order-md-1 slide0 d-block animate__animated animate__fadeInRight">
-                                            <img src="img/warning.webp" class="img-fluid btn_pop disabled"
-                                                data-popid="#pop0" data-audio="audio_h37" loading="lazy"
-                                                alt="icono Alerta" />
-                                        </div>
-                                        <div class="col-9 col-md-12 my-2 ins1 order-1 order-md-2"
-                                            style="display: none;">
-                                            <div class="row justify-content-end align-items-center w-auto">
-                                                <div
-                                                    class="text-rojo-1 bg-white border border-2 border-dark rounded w-auto">
-                                                    <div class="d-flex flex-row py-2">
-                                                        <i class="fa-light fa-arrow-pointer mx-2"></i>
-                                                        <span>Da clic en el botón</span>
+                            <div class="col-12 col-md-8">
+                                <div class="wslides">
+                                    <div class=" inslides pt-md-2 pt-lg-5">
+                                        <div class="slide animate__animated animate__flipInX">
+                                            <div class="card border-0 border rounded shadow">
+                                                <div class="card-body my-md-5 mx-md-3 my-2 mx-2">
+                                                    <div class="row justify-content-center align-items-center">
+                                                        <div class="col-12 col-md-10">
+                                                            <p><b class="text-primary">La movilidad sostenible</b> es un
+                                                                enfoque que busca desarrollar
+                                                                sistemas de transporte que sean eficientes, accesibles,
+                                                                respetuosos con el medio ambiente y que contribuyan al
+                                                                bienestar
+                                                                social y económico con el objetivo de:</p>
+                                                        </div>
+                                                        <div class="col-6 col-md-2">
+                                                            <img src="img/03.1.webp" class="img-fluid" loading="lazy"
+                                                                alt="" />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="txt2" class="slide">
-                                <div class="card card-style shadow border-0 py-3 px-4">
-                                    <div class="row justify-content-center align-items-center">
-                                        <div class="col-1 col-md-3">
-                                            <!-- <img src="img/03.8.webp" class="img-fluid" loading="lazy" alt="" /> -->
-                                            <h1 class="big-font fw-bold text-rojo-1">2</h1>
-                                        </div>
-                                        <div class="col-10 col-md-9">
-                                            <p>Evita distracciones:</p>
-                                            <ul class="text-start">
-                                                <li>Nada de celular (ni siquiera con altavoz si es evitable).</li>
-                                                <li>No comas, maquilles o manipules el estéreo en movimiento.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="txt3" class="slide">
-                                <div class="card card-style shadow border-0 py-3 px-4">
-                                    <div class="row justify-content-center align-items-center">
-                                        <div class="col-1 col-md-3">
-                                            <!-- <img src="img/03.8.webp" class="img-fluid" loading="lazy" alt="" /> -->
-                                            <h1 class="big-font fw-bold text-rojo-1">3</h1>
-                                        </div>
-                                        <div class="col-10 col-md-9">
-                                            <p><b>Ajusta bien los espejos</b> y revisa puntos ciegos antes de cambiar de
-                                                carril.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="txt4" class="slide">
-                                <div class="card card-style shadow border-0 py-3 px-4">
-                                    <div class="row justify-content-center align-items-center">
-                                        <div class="col-1 col-md-3">
-                                            <!-- <img src="img/03.8.webp" class="img-fluid" loading="lazy" alt="" /> -->
-                                            <h1 class="big-font fw-bold text-rojo-1">4</h1>
-                                        </div>
-                                        <div class="col-10 col-md-9">
-                                            <p><b>Observa el tráfico por adelantado</b>: mira más allá del auto frente a
-                                                ti.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="txt5" class="slide">
-                                <div class="card card-style shadow border-0 py-3 px-4">
-                                    <div class="row justify-content-center align-items-center">
-                                        <div class="col-1 col-md-3">
-                                            <!-- <img src="img/03.8.webp" class="img-fluid" loading="lazy" alt="" /> -->
-                                            <h1 class="big-font fw-bold text-rojo-1">5</h1>
-                                        </div>
-                                        <div class="col-10 col-md-9">
-                                            <p>Coloca las manos en el volante en <b>posición 9 y 3</b> para mayor
-                                                control y seguridad.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-11 col-md-12 my-md-3 my-2">
-                                    <div class="row justify-content-end align-items-center">
-                                        <div
-                                            class="col-3 col-md-3 text-center order-2 order-md-1 slide0 d-block animate__animated animate__fadeInRight">
-                                            <img src="img/warning.webp" class="img-fluid btn_pop disabled"
-                                                data-popid="#pop2" data-audio="audio_h42" loading="lazy"
-                                                alt="icono Alerta" />
-                                        </div>
-                                        <div class="col-9 col-md-12 my-2 ins1 order-1 order-md-2"
-                                            style="display: none;">
-                                            <div class="row justify-content-end align-items-center w-auto">
-                                                <div
-                                                    class="text-rojo-1 bg-white border border-2 border-dark rounded w-auto">
-                                                    <div class="d-flex flex-row py-2">
-                                                        <i class="fa-light fa-arrow-pointer mx-2"></i>
-                                                        <span>Da clic en el botón</span>
+                                        <div class="slide animate__animated animate__flipInX">
+                                            <div class="card border-0 border rounded shadow">
+                                                <div class="card-body my-md-5 mx-md-3 my-2 mx-2">
+                                                    <div class="row justify-content-center align-items-center">
+                                                        <div class="col-12 col-md-10">
+                                                            <p><b class="text-primary">Disminuir</b> la emisión de gases
+                                                                de efecto invernadero (GEI)
+                                                                generadas por el transporte, promoviendo el uso de
+                                                                vehículos menos contaminantes (<b
+                                                                    class="text-primary">eléctricos, híbridos</b>) y
+                                                                fomentando el uso de transporte público, bicicletas y
+                                                                caminatas.</p>
+                                                        </div>
+                                                        <div class="col-6 col-md-2">
+                                                            <img src="img/03.2.webp" class="img-fluid" loading="lazy"
+                                                                alt="" />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="slide animate__animated animate__flipInX">
+                                            <div class="card border-0 border rounded shadow">
+                                                <div class="card-body my-md-5 mx-md-3 my-2 mx-2">
+                                                    <div class="row justify-content-center align-items-center">
+                                                        <div class="col-12 col-md-10">
+                                                            <p>Mejorar la <b class="text-primary">calidad y cobertura
+                                                                    del transporte público</b>,
+                                                                haciéndolo más accesible, puntual y seguro para que sea
+                                                                una alternativa viable frente al uso del automóvil
+                                                                particular.</p>
+                                                        </div>
+                                                        <div class="col-6 col-md-2">
+                                                            <img src="img/03.3.webp" class="img-fluid" loading="lazy"
+                                                                alt="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slide animate__animated animate__flipInX">
+                                            <div class="card border-0 border rounded shadow">
+                                                <div class="card-body my-md-5 mx-md-3 my-2 mx-2">
+                                                    <div class="row justify-content-center align-items-center">
+                                                        <div class="col-12 col-md-10">
+                                                            <p>Además, el problema <b class="text-primary">no sólo es el
+                                                                    uso del transporte</b>,
+                                                                también es el proceso de extracción de petróleo ya que
+                                                                comienza con la <b
+                                                                    class="text-primary">deforestación</b>, seguido de
+                                                                la prospección
+                                                                sísmica, método en el que se producen niveles de ruido
+                                                                de gran magnitud.​</p>
+                                                        </div>
+                                                        <div class="col-6 col-md-2">
+                                                            <img src="img/03.4.webp" class="img-fluid" loading="lazy"
+                                                                alt="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
-                            </div>
-                            <div id="txt6" class="slide">
-                                <div class="card card-style shadow border-0 py-3 px-4">
-                                    <div class="row justify-content-center align-items-center">
-                                        <div class="col-1 col-md-3">
-                                            <!-- <img src="img/03.8.webp" class="img-fluid" loading="lazy" alt="" /> -->
-                                            <h1 class="big-font fw-bold text-rojo-1">6</h1>
-                                        </div>
-                                        <div class="col-10 col-md-9">
-                                            <p><b>Ajusta tu velocidad</b> según las condiciones de tráfico, clima y tipo
-                                                de
-                                                carretera.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="txt7" class="slide">
-                                <div class="card card-style shadow border-0 py-3 px-4">
-                                    <div class="row justify-content-center align-items-center">
-                                        <div class="col-1 col-md-3">
-                                            <!-- <img src="img/03.8.webp" class="img-fluid" loading="lazy" alt="" /> -->
-                                            <h1 class="big-font fw-bold text-rojo-1">7</h1>
-                                        </div>
-                                        <div class="col-10 col-md-9">
-                                            <p><b>Anticipa los errores de otros conductores</b>: No confíes en que todos
-                                                obedecerán las reglas.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-12 my-md-3 my-2">
-                        <div class="row justify-content-end align-items-center" id="final">
-                            <div class="col-8 col-md-9 my-2 ins2" style="display: none;">
-                                <div class="row justify-content-end align-items-center w-auto">
-                                    <div class="text-rojo-1 bg-white border border-2 border-dark rounded w-auto">
-                                        <div class="d-flex flex-row py-2">
-                                            <i class="fa-light fa-arrow-pointer mx-2"></i>
-                                            <span>Da clic en el botón</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-2 text-center px-md-4 nota animate__animated animate__fadeInRight"
-                                style="display: none;">
-                                <img src="img/warning.webp" class="img-fluid btn_pop disabled" data-popid="#pop1"
-                                    data-audio="audio_h12" loading="lazy" alt="icono Alerta" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="d-none">
-        <div id="pop0">
-            <div class="container-fluid">
-                <div class="row justify-content-center my-4">
-                    <div class="col-12 col-md-11 text-start">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-7 col-md-5 text-center mb-3">
-                                <div class="personaje avatar1 h1 play mx-auto"></div>
-                            </div>
-                            <div class="col-12 col-md-7">
-                                <p class="text-center text-rojo-1 fw-bold">Regla de los 3 segundos</p>
-                                <p class="">La regla de los 3 segundos en la conducción es una <b>técnica de
-                                        seguridad vial</b> utilizada para mantener una distancia segura entre tu
-                                    vehículo y el
-                                    que va delante, reduciendo el riesgo de colisiones en caso de frenadas bruscas.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="pop1">
-            <div class="container-fluid">
-                <div class="row justify-content-center my-4">
-                    <div class="col-12 col-md-11 text-start">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-7 col-md-5 text-center mb-3">
-                                <div class="personaje h1 avatar2 play mx-auto"></div>
-                            </div>
-                            <div class="col-12 col-md-7">
-                                <p class="text-center text-rojo-1 fw-bold">Datos clave</p>
-                                <ul class="text-start">
-                                    <li>Tiempo de reacción humano promedio: 1.5 segundos. A 100 km/h recorres 40 metros
-                                        antes de frenar.</li>
-                                    <li>El uso del celular multiplica por 4 el riesgo de accidente.</li>
-                                    <li>Desviar la vista 3 segundos equivale a manejar más de 60 metros a ciegas a 100
-                                        km/h. </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="pop2">
-            <div class="container-fluid">
-                <div class="row justify-content-center my-4">
-                    <div class="col-12 col-md-11 text-start">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-7 col-md-5 text-center mb-3">
-                                <div class="personaje avatar3 h1 play mx-auto"></div>
-                            </div>
-                            <div class="col-12 col-md-7">
-                                <p>Sujetar el volante como si fuera la esfera de un reloj, con las manos en las
-                                    posiciones de las 9 y las 3, te da un mejor control del vehículo, especialmente en
-                                    maniobras de emergencia. ​</p>
-                                <p>Esta posición permite reaccionar con mayor rapidez y estabilidad, además de reducir
-                                    el riesgo de lesiones en caso de que se active la bolsa de aire.</p>
                             </div>
                         </div>
                     </div>
@@ -489,150 +206,121 @@
         $(function () {
             $('body').addClass('fake');
 
-            const audio_h04 = course360.createSound('audio/audio_h04.mp3');
-            const audio_h37 = course360.createSound('audio/audio_h37.mp3');
-            const audio_h42 = course360.createSound('audio/audio_h42.mp3');
-            const audio_h12 = course360.createSound('audio/audio_h12.mp3');
-            course360.audioController.stopAllSoundsAndPlay(audio_h04);
+            // const audio_m05 = course360.createSound('audio/audio_m05.mp3');
+            // course360.audioController.stopAllSoundsAndPlay(audio_m05);
 
-            audio_h04.on("end", function () {
-                // if (!$('#row-x').is(':visible')) {
-                //     $('.intro').hide();
-                // }
-                $('.ins0').show();
-                $('.slide').addClass('animate__animated animate__fadeInLeft');
-                swiper.enable();
-                $('.act').addClass('clickable');
-                $(".btn-slide").first().removeClass('disabled').addClass('visited');
-                $('#slider02').show();
-                $('.slide').first().show();
-                course360.audioController.stopAllSoundsAndPlay(audios[0]);
-            });
-
-            audio_h12.on("end", function () {
-                $('.avatar2').removeClass('play').addClass('stop');
-            });
-
-            audio_h37.on("end", function () {
-                $('.avatar1').removeClass('play').addClass('stop');
-            });
-
-            audio_h42.on("end", function () {
-                $('.avatar3').removeClass('play').addClass('stop');
-            });
+            // audio_m05.on("end", function () {
+            setTimeout(function () {
+                $("#btn0").removeClass('disabled');
+                $("#btn0").click();
+            }, 500);
+            // });
 
             const paths = [
-                "audio/audio_h05.mp3",
-                "audio/audio_h06.mp3",
-                "audio/audio_h07.mp3",
-                "audio/audio_h08.mp3",
-                "audio/audio_h09.mp3",
-                "audio/audio_h10.mp3",
-                "audio/audio_h11.mp3"
+                "audio/audio_m05.mp3",
+                "audio/audio_m06.mp3",
+                "audio/audio_m07.mp3",
+                "audio/audio_m11.mp3",
             ];
             let audios = [];
             paths.forEach(function (element) {
                 audios.push(course360.createSound(element));
             });
 
-            audios[0].on("end", function () {
-                $('#txt1 .btn_pop').addClass('animate__animated animate__pulse animate__infinite').removeClass('disabled');
-                $('#txt1 .ins1').show();
-            });
-            audios[4].on("end", function () {
-                $('#txt5 .btn_pop').addClass('animate__animated animate__pulse animate__infinite').removeClass('disabled');
-                $('#txt5 .ins1').show();
-            });
-            audios[6].on("end", function () {
-                $('#final .btn_pop').addClass('animate__animated animate__pulse animate__infinite').removeClass('disabled');
-                $('#final .ins2').show();
-            });
-
-            var swiper = new Swiper(".mySwiper_02", {
-                effect: "cards",
-                grabCursor: true,
-                on: {
-                    init: function () {
-                        this.disable();
-                        $(".col-rados").hide();
-                        $(".page-sco").css('visibility', 'visible');
+            // Function to load the SVG file and insert it into the container
+            function loadSVG() {
+                $.get(
+                    "img/botones03.svg",
+                    function (data) {
+                        var svg = $(data).find("svg");
+                        $("#svg-container").html(svg);
+                        // Remove width and height attributes to make SVG responsive
+                        svg.removeAttr("width").removeAttr("height");
+                        attachClickHandlers(); // Attach click handlers after SVG is loaded
+                        animateButtons();
                     },
-                    slideChange: function () {
-                        // Obtener el slide actual
-                        const currentSlide = swiper.slides[swiper.activeIndex];
-                        // Agregar la clase "visited" al slide actual
-                        currentSlide.classList.add('visited');
-                        isAction(swiper.realIndex + 1, currentSlide);
+                    "xml"
+                );
+            }
+
+            // Function to handle click events
+            function handleButtonClick(buttonId, popId, nextButtonId) {
+                $(buttonId).addClass("animate__animated animate__pulse animate__infinite waves-effect waves-ripple btn_svg disabled");
+                $(buttonId).click(function () {
+                    course360.soundClick();
+                    $(buttonId).removeClass("animate__animated animate__pulse animate__infinite").addClass("visited");
+                    // Play the corresponding audio
+                    course360.audioController.stopAllSoundsAndPlay(audios[popId]);
+
+                    $('.st4').removeClass('red yellow green-light green');
+                    $('.st6').removeClass('red1 yellow1 green-light1 green1');
+                    switch (popId) {
+                        case 0:
+                            $('.st4').addClass('red');
+                            $('.st6').addClass('red1');
+                            $('#indicador').css('transform', 'translate(0px, 0px)');
+                            break;
+                        case 1:
+                            $('.st4').addClass('yellow');
+                            $('.st6').addClass('yellow1');
+                            $('#indicador').css('transform', 'translate(0px, 82px)');
+                            break;
+                        case 2:
+                            $('.st4').addClass('green-light');
+                            $('.st6').addClass('green-light1');
+                            $('#indicador').css('transform', 'translate(0px, 163px)');
+                            break;
+                        case 3:
+                            $('.st4').addClass('green');
+                            $('.st6').addClass('green1');
+                            $('#indicador').css('transform', 'translate(0px, 245px)');
+                            break;
+
+                        default:
+                            break;
                     }
-                },
-            });
 
+                    $(".slide").removeClass("active");
+                    $(".slide").eq(popId).addClass("active");
+                    // Habilitar el siguiente botón después de hacer clic
+                    if (nextButtonId) {
+                        $(nextButtonId).removeClass("disabled");
+                    }
 
-            function isAction(index, slide) {
-                course360.soundClick();
-                course360.audioController.stopAllSoundsAndPlay(audios[(index - 1)]);
-                //showInfo($(this).index());
-                $('.slide').hide();
-                $('#txt' + index).show();
-                if ($(".btn-slide").length === $(".btn-slide.visited").length) {
-                    // course360.setSlideVisited();
-                    $('.nota').show();
-                    $('.nota').find('img').removeClass('disabled');
-                    $('[class*="ins"]').hide();
-                    $('.ins2').show();
+                    objectIsCompleted();
+                });
+            }
 
-                } else {
-                    //$(this).next().removeClass('disabled');
+            function objectIsCompleted() {
+                if ($(".btn_svg").length === $(".btn_svg.visited").length) {
+                    course360.setSlideVisited();
                 }
             }
 
-            $(".btn_pop").click(function (e) {
-                e.preventDefault();
-                if (!$(this).hasClass("disabled")) {
-                    if ($(this).data("audio")) {
-                        course360.audioController.stopAllSoundsAndPlay(eval($(this).data("audio")));
-                    } else {
-                        course360.soundClick();
-                    }
-                    $(".btn_pop").removeClass("visited");
-                    $(this).removeClass("animate__animated animate__pulse animate__infinite waves-effect");
-                    $(this).addClass("completed visited");
-                    var html = $($(this).data("popid")).html();
-                    var audio = $(this).data("audio");
-                    course360.audioController.stopAllSoundsAndPlay(audio);
-                    Swal.fire({
-                        html: html,
-                        showCloseButton: true,
-                        showCancelButton: false,
-                        showConfirmButton: false,
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                        allowEnterKey: false,
-                        confirmButtonText: 'Cerrar',
-                        target: "body",
-                        width: "100%",
-                        customClass: 'pop_style',
-                        willOpen: function () {
-                            //course360.audioController.stopAudio();
-                        },
-                        didOpen: function () { },
-                        didRender: function () { },
-                        didClose: function () {
-                            //course360.audioController.stopAudio();
-                        },
-                        didDestroy: function () { },
-                        willClose: function () {
-                            course360.audioController.stopAudio();
-                            course360.soundClick();
-                            if ($(".btn_pop").length == $(".btn_pop.completed").length) {
-                                course360.setSlideVisited();
-                                $('.page-sco [class*="ins"]').hide();
-                            }
-                        }
-                    });
-                }
-            });
+            // Attach click handlers to SVG buttons
+            function attachClickHandlers() {
+                handleButtonClick("#btn0", 0, "#btn1");
+                handleButtonClick("#btn1", 1, "#btn2");
+                handleButtonClick("#btn2", 2, "#btn3");
+                handleButtonClick("#btn3", 3, false);
+                // Add more buttons as need0
+            }
 
+            // Function to animate buttons with GSAP
+            function animateButtons() {
+                const buttons = ["#btn0", "#btn1", "#btn2", "#btn3"];
+                buttons.forEach((button, index) => {
+                    gsap.from(button, {
+                        opacity: 0,
+                        y: -20,
+                        duration: 0.5,
+                        delay: index * 0.2,
+                    });
+                });
+            }
+
+            // Load the SVG
+            loadSVG();
 
         });
     </script>

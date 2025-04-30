@@ -5,98 +5,119 @@
         background-position: center bottom;
     }
 
-    .picture.active {
-        cursor: pointer;
-        transition: transform 0.3s ease;
+    .page-sco .card {
+        border-left: solid var(--bs-gris-1) 2px !important;
+        border-bottom: solid var(--bs-gris-1) 2px !important;
+        opacity: 0;
+        z-index: 50;
     }
 
-    li::marker {
-        color: var(--bs-primary);
+    .page-sco .card::after {
+        content: "";
+        display: block;
+        background-image: url(img/overlay.png);
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        bottom: -7px;
+        right: -10px;
+        z-index: 1;
     }
 
-    @media (min-width: 768px) {}
+    .page-sco .card::before {
+        content: "";
+        display: block;
+        background-image: url(img/overlay.png);
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: -12px;
+        left: -9px;
+        z-index: 1;
+    }
+
+
+    .custom-tooltip {
+        --bs-tooltip-bg: var(--bs-gris-1);
+        --bs-tooltip-color: var(--bs-dark);
+    }
+
+    @media (min-width: 768px) {
+        .mapa {
+            transform: scale(1.5);
+        }
+
+        #card0 {
+            transform: translate(105px, 50px);
+        }
+
+        #card1 {
+            transform: translate(-200px, -3px);
+        }
+    }
 </style>
 <div class="w-100 page-sco h-100 pt-4 pt-md-0">
-    <div class="container">
-        <div class="row align-items-center justify-content-center h-100">
-            <div class="col-12 col-md-12 h-md-100">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-12 col-md-10 text-start">
-                        <h4 class="text-primary fw-bold">Introducción</h4>
-                    </div>
-                    <div class="col-5 col-md-4">
-                        <div class="inner animate__animated animate__flipInY">
-                            <img src="img/02.1.webp" class="img-fluid picture flip0" data-index="0" loading="lazy"
-                                alt="Imagen 1" />
-                        </div>
-                        <div class="inner animate__animated animate__flipInY d-none">
-                            <img src="img/02.2.webp" class="img-fluid picture flip1 active" data-index="1"
-                                loading="lazy" alt="Imagne 2" />
-                        </div>
-                        <div class="text-center w-100 my-2 animate__animated animate__slideInLeft ins0"
-                            style="display: none;">
-                            <div class="border-dark text-rojo-1 px-4 py-2 border border-2 d-inline-block"
-                                style="border-radius: 0.5em;">
-                                <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en la imagen
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-inner col-12 col-md-8 animate__animated animate__flipInY">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-12 col-md-12 ">
-                                <p><b class="text-rojo-1">El manejo a la defensiva</b> es una habilidad esencial para
-                                    garantizar la seguridad en
-                                    las carreteras.</p>
-                            </div>
-                            <div class="col-12 col-md-12">
-                                <div class="row justify-content-center align-items-start text-center">
-                                    <div class="col-3 col-md-2 opa elemento-1">
-                                        <img src="img/02.3.webp" class="img-fluid" loading="lazy" alt="" />
-                                        <p class="fw-bold">Anticiparse a los peligros​</p>
-                                    </div>
-                                    <div class="col-3 col-md-2 opa elemento-2">
-                                        <img src="img/02.4.webp" class="img-fluid" loading="lazy" alt="" />
-                                        <p class="fw-bold">Gestionar los riesgos​</p>
-                                    </div>
-                                    <div class="col-3 col-md-2  opa elemento-3">
-                                        <img src="img/02.5.webp" class="img-fluid" loading="lazy" alt="" />
-                                        <p class="fw-bold">Actuar de manera prudente​</p>
-                                    </div>
 
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-12 box animate__animated animate__fadeInUp d-none">
-                                <div class="card bg-primary text-white">
-                                    <div class="card-body mx-md-4 my-md-4 mx-2 my-2">
-                                        <p>Además de prevenir accidentes, el manejo a la defensiva <b>minimiza las
-                                                consecuencias de lo inesperado</b>, como cambios en el tráfico,
-                                            condiciones
-                                            climáticas adversas o maniobras peligrosas de terceros.</p>
-                                    </div>
-                                </div>
+    <div class="container-fluid">
+        <div class="row align-items-center justify-content-center h-100">
+            <div class="col-12 col-md-11">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-12 text-center">
+                        <h4 class="text-rojo-1 fw-bold">La Nueva Era del Transporte </h4>
+                    </div>
+                    <div class="col-12 col-md-3 col-lg-3 order-2 order-md-1">
+                        <div id="card0" class="card border border-0 rounded-0 mt-md-5 mt-0 my-2 bg-transparent">
+                            <div class="card-body">
+                                <p>Aproximadamente <b class="big-font text-verde">29,000</b> personas mueren a causa de
+                                    enfermedades asociadas a la contaminación del aire.
+                                    <i class="fa-solid fa-book-open text-verde" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                        data-bs-custom-class="custom-tooltip"
+                                        data-bs-title="Centro Virtual de Vigilancia Epidemiológica y Control de Enfermedades (CEVECE). (2024, septiembre). Boletín epidemiológico especial – Calidad del aire. Gobierno del Estado de México. <a href='https://cevece.edomex.gob.mx/sites/cevece.edomex.gob.mx/files/files/docs/boletin/2024/BoletinCalidadAireSep2024.pdf' target='_blank' class='text-verde'>https://cevece.edomex.gob.mx/sites/cevece.edomex.gob.mx/files/files/docs/boletin/2024/BoletinCalidadAireSep2024.pdf</a>"></i>
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="card-inner col-12 col-md-8 animate__animated animate__flipInY d-none">
+                    <div class="col-12 col-md-6 col-lg-6 order-1 order-md-2">
+                        <img src="img/mapa2.gif" class="img-fluid mapa" loading="lazy" alt="" />
+                    </div>
+                    <div class="col-12 col-md-3 col-lg-3 order-3 order-md-3">
                         <div class="row justify-content-center align-items-center">
                             <div class="col-12 col-md-12">
-                                <div class="card shadow">
-                                    <div class="card-body mx-md-4 my-md-4 mx-2 my-2">
-                                        <ul class="text-start">
-                                            <li>En este curso, conocerás <b>las técnicas y buenas prácticas</b> más
-                                                importantes
-                                                para manejar de forma más segura, atenta y preventiva.</li>
-                                            <li>Aprenderás a hacerlo con responsabilidad, anticiparte a los riesgos y
-                                                prepararte adecuadamente antes de cada trayecto.</li>
-                                            <li>La seguridad vial no depende <b>únicamente</b> del vehículo o del
-                                                camino, sino
-                                                de las decisiones que tomamos al estar al volante.</li>
-                                        </ul>
+                                <div id="card1" class="card border border-0 rounded-0 my-md-2 my-2 bg-transparent">
+                                    <div class="card-body">
+                                        <p><b class="text-verde big-font">20.4%</b> de la emisión de Gases de Efecto
+                                            Invernadero (GEI).<i class="fa-solid fa-book-open text-verde"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-title="ONU-Habitat. (s.f.). Contaminación, automóviles y calidad del aire. Recuperado el 24 de abril de 2025, de <a target='_blank' href='https://onu-habitat.org/index.php/contaminacion-automoviles-y-calidad-del-aire' class='text-verde'>https://onu-habitat.org/index.php/contaminacion-automoviles-y-calidad-del-aire</a>"></i>
+                                        </p>
                                     </div>
                                 </div>
-                                <h5 class="text-rojo-1 fw-bold text-center my-2">Manejar de forma defensiva salva vidas.
-                                </h5>
                             </div>
+                            <div class="col-12 col-md-12">
+                                <div id="card2"
+                                    class="card border border-0 rounded-0 my-md-2 my-2 ms-md-4 bg-transparent">
+                                    <div class="card-body">
+                                        <p>El <b class="text-verde big-font">90%</b> del transporte en México depende de
+                                            combustibles fósiles. <i class="fa-solid fa-book-open text-verde"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-custom-class="custom-tooltip"
+                                                data-bs-title="Secretaría de Medio Ambiente y Recursos Naturales (SEMARNAT). (2015). Informe de la situación del medio ambiente en México 2015: Capítulo 5 - Energía. <a href='https://apps1.semarnat.gob.mx:8443/dgeia/informe15/tema/cap5.html' target='_blank' class='text-verde'>https://apps1.semarnat.gob.mx:8443/dgeia/informe15/tema/cap5.html</a>"></i>
+                                        </p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -106,76 +127,57 @@
 </div>
 </div>
 <script>
+    //Inicializa los tooltips de BS5
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        var tooltip = new bootstrap.Tooltip(tooltipTriggerEl, {
+            trigger: 'manual',
+            html: true
+        });
+        tooltipTriggerEl.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (tooltip._element.getAttribute('aria-describedby')) {
+                tooltip.hide();
+            } else {
+                tooltip.show();
+            }
+        });
+
+        document.body.addEventListener('click', function (e) {
+            if (!tooltipTriggerEl.contains(e.target) && tooltip._element.getAttribute('aria-describedby')) {
+                tooltip.hide();
+            }
+        });
+    });
     $(function () {
         "use strict";
         $('body').addClass('fake');
-        const audio_h39 = course360.createSound('audio/audio_h39.mp3');
-        const audio_h40 = course360.createSound('audio/audio_h40.mp3');
-        const audio_h41 = course360.createSound('audio/audio_h41.mp3');
-        course360.audioController.stopAllSoundsAndPlay(audio_h39);
-        audio_h39.on("play", function () {
-            // // Animar tres elementos con GSAP, sincronizados con un delay
-            // gsap.timeline()
-            //     .from(".elemento-1", {
-            //         duration: 1,
-            //         opacity: 0,
-            //         y: -50,
-            //         ease: "power2.out",
-            //         delay: 10.47 // Retraso para mostrar el primer elemento
-            //     })
-            //     .from(".elemento-2", {
-            //         duration: 1,
-            //         opacity: 0,
-            //         y: -50,
-            //         ease: "power2.out",
-            //         delay: 1.13 // Retraso relativo para mostrar el segundo elemento
-            //     }, "-=0.5") // Sincronizado con el final de la animación anterior
-            //     .from(".elemento-3", {
-            //         duration: 1,
-            //         opacity: 0,
-            //         y: -50,
-            //         ease: "power2.out",
-            //         delay: 1.5 // Retraso relativo para mostrar el tercer elemento
-            //     }, "-=0.5"); // Sincronizado con el final de la animación anterior
+        const audio_m01 = course360.createSound('audio/audio_m01.mp3');
+        const audio_m02 = course360.createSound('audio/audio_m02.mp3');
+        const audio_m03 = course360.createSound('audio/audio_m03.mp3');
+        const audio_m04 = course360.createSound('audio/audio_m04.mp3');
+
+
+
+        course360.audioController.stopAllSoundsAndPlay(audio_m01);
+        audio_m01.on("end", function () {
+            course360.audioController.stopAllSoundsAndPlay(audio_m02);
+            gsap.fromTo('#card1', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 });
         });
 
-        audio_h39.on("end", function () {
-            course360.audioController.stopAllSoundsAndPlay(audio_h40);
-            $('.box').removeClass('d-none');
+        audio_m02.on("end", function () {
+            gsap.fromTo('#card0', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 });
+            course360.audioController.stopAllSoundsAndPlay(audio_m03);
         });
 
-        audio_h40.on("end", function () {
-            $('.ins0').show();
-            $('.flip0').addClass('animate__animated animate__pulse animate__infinite active');
+        audio_m03.on("end", function () {
+            gsap.fromTo('#card2', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 });
+            course360.audioController.stopAllSoundsAndPlay(audio_m04);
         });
 
-        audio_h41.on("end", function () {
+        audio_m04.on("end", function () {
             course360.setSlideVisited();
         });
-
-        click();
-
-        function click() {
-            $('.picture').on('click', function () {
-                if ($(this).hasClass('active')) {
-                    $('.ins0').hide();
-                    $(this).addClass('visited').removeClass('animate__pulse animate__infinite');
-                    if ($(this).data('index') == 0) {
-                        course360.audioController.stopAllSoundsAndPlay(audio_h41);
-                    } else if ($(this).data('index') == 1) {
-                        course360.audioController.stopAllSoundsAndPlay(audio_h39);
-                    }
-
-                    $('.inner').toggleClass('d-none');
-                    $('.card-inner').toggleClass('d-none');
-
-                    if ($('.picture').length == $('.picture.visited').length) {
-                        // course360.setSlideVisited();
-                    }
-                }
-            });
-        }
-
 
     });
 </script>

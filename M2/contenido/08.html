@@ -1,56 +1,282 @@
 <style>
     .fake {
-        background-image: url(img/bg08.webp);
-        background-position: center;
+        background-image: url("img/bg08.webp");
         background-size: cover;
-        background-repeat: no-repeat;
+        background-position: right center;
     }
 
-    .play-button-container {
+    .page-sco .rounded {
+        border-radius: 15px !important;
+    }
+
+    .btn-open-info {
+        cursor: pointer;
+        border-radius: 100%;
+    }
+
+    .btn_pop {
+        cursor: pointer;
+        border-radius: 100%;
+        z-index: 50;
+    }
+
+    .pop_style {
+        max-width: 90% !important;
+    }
+
+    /* DOTS */
+    .dot {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        display: block;
+        background-color: transparent;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        margin-right: 15px;
+        background: var(--bs-rojo-3);
+        border: solid 3px var(--bs-primary);
+    }
+
+    .dot:hover {
+        background: var(--bs-white);
+    }
+
+    .dot:last-child {
+        margin-right: 0;
+    }
+
+    .dot.active {
+        width: 30px;
+        border-radius: 15px;
+        background: var(--bs-white);
+    }
+
+    /*
+    .dot.animate__pulse.animate__infinite {
+        animation: aura_dot 1.7s infinite ease-in-out;
+    }
+    */
+
+    .innernavs {
+        display: inline-flex;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin: 0 auto;
+        background: var(--bs-primary);
+        padding: 3px;
+        border-radius: 30px;
+        box-shadow: none;
+    }
+
+    .innernavs.active {
+        background: transparent;
+    }
+
+    .inner {
+        display: none;
+    }
+
+    .inner {
         display: flex;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        z-index: 10002;
-        background-color: rgb(0 0 0);
-        border-radius: 15px;
+        display: none;
     }
 
-    #video {
-        z-index: 99;
-        border-radius: 15px;
-    }
-
-    .play-button-container button {
-        pointer-events: all;
-        /* Permitir clics solo en el botón */
-        border: none;
-        background: none;
-    }
+    @media (min-width: 768px) {}
 </style>
-<div class="w-100 page-sco h-100">
+<div class="w-100 page-sco h-100 pt-4 pt-md-0">
     <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-md-8 text-center">
-                <h4 class="text-center text-rojo-1 fw-bold">¿Qué hacer en caso de accidente vial?</h4>
-                <p>Descubre qué hacer ante un accidente. Actuar con <b>calma y preparación</b> puede marcar la
-                    diferencia.</p>
-                <div class="w-100 animate__animated animate__flipInX">
-                    <div class="ratio ratio-16x9">
-                        <video id="video" class="embed-responsive-item" controls poster="video/poster.png">
-                            <source src="video/vm1_manejo_a_la_defensiva.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="play-button-container">
-                            <button
-                                class="p-0 animate__animated animate__heartBeat animate__infinite waves-effect disabled"
-                                id="btn_video">
-                                <i class="fa-solid fa-play fa-3x text-primary"></i>
-                            </button>
+        <div class="row align-items-center justify-content-md-end">
+            <div class="col-12 col-md-12">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-12 col-md-12 text-center">
+                        <h4 class="text-rojo-1 fw-bold">Beneficios económicos
+                        </h4>
+                        <p>A continuación, conocerás algunos de los beneficios económicos más importantes de la
+                            movilidad sostenible.</p>
+                    </div>
+                    <div class="text-center w-100 my-2 my-md-3 animate__animated animate__slideInLeft ins0"
+                        style="display: none;">
+                        <div class="border-dark text-rojo-1 px-4 py-2 border border-2 d-inline-block"
+                            style="border-radius: 0.5em;">
+                            <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en cada botón
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12">
+                        <div class="row justify-content-center align-items-center h-100">
+                            <div class="col-12 col-md-2">
+                                <div class="row justify-content-center align-items-center h-100">
+                                    <div class="col-3 col-md-8 my-md-4 my-2">
+                                        <img src="img/08.1.webp" class="img-fluid btn-open-info disabled" data-index="0"
+                                            loading="lazy" alt="icono 1" />
+                                    </div>
+                                    <div class="col-3 col-md-8 my-md-4 my-2">
+                                        <img src="img/08.2.webp" class="img-fluid btn-open-info disabled" data-index="1"
+                                            loading="lazy" alt="icono 2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <!-- Swiper -->
+                                <div class="swiper mySwiper">
+                                    <div class="swiper-wrapper d-flex align-items-center h-100">
+                                        <div class="swiper-slide">
+                                            <div class="row justify-content-center align-items-center h-100">
+                                                <div class="card rounded custom-card border border-0 shadow bg-white">
+                                                    <div class="card-body my-md-5 mx-md-3 my-2 mx-2">
+                                                        <p><b class="text-primary">Acceso a alternativas económicas de
+                                                                transporte:</b> el uso de
+                                                            bicicletas, transporte público y vehículos proporciona
+                                                            opciones de
+                                                            movilidad más asequibles.</p>
+                                                        <p>El cambio hacia una movilidad sostenible conlleva a un
+                                                            crecimiento
+                                                            en la oferta de nuevos puestos de trabajo, ya que <b
+                                                                class="text-primary">la
+                                                                industria de
+                                                                los automóviles eléctricos está experimentando un
+                                                                crecimiento
+                                                                exponencial.</b></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="row justify-content-center align-items-center h-100"
+                                                style="z-index: 5; position: relative;">
+                                                <div class="card rounded custom-card border border-0 shadow bg-white">
+                                                    <div class="card-body my-md-2 mx-md-3 my-2 mx-2">
+                                                        <div class="row justify-content-center align-items-center mb-3">
+                                                            <div class="col-12 col-md-7">
+                                                                <p>De acuerdo con <b class="text-primary">EMA
+                                                                        (Electromovilidad Asociación)</b>, en
+                                                                    México, los vehículos eléctricos permiten un ahorro
+                                                                    de entre <b class="text-primary">60% y 70% en
+                                                                        consumo energético</b> comparado
+                                                                    con un auto de gasolina.</p>
+                                                                <div class="col-12 col-md-12">
+                                                                    <div
+                                                                        class="row justify-content-center align-items-center h-100">
+                                                                        <div class="col-6 col-md-4 text-center px-md-4 nota animate__animated animate__fadeInRight"
+                                                                            style="display: block;">
+                                                                            <img src="img/warning.webp"
+                                                                                class="img-fluid btn_pop animate__animated animate__pulse animate__infinite waves-effect"
+                                                                                data-popid="#pop0"
+                                                                                data-audio="audio_m23" loading="lazy"
+                                                                                alt="icono Alerta" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-md-5">
+                                                                <canvas id="energyChart" width="400"
+                                                                    height="400"></canvas>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-none">
+    <div id="pop0">
+        <div class="container-fluid">
+            <div class="row justify-content-center my-4">
+                <div class="col-12 col-md-12 text-start">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="text-center w-100 my-2 my-md-3 animate__animated animate__slideInLeft ins1"
+                            style="display: block;">
+                            <div class="border-dark text-rojo-1 px-4 py-2 border border-2 d-inline-block"
+                                style="border-radius: 0.5em;">
+                                <i class="fa-light fa-arrow-pointer text-rojo-1"></i> Da clic en cada botón
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="inner">
+                                <div class="row w-100">
+                                    <p class="text-start fw-bold text-primary">Por ejemplo</p>
+                                    <table class="table">
+                                        <thead class="text-center">
+                                            <th class="bg-rojo-2 text-white">Tipo de Vehículo</th>
+                                            <th class="bg-rojo-1 text-white">Costo aproximado</th>
+                                            <th class="bg-rojo-2 text-white">Kilómetros recorridos</th>
+                                            <th class="bg-rojo-1 text-white">Costo por kílometro</th>
+                                        </thead>
+                                        <tbody class="text-center text-primary">
+                                            <tr>
+                                                <td class="bg-rojo-1 text-white">Auto a combustión (50 L)</td>
+                                                <td class="bg-gris-1">$1200</td>
+                                                <td class="bg-gris-1">300</td>
+                                                <td class="bg-gris-1">$4</td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td class="bg-rojo-2 text-white">Vehículo eléctrico (50 kWh)</td>
+                                                <td class="bg-gris-1">$200</td>
+                                                <td class="bg-gris-1">400</td>
+                                                <td class="bg-gris-1">$0.5</td>
+                                            </tr> -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="inner">
+                                <div class="row w-100">
+                                    <p class="text-start fw-bold text-primary">En cambio</p>
+                                    <table class="table">
+                                        <thead class="text-center">
+                                            <th class="bg-rojo-2 text-white">Tipo de Vehículo</th>
+                                            <th class="bg-rojo-1 text-white">Costo aproximado</th>
+                                            <th class="bg-rojo-2 text-white">Kilómetros recorridos</th>
+                                            <th class="bg-rojo-1 text-white">Costo por kílometro</th>
+                                        </thead>
+                                        <tbody class="text-center text-primary">
+                                            <tr>
+                                                <td class="bg-rojo-1 text-white">Auto a combustión (50 L)</td>
+                                                <td class="bg-gris-1">$1200</td>
+                                                <td class="bg-gris-1">300</td>
+                                                <td class="bg-gris-1">$4</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bg-rojo-2 text-white">Vehículo eléctrico (50 kWh)</td>
+                                                <td class="bg-gris-1">$200</td>
+                                                <td class="bg-gris-1">400</td>
+                                                <td class="bg-gris-1">$0.5</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p>Esta diferencia se puede hacer aún mayor si se utiliza energía solar o tarifas
+                                        comerciales preferenciales para flotillas.</p>
+                                </div>
+                            </div>
+                            <div class="w-100 text-center">
+                                <div class="innernavs">
+                                    <div class="dot disabled active visited"></div>
+                                    <div
+                                        class="dot disabled animate__animated animate__pulse animate__infinite waves-effect">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <p class="text-center fw-bold text-primary">Rendimiento por carga o llenado completo</p>
+                            <canvas id="myChart" style="width: 100%; height: 320px;"></canvas>
                         </div>
                     </div>
                 </div>
@@ -61,41 +287,335 @@
 <script>
     $(function () {
         "use strict";
-        $("body").addClass("fake");
-        const audio = course360.createSound('audio/audio_h29.mp3');
-        course360.audioController.stopAllSoundsAndPlay(audio);
-        let video = document.getElementById("video");
-        let btnVideo = document.getElementById("btn_video");
-        audio.on("end", function () {
-            btnVideo.classList.remove("disabled");
+        $('body').addClass('fake');
+        let energyChart;
+        let emissionsChart;
+        const audio_m20 = course360.createSound('audio/audio_m20.mp3');
+        const audio_m23 = course360.createSound('audio/audio_m23.mp3');
+        const audios = [
+            course360.createSound("audio/audio_m21.mp3"),
+            course360.createSound("audio/audio_m22.mp3"),
+        ];
+
+        const audios_slide = [
+            course360.createSound("audio/audio_m23.mp3"),
+            course360.createSound("audio/audio_m24.mp3"),
+        ];
+
+        course360.audioController.stopAllSoundsAndPlay(audio_m20);
+        audio_m20.on("end", function () {
+            $('.btn-open-info').first().removeClass('disabled').trigger('click');
+            $('.ins0').show();
         });
-        // Evitar la reproducción del video al hacer clic en el botón de reproducción
-        btnVideo.addEventListener("click", function (event) {
-            if (!btnVideo.classList.contains("disabled")) {
+
+        var swiper = new Swiper(".mySwiper", {
+            allowTouchMove: false,
+            effect: "cube",
+            grabCursor: false,
+            cubeEffect: {
+                shadow: false,
+                slideShadows: true,
+                shadowOffset: 20,
+                shadowScale: 0.94,
+            },
+        });
+
+        $(".btn-open-info").on("click", function () {
+            if (!$(this).hasClass("disabled")) {
+                const index = $(this).data("index");
+                $(this).removeClass("animate__animated animate__pulse animate__infinite").addClass('visited');
+                swiper.slideTo(index);
                 course360.soundClick();
-                document.getElementById("video").play();
-                $(".play-button-container").hide(); // Ocultar el contenedor de botón de reproducción
-            } else {
-                event.stopPropagation(); // Evita que el evento de clic llegue al video
+                course360.audioController.stopAllSoundsAndPlay(audios[index]);
+
+                // Cambiar la imagen dentro del div pulsado
+                $(".btn-open-info").each(function () {
+                    $(this).removeClass("active");
+                    const currentSrc = $(this).attr('src');
+                    const newSrc = currentSrc.replace('a.webp', '.webp');
+                    $(this).attr('src', newSrc);
+                });
+                if (!$(this).hasClass("active")) {
+                    $(this).addClass("active");
+                    const currentSrc = $(this).attr('src');
+                    const newSrc = currentSrc.replace(/(\.\w+)$/, 'a$1');
+                    $(this).attr('src', newSrc);
+                }
+
+                if (index == 1) {
+                    setTimeout(function () {
+                        tbxOne();
+                        pop();
+                    }, 800);
+                }
+
+
+                $(this).addClass('visited');
+                const nextButton = $(this).closest('.row').find('.btn-open-info:not(.visited)').first();
+                if (nextButton.length) {
+                    nextButton.removeClass('disabled').addClass('animate__animated animate__pulse animate__infinite');
+                }
+
+                if ($(".btn-open-info").length === $(".btn-open-info.visited").length) {
+                    // course360.setSlideVisited();
+                }
             }
         });
 
-        // Evitar que el video se reproduzca al hacer clic en el área de la capa
-        video.addEventListener("click", function (event) {
-            if (!btnVideo.classList.contains("disabled")) {
-                event.preventDefault(); // Evita la acción predeterminada de reproducción del video
-            }
-        });
+        function pop() {
+            $(".btn_pop").click(function (e) {
+                e.preventDefault();
+                if (!$(this).hasClass("disabled")) {
+                    if ($(this).data("audio")) {
+                        course360.audioController.stopAllSoundsAndPlay(eval($(this).data("audio")));
+                    } else {
+                        course360.soundClick();
+                    }
+                    $(".btn_pop").removeClass("visited");
+                    $(this).removeClass("animate__animated animate__pulse animate__infinite waves-effect");
+                    $(this).addClass("completed visited");
+                    var html = $($(this).data("popid")).html();
+                    var audio = $(this).data("audio");
+                    course360.audioController.stopAllSoundsAndPlay(audio);
+                    Swal.fire({
+                        html: html,
+                        showCloseButton: true,
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: false,
+                        confirmButtonText: 'Cerrar',
+                        target: "body",
+                        width: "100%",
+                        customClass: 'pop_style',
+                        willOpen: function () {
+                            //course360.audioController.stopAudio();
+                        },
+                        didOpen: function () { tbx(); carousel(0); },
+                        didRender: function () { },
+                        didClose: function () {
+                            //course360.audioController.stopAudio();
+                        },
+                        didDestroy: function () { },
+                        willClose: function () {
+                            course360.audioController.stopAudio();
+                            course360.soundClick();
+                            if ($(".btn_pop").length == $(".btn_pop.completed").length) {
+                                course360.setSlideVisited();
+                                $('.page-sco [class*="ins"]').hide();
+                            }
+                        }
+                    });
+                }
+            });
+        }
 
-        // Evitar la reproducción del video al hacer doble clic en cualquier parte del video
-        video.addEventListener("dblclick", function (event) {
-            if (!btnVideo.classList.contains("disabled")) {
-                event.preventDefault(); // Evita la acción predeterminada de reproducción del video
+        function tbxOne() {
+            // Destruye el gráfico existente si ya está creado
+            if (energyChart) {
+                energyChart.destroy();
             }
-        });
 
-        video.addEventListener("ended", function () {
-            course360.setSlideVisited();
-        });
+            const ctxE = document.getElementById('energyChart').getContext('2d');
+            const gradientEV = ctxE.createLinearGradient(0, 0, 400, 0);
+            gradientEV.addColorStop(0, '#006400'); // Verde oscuro
+            gradientEV.addColorStop(1, '#32CD32'); // Verde medio
+
+            const gradientGas = ctxE.createLinearGradient(0, 0, 400, 0);
+            gradientGas.addColorStop(0, '#90ee90'); // Verde claro
+            gradientGas.addColorStop(1, '#b3ffb3');
+
+            energyChart = new Chart(ctxE, {
+                type: 'pie',
+                data: {
+                    labels: ['Vehículos Eléctricos', 'Auto de gasolina'],
+                    datasets: [{
+                        data: [30, 70],
+                        backgroundColor: [gradientEV, gradientGas]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        datalabels: {
+                            color: '#fff',
+                            font: {
+                                weight: 'bold',
+                                size: 18
+                            },
+                            formatter: (value) => `${value}%`
+                        },
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: '% Ahorro en consumo energético',
+                            color: 'red',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+        }
+
+        function tbx() {
+            const ctx = Swal.getHtmlContainer().querySelector('#myChart').getContext('2d');
+
+            // Destruye el gráfico existente si ya está creado
+            if (emissionsChart) {
+                emissionsChart.destroy();
+            }
+            emissionsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Auto a combustión (50 L, $1,200)'],
+                    datasets: [{
+                        label: 'Kilómetros Recorridos',
+                        data: [300,],
+                        backgroundColor: [
+                            // Gradientes para cada barra
+                            getGradient(ctx, '#ccffcc', '#e6ffe6'),
+                            // getGradient(ctx, '#32CD32', '#006400'),
+                        ]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        tooltip: {
+                            enabled: true
+                        },
+                        legend: {
+                            display: false
+                        },
+                        datalabels: {
+                            display: true,
+                            color: '#000',
+                            anchor: 'end',
+                            align: 'start',
+                            formatter: (value) => `${value} Km`
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Kilómetros Recorridos',
+                                color: 'red'
+                            }
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+
+
+        }
+
+        // Función para crear gradientes
+        function getGradient(ctx, colorStart, colorEnd) {
+            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, colorStart);
+            gradient.addColorStop(1, colorEnd);
+            return gradient;
+        }
+
+        function carousel(index) {
+
+            //Init
+            $(Swal.getHtmlContainer()).find(".inner").hide();
+            $(Swal.getHtmlContainer()).find(".inner").eq(0).show();
+            $(Swal.getHtmlContainer()).find(".dot").removeClass('active');
+            $(Swal.getHtmlContainer()).find(".dot").eq(0).addClass('active');
+            $(Swal.getHtmlContainer()).find(".dot").removeClass('visited');
+            $(Swal.getHtmlContainer()).find(".dot").eq(0).addClass('visited');
+            $(Swal.getHtmlContainer()).find(".dot").removeClass('disabled');
+            $('.img-llantas').attr('src', 'img/05.2.webp');
+
+            // Manejo de los puntos de navegación
+            let audios;
+            let dots = $(Swal.getHtmlContainer()).find(".dot");
+            let texts = $(Swal.getHtmlContainer()).find(".inner");
+
+            // Manejo de clic en los puntos de navegación
+            dots.each(function (index) {
+                $(this).click(function () {
+
+                    if (!$(this).hasClass('disabled')) {
+                        var textId = $(this).data('textId');
+                        var btn = $(this).data('btn');
+                        course360.soundClick();
+                        showText(index); // Mostrar el texto correspondiente
+                        activateDot(index); // Activar el punto correspondiente
+                        dots.eq(index).removeClass('animate__animated animate__pulse animate__infinite').addClass('visited');
+                        let indexAudio = $(this).index();
+                        console.log(indexAudio, index);
+                        course360.audioController.stopAllSoundsAndPlay(audios_slide[index]);
+
+                        switch (index) {
+                            case 0:
+                                // Verifica si el elemento agregado en el case 1 existe
+                                const labelIndex = emissionsChart.data.labels.indexOf('Vehículo eléctrico (50 kWh, $200)');
+                                if (labelIndex !== -1) {
+                                    // Elimina la etiqueta, el valor y el color correspondientes
+                                    emissionsChart.data.labels.splice(labelIndex, 1); // Elimina la etiqueta
+                                    emissionsChart.data.datasets[0].data.splice(labelIndex, 1); // Elimina el valor
+                                    emissionsChart.data.datasets[0].backgroundColor.splice(labelIndex, 1); // Elimina el color
+
+                                    // Actualiza el gráfico para reflejar los cambios
+                                    emissionsChart.update();
+                                }
+                                break;
+                                break;
+                            case 1:
+                                // Agregar dinámicamente una nueva etiqueta y valor al gráfico
+                                const newLabel = 'Vehículo eléctrico (50 kWh, $200)';
+                                const newValue = 400; // Valor para el nuevo dataset
+                                const newColor = getGradient(emissionsChart.ctx, '#006400', '#32CD32'); // Degradado verde para el nuevo dataset
+
+                                // Agregar la nueva etiqueta y valor al gráfico
+                                emissionsChart.data.labels.push(newLabel); // Agregar la nueva etiqueta
+                                emissionsChart.data.datasets[0].data.push(newValue); // Agregar el nuevo valor
+                                emissionsChart.data.datasets[0].backgroundColor.push(newColor); // Agregar el nuevo color
+
+                                // Actualizar el gráfico para reflejar los cambios
+                                emissionsChart.update();
+                                break;
+
+
+                        }
+
+                        audios_slide[index].on("end", function () {
+                            if ($(Swal.getHtmlContainer()).find(".dot").length === $(Swal.getHtmlContainer()).find(".dot.visited").length) {
+                                // $('#pop0 .btn-cerrar-pop').show();
+                                $('.ins2').show();
+                                $('.swal2-confirm').show().addClass('animate__animated animate__pulse animate__infinite');
+                            }
+                        });
+                    }
+                });
+            });
+            function showText(index) {
+                $('.inner').hide(); // Oculta todos los textos
+                gsap.fromTo(texts.eq(index), { opacity: 0 }, { opacity: 1, display: 'flex', duration: 0.5 });
+            }
+            function activateDot(index) {
+                dots.removeClass('active'); // Desactiva todos los puntos
+                dots.eq(index).addClass('active'); // Activa el punto seleccionado
+            }
+        }
+
+
     });
 </script>
