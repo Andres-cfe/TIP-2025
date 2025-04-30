@@ -40,7 +40,6 @@
         cursor: pointer;
         transform-box: content-box;
         transform-origin: center !important;
-        animation: auramax 1.7s infinite ease-in-out;
     }
 
     .btn-slide.active {
@@ -92,6 +91,11 @@
         cursor: pointer;
     }
 
+    .page-sco .animate__animated.animate__pulse {
+        box-shadow: 0 0 0 rgba(var(--bs-danger-rgb), 0.4);
+        animation: auramax 1.7s infinite ease-in-out;
+    }
+
     @keyframes auramax {
         0% {
             box-shadow: 0 0 0 20px rgba(var(--bs-danger-rgb), 0);
@@ -100,7 +104,7 @@
 
         50% {
             box-shadow: 0 0 0 0 rgba(var(--bs-danger-rgb), 0.4);
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
 
         100% {
